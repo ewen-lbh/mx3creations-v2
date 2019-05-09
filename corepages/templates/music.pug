@@ -1,0 +1,20 @@
+{% extends 'base.pug' %}
+{% block title %} {{page_title}} {% endblock title %}
+{% block content %}
+.main-content
+  h1
+    span#typedTitleSource
+      p My music
+    span#typedTitle
+  
+  h2 The latest: "Patterns" EP
+  a(href="listen/latest")
+    .cover.fullsize.latest
+  .sep
+
+  h2 Everything
+  .grid
+    a.item(href="/listen/lol")
+      .image(style="background-image:url('https://lorempixel.com/500/500/');")
+        //span Album Title
+{% endblock content %}

@@ -1,0 +1,21 @@
+doctype html
+head
+  include includes/head.pug
+  title {% block title %}{%endblock%}
+body
+  include includes/menu.pug
+
+  {% block content %}
+  {% endblock content %}
+
+  include includes/footer.pug
+  script(src='https://cdn.jsdelivr.net/npm/typed.js@2.0.9')
+  {% block typedtitles %}
+  script.
+    var typedTitle = new Typed("#typedTitle", {
+        stringsElement: "#typedTitleSource",
+        typeSpeed: 50,
+        backSpeed: 25,
+        backDelay:2800,
+    });
+  {% endblock %}

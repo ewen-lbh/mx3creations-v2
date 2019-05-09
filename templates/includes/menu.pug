@@ -1,0 +1,23 @@
+button.navbar-switch(onclick="$('.navbar-wrapper').toggleClass('hidden'); $('.navbar-switch').toggleClass('switched')", style='position: fixed;top: 5px;z-index: 10000;')
+  | +
+.site-bg
+.navbar-wrapper.hidden
+  ul.navbar
+    li
+      form(action="search", method="get")
+        input(name="q" 
+        placeholder="Search...", 
+        autocomplete="off"
+        onfocus="$('.navbar-wrapper').addClass('search-opened')" 
+        onblur="$('.navbar-wrapper').removeClass('search-opened')"
+        )
+        input(type="submit", 
+        value="GO" 
+        onfocus="$('.navbar-wrapper').addClass('search-opened')" 
+        onblur="$('.navbar-wrapper').removeClass('search-opened')"
+        )
+    li #[a.hover-u(href='/') Home]
+    li #[a.hover-u(href='music') Music]
+    li #[a.hover-u(href='graphism') Graphism]
+    li #[a.hover-u(href='about') About]
+    li #[a.hover-u(href='contact') Contact]

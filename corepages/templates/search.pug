@@ -1,0 +1,39 @@
+{% extends 'base.pug' %}
+{% block title %}{{ page_title }}{% endblock title %}
+{% block content %}
+.main-content
+  h1
+    if search_query
+      | You searched for: 
+      br/
+      span#typedTitleSource
+        p= search_query
+      span#typedTitle
+    else
+      | You did not search for anything
+
+  if search_query
+    h2
+      if results_count 
+        |#[span.number=results_count] results were found
+      else
+        | No results found.
+    .sep
+  
+  if results_count or not search_query
+    ul.results
+      for result in results
+        li=result
+
+
+  if not search_query or not results_count
+    p That's sad. Wanna try #[a.underline(href="listen/random") something exciting] ?
+{% endblock content %}
+
+{% block typedtitles %}
+script.
+  var typedTitle = new Typed("#typedTitle", {
+      stringsElement: "#typedTitleSource",
+      typeSpeed: 25,
+  });
+{% endblock typedtitles %}

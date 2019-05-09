@@ -1,0 +1,78 @@
+{% extends 'base.pug' %}
+{% block title %} {{page_title}} {% endblock title %}
+{% block content %}
+.main-content
+  h1
+    | Hi! I'm 
+    span.fw400 Mx3
+    | , a
+    br
+    span#typedTitle
+    span#typedTitleSource
+      p web developer.
+      p music producer.
+      p graphist.
+      p VFX artist.
+      p motion designer.
+  p.intro
+    | I make intricate, complex, melodic and yet minimal music.
+    br/
+    br/
+    | I also create everything I need: this website, music videos, cover arts, automation scripts,...
+    br/
+    br/
+    span.firacode -> 
+    a.underline(href='about') Learn more
+  .sep
+  h2 Proudest tracks
+  .horizontal-grid-overflow.tracks
+    .grid(data-root-path="covers" data-ext=".jpg")
+      a(href="Patterns")
+        .cover.img1
+      a(href="work")
+        .cover.img2
+      a(href="Circular")
+        .cover.img3
+      a(href="Serial")
+        .cover.img4
+      a(href="Corrupted")
+        .cover.img5
+      a(href="Nihon")
+        .cover.img6
+    a(href='music')
+      .arrow
+  .sep
+  h2 Cherry-picked artworks
+  p.details Excluding cover arts
+  .horizontal-grid-overflow.artworks
+    .grid(data-root-path="artworks")
+      a(href="Illustration_Ink-Bottle.jpg")
+        .cover.img1
+      a(href="Banner_FreeZaxe.png")
+        .cover.img2.large
+      a(href="Favicon_RecCube.png")
+        .cover.img3
+      a(href="Banner_Les-Harobases.png")
+        .cover.img4.large
+    a(href='music')
+      .arrow
+  .sep
+
+  h2 Still want more?
+  p.details
+    | Click on the big 
+    span.fw400 +
+    | !
+{% endblock content %}
+
+{% block typedtitles %}
+script.
+    var typedTitle = new Typed("#typedTitle", {
+    stringsElement: "#typedTitleSource",
+    typeSpeed: 50,
+    backSpeed: 25,
+    backDelay:2800,
+    loop: true,
+    loopCount: Infinity
+    });
+{% endblock typedtitles %}

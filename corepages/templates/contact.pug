@@ -1,0 +1,34 @@
+{% extends 'base.pug' %}
+{% block title %}{{ page_title }}{% endblock title %}
+{% block content %}
+.main-content
+  h1
+    span#typedTitleSource
+      p Contact me
+    span#typedTitle
+
+  form(action="contact-process", method="post").grid-form
+    .group
+      label(for="email") E-mail adress*
+      input#email(type="email", name="email" required)
+      label(for="name") Name
+      input#name(type="text", name="name")
+    label(for="message") Message*
+    textarea#message(name="message", cols="30", rows="10" required)
+    
+    input(type="submit", value="> Submit <")
+  .sep
+
+  h2 Want other means of contact ?
+  ul.contact-means
+    li
+      a.underline(href="https://discord.gg/98eE12") Discord
+      span.fw300  (french server)
+    li
+      a.underline(href="https://twitter.com/mx3_fr") Twitter
+    li
+      a.underline(href="https://reddit.com/u/Chroneis") Reddit
+    li
+      a.underline(href="mailto:ewen.lebihan7@gmail.com") Email
+      span.fw300  (ewen.lebihan7@gmail.com)
+{% endblock content %}
