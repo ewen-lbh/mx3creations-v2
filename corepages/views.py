@@ -1,5 +1,5 @@
-from django.shortcuts import render, render_to_response
-from django.http import Http404, HttpResponse
+from django.shortcuts import render, render_to_response, loader
+from django.http import Http404, HttpResponse, HttpResponseNotFound
 import globs
 # Create your views here.
 def home(request):
@@ -31,10 +31,10 @@ def search(request):
     # search page
     results = ['some','db','magic']
     page_title = 'Search'
-    return render(request, 'search.pug', {'search_query':request.GET['q'], 'results_count':len(results), 'results':results, 'page_title':globs.page_title(page_title)})
+    # return render(request, 'search.pug', {'search_query':request.GET['q'], 'results_count':len(results), 'results':results, 'page_title':globs.page_title(page_title)})
+    return render(request, '404.pug')
 
 def handler404(request, *args, **kwargs):
-    
-    response = render_to_response(request, '404.pug')
-    response.status_code = 404
-    return response 
+    template = loader.get_template('404.pug')
+    response = HttpResponseNotFound(template.render(request=request))
+    return response

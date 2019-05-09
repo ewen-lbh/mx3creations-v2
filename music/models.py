@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
+from django.utils import timezone
 
 # Create your models here.
 class Track(models.Model):
@@ -28,7 +29,7 @@ class Collection(models.Model):
     title = models.CharField("Collection title", max_length=100)
     cover_color = models.CharField("Cover art's color dominant", max_length=5)
     kind = models.CharField("Kind/type", max_length=6)
-    date = models.DateField("Date published", auto_now_add=True)
+    date = models.DateField("Date published", default=timezone.now)
 
     class Meta:
         verbose_name = "collection"
