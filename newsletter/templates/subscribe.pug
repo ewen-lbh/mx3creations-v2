@@ -1,0 +1,30 @@
+{% extends 'base.pug' %}
+{% block title %} {{page_title}} {% endblock title %}
+{% block content %}
+.main-content
+    h1
+        span#typedTitleSource
+            if subscribed
+                p Thanks for signing up !
+            else 
+                if already_subscribed
+                    p Oops!
+                else
+                    p Subscribe...
+        span#typedTitle
+
+    if already_subscribed
+        p.details 
+            | #{email} is already subscribed.
+            br/
+            | If you don't receive e-mails, please check your spam folder or #[a.underline(href="/contact") contact me]
+
+    if subscribed
+        p While you wait for your confirmation email, read #[a.underline(href="/news") some more news]!
+    else
+        form(action="/news/subscribe", method="post").grid-form
+            {% csrf_token %}
+            !=form.as_p
+            input(type="submit", value="Subscribe!")
+
+{% endblock content %}

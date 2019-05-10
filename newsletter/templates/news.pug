@@ -1,0 +1,26 @@
+{% extends 'base.pug' %}
+{% block title %} {{page_title}} {% endblock title %}
+{% block content %}
+.main-content
+  h1
+    span#typedTitleSource
+      p News
+    span#typedTitle
+
+  h2 Let's keep in touch
+  p 
+    | Like #{members_count} others, 
+    a.underline(href="/news/subscribe") Subscribe to the newsletter !
+  .sep
+
+  ul.news
+    li
+      a(href="") some
+    li
+      a(href="") more
+    li
+      a(href="") db
+    li
+      a(href="") magic
+
+{% endblock content %}

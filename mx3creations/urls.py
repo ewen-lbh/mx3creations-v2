@@ -21,7 +21,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('404', urls.handler404),
     url('', include('corepages.urls')),
-    url(r'(listen)|(music)|(track)/', include('music.urls'))
+    url(r'^(listen)|(music)|(track)/', include('music.urls')),
+    url(r'^news/', include('newsletter.urls'))
 ]
 
 handler404 = 'corepages.views.handler404'

@@ -1,1 +1,2 @@
 pypugjs==5.8.1
+python-dotenv==0.7.1

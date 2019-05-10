@@ -9,9 +9,9 @@ class Track(models.Model):
     artist = models.CharField("Artist", max_length=50, default="Mx3")
     is_remix = models.BooleanField("The track is a remix ?")
     duration = models.DurationField("Track duration")
-    work_time = models.DurationField("Work time")
+    work_time = models.DurationField("Work time", null=True)
     collection = models.ForeignKey("music.Collection", verbose_name="Track's collection", on_delete=models.CASCADE)
-    video_url = models.CharField("YouTube video URL", max_length=100)
+    video_url = models.CharField("YouTube video URL", max_length=100, null=True)
 
     class Meta:
         verbose_name = "track"
@@ -23,12 +23,20 @@ class Track(models.Model):
     def get_absolute_url(self):
         return reverse("track_detail", kwargs={"pk": self.pk})
 
+    def duration(self):
+        return 
 
 class Collection(models.Model):
 
+    KINDS = (
+        ("EP","EP"),
+        ("SG","Single"),
+        ("AB","Album")
+    )
+
     title = models.CharField("Collection title", max_length=100)
     cover_color = models.CharField("Cover art's color dominant", max_length=5)
-    kind = models.CharField("Kind/type", max_length=6)
+    kind = models.CharField("Kind/type", max_length=6, choices=KINDS)
     date = models.DateField("Date published", default=timezone.now)
 
     class Meta:
