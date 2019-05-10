@@ -1,0 +1,77 @@
+$navbar-width: 250px * 1.5
+.navbar-switch
+    position: fixed
+    right: 30px
+    top: 10px
+    margin-top: -30px
+    font-size: 150px
+    padding: 0
+    box-shadow: none
+    border: none
+    background: transparent 
+    font-weight: 100
+    transition: transform 0.25s ease
+    // transform-origin: -0.5px -0.5px
+    color: #000
+    mix-blend-mode: difference
+    transform: rotate(0deg)
+    &.switched
+        color: #fff
+        transform: rotate(45deg)
+    &:hover
+        cursor: pointer
+    &:focus, &:active
+        outline: none
+.navbar-wrapper
+    z-index: 1000
+    position: fixed
+    top: 0
+    right: 0
+    height: 100%
+    overflow: hidden
+    width: $navbar-width
+    &.search-opened
+        width: $navbar-width * 2
+    background: #000
+    padding-bottom: 0
+    margin-left: 10px
+    transition: all 0.125s ease
+    &.hidden
+        // background: transparent
+        right: -$navbar-width
+    .navbar
+        margin-left: 40px
+        padding-top: 100px
+        // height: 100%
+        // width: $navbar-width
+        // margin: 10px auto
+        li:not(.logo)
+            // margin-top: $navbar-width/4 - 7px
+            margin-top: 40px
+            a, textarea, input
+                font-size: 35px
+                font-weight: 400
+                color: #fff
+        li.logo div
+            background: url('../images/misc/logo-dark.png')
+            &:hover
+                background: url('../images/misc/logo-dark-glitched.gif')
+                background-position: -20px -10px
+            background-repeat: no-repeat
+            height: $navbar-width
+            width: $navbar-width*3
+            background-position: center
+
+        li form
+            display: flex 
+            textarea, input
+                display: inline-block
+                background: transparent
+                color: #fff
+                border: none
+                font-size: 0.75em
+                width: $navbar-width * 2 - 40px
+            input[type='submit']
+                font-family: Fira Code
+                &:hover
+                    cursor: pointer

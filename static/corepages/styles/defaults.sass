@@ -1,0 +1,24 @@
+$bpt-mobile: 1000px
+    
+::root
+    --c-main: #121212
+    --c-accent: #268cce
+*
+    font-family: Roboto Mono, monospace
+*:active, *:focus
+    outline: none
+a:not(.nodef)
+    text-decoration: none
+    color: var(--c-main)
+    &:hover
+        color: var(--c-accent)
+ul:not(.nodef)
+    list-style: none
+    padding: 0
+html, body
+    height: 100%
+    margin: 0
+    padding: 0
+body
+    display: table
+    width: 100%
