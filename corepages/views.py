@@ -7,11 +7,6 @@ def home(request):
     page_title = ''
     return render(request, 'home.pug', locals())
 
-def music(request):
-          
-    page_title = globs.page_title('music')
-    return render(request, 'music.pug', locals())
-
 def graphism(request):
       
     page_title = globs.page_title('graphism')
@@ -38,3 +33,15 @@ def handler404(request, *args, **kwargs):
     template = loader.get_template('404.pug')
     response = HttpResponseNotFound(template.render(request=request))
     return response
+
+def stats(request):
+    
+    page_title = 'stats'
+    return render(request, 'stats.pug', {'page_title':globs.page_title(page_title)})
+
+def legal(request):
+    
+    
+    
+    page_title = 'legal'
+    return render(request, 'legal.pug', {'page_title':globs.page_title(page_title)})

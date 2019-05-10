@@ -2,12 +2,13 @@ from django.conf.urls import url
 from corepages.views import *
 
 urlpatterns = [
-    url('home', home),
-    url('music', music),
-    url('about', about),
-    url('contact', contact),
-    url('about', about),
-    url('graphism', graphism),
-    url('search', search),
-    url(r'^$', home),
+    url('home', home, name='home'),
+    url('about', about, name='about'),
+    url('contact', contact, name='contact'),
+    url('about', about, name='about'),
+    url('graphism', graphism, name='graphism'),
+    url('search', search, name='search'),
+    url('legal', legal, name='legal'),
+    url('stats', stats, name='stats'),
+    url(r'^$', home, name='home'),
 ]

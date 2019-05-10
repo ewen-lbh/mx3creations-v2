@@ -18,21 +18,21 @@
                 h3 More pages
                 ul
                     li
-                        a.underline(href="/home") Home
+                        a.underline(href="{% url 'home' %}") Home
                     li
-                        a.underline(href="/music") Music
+                        a.underline(href="{% url 'music' %}") Music
                     li
-                        a.underline(href="/graphism") Graphism
+                        a.underline(href="{% url 'graphism' %}") Graphism
                     li
-                        a.underline(href="/about") About
+                        a.underline(href="{% url 'about' %}") About
                     li
-                        a.underline(href="/news") News
+                        a.underline(href="{% url 'news' %}") News
                     li
-                        a.underline(href="/news/subscribe") Newsletter
+                        a.underline(href="{% url 'subscribe' %}") Newsletter
                     li
-                        a.underline(href="/stats") Statistics
+                        a.underline(href="{% url 'stats' %}") Statistics
                     li
-                        a.underline(href="/legal") Legal notice
+                        a.underline(href="{% url 'legal' %}") Legal notice
 
         .below
             .logo

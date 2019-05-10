@@ -17,10 +17,13 @@
         p.details 
             | #{email} is already subscribed.
             br/
-            | If you don't receive e-mails, please check your spam folder or #[a.underline(href="/contact") contact me]
+            | If you don't receive e-mails, please check your spam folder or 
+            a.underline(href="{% url 'contact' %}") contact me
 
     if subscribed
-        p While you wait for your confirmation email, read #[a.underline(href="/news") some more news]!
+        p 
+            | While you wait for your confirmation email, read 
+            a.underline(href="{% url 'news' %}") some more news!
     else
         form(action="/news/subscribe", method="post").grid-form
             {% csrf_token %}

@@ -1,5 +1,6 @@
 {% extends 'base.pug' %}
 {% block title %} {{page_title}} {% endblock title %}
+{% load static %}
 {% block content %}
 .main-content
   h1
@@ -7,14 +8,16 @@
       p My music
     span#typedTitle
   
-  h2 The latest: "Patterns" EP
+  h2 The latest: "{{latest.title}}" {{latest_kind}}
   a(href="listen/latest")
     .cover.fullsize.latest
   .sep
 
   h2 Everything
-  .grid
-    a.item(href="/listen/lol")
-      .image(style="background-image:url('https://lorempixel.com/500/500/');")
-        //span Album Title
+  ul
+    for collection in collections
+      li
+        img(src="{% static 'music/images/'|add:collection.title|add:'.jpg' %}", alt="{{collection.title}} cover art")
+    
+
 {% endblock content %}

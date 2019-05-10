@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 from dotenv import load_dotenv
 # @BassSpleen non, j'ai presque fini de le faire marcher mais pour l'instant os.getenv ne marche pas
-load_dotenv()
+load_dotenv('./.env')
+print(':::DOTENV::SECRET_KEY =', os.getenv("SECRET"))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

@@ -19,10 +19,10 @@ from corepages import urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('404', urls.handler404),
+    url(r'^music/', include('music.urls')),
+    url(r'^news/', include('newsletter.urls')),
     url('', include('corepages.urls')),
-    url(r'^(listen)|(music)|(track)/', include('music.urls')),
-    url(r'^news/', include('newsletter.urls'))
+    url('404', urls.handler404),
 ]
 
 handler404 = 'corepages.views.handler404'

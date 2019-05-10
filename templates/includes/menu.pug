@@ -16,7 +16,7 @@ button.navbar-switch(onclick="$('.navbar-wrapper').toggleClass('hidden'); $('.na
         onfocus="$('.navbar-wrapper').addClass('search-opened')" 
         onblur="$('.navbar-wrapper').removeClass('search-opened')"
         )
-    li #[a.hover-u(href='/') Home]
+    li #[a.hover-u(href="{% url 'home' %}") Home]
     li #[a.hover-u(href='music') Music]
     li #[a.hover-u(href='graphism') Graphism]
     li #[a.hover-u(href='about') About]
