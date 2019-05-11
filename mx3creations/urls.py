@@ -23,6 +23,16 @@ urlpatterns = [
     path('', include('music.urls')),
     path('', include('corepages.urls')),
     path('404', urls.handler404, name='404'),
+    path('403', urls.handler403, name='403'),
+    path('500', urls.handler500, name='500'),
 ]
 
 handler404 = 'corepages.views.handler404'
+handler403 = 'corepages.views.handler403'
+handler500 = 'corepages.views.handler500'
+
+#### TODO LIST ####
+# - Contact form CSS
+# - Track numbering
+# - Track duration
+# - Stats page

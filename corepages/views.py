@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response, loader, redirect
-from django.http import Http404, HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import Http404, HttpResponse, HttpResponseNotFound, HttpResponseRedirect, HttpResponseServerError, HttpResponseForbidden
 from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.core.mail import send_mail
 from music.models import Track, Collection
@@ -80,6 +80,16 @@ def search(request):
 def handler404(request, *args, **kwargs):
     template = loader.get_template('404.pug')
     response = HttpResponseNotFound(template.render(request=request))
+    return response
+
+def handler403(request, *args, **kwargs):
+    template = loader.get_template('403.pug')
+    response = HttpResponseForbidden(template.render(request=request))
+    return response
+
+def handler500(request, *args, **kwargs):
+    template = loader.get_template('500.pug')
+    response = HttpResponseServerError(template.render(request=request))
     return response
 
 def stats(request):

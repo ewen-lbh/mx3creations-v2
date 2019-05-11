@@ -50,7 +50,7 @@ def track(request, data):
         # artist – title kind
         # eg.
         # Mx3 – Patterns EP
-        page_title = f"{data['tracks'].first().artist} – {data['collection'].title} {data['collection'].get_kind_dispay()}"
+        page_title = f"{data['tracks'].first().artist} – {data['collection'].title} {data['collection'].get_kind_display()}"
     else:
         page_title = f"▶ {data['play_track'].artist} – {data['play_track'].title}"
 
