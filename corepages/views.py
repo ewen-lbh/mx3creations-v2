@@ -1,6 +1,8 @@
 from django.shortcuts import render, render_to_response, loader
 from django.http import Http404, HttpResponse, HttpResponseNotFound
+from django.core.mail import send_mail
 import globs
+from .forms import ContactForm
 # Create your views here.
 def home(request):
            
@@ -13,7 +15,20 @@ def graphism(request):
     return render(request, 'graphism.pug', locals())
 
 def contact(request):
-           
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        send_mail(
+            # subject
+            f'[mx3creations] Contact from {form.email}',
+            # body
+            form.message,
+            # from email
+            form.email,
+            # to email
+            'ewen.lebihan7@gmail.com'
+        )
+        sent = True
+    
     page_title = globs.page_title('contact')
     return render(request, 'contact.pug', locals())
 

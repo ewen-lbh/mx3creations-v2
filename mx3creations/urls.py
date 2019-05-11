@@ -19,9 +19,9 @@ from corepages import urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^music/', include('music.urls')),
     url(r'^news/', include('newsletter.urls')),
-    url('', include('corepages.urls')),
+    url(r'^', include('music.urls')),
+    url(r'^', include('corepages.urls')),
     url('404', urls.handler404),
 ]
 

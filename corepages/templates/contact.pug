@@ -8,14 +8,7 @@
     span#typedTitle
 
   form(action="contact-process", method="post").grid-form
-    .group
-      label(for="email") E-mail adress*
-      input#email(type="email", name="email" required)
-      label(for="name") Name
-      input#name(type="text", name="name")
-    label(for="message") Message*
-    textarea#message(name="message", cols="30", rows="10" required)
-    
+    !=form.as_p    
     input(type="submit", value="> Submit <")
   .sep
 

@@ -6,12 +6,17 @@ import globs
 # Create your views here.
 class track:
     @staticmethod
-    def by_id(request, id):
-        return corepages.views.handler404(request)
+    def by_id(request, pk):
+        collection = Collection.objects.get(pk=pk)
+        return track(request, locals())
     
     @staticmethod
     def by_title(request, title):
-        return corepages.views.handler404(request)
+        return track(request, locals())
+
+    @staticmethod
+    def track(request, data):
+        return render(request, 'track.pug', data)
 
 def music(request):
     latest = Collection.objects.latest('date')

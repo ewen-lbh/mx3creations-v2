@@ -10,14 +10,14 @@
   
   h2 The latest: "{{latest.title}}" {{latest_kind}}
   a(href="listen/latest")
-    .cover.fullsize.latest
+    .cover.fullsize(style="background-image:url('{% static 'music/images/landscape/'|add:latest.slug|add:'.png' %}');")
   .sep
 
   h2 Everything
-  ul
+  ul.grid
     for collection in collections
-      li
-        img(src="{% static 'music/images/'|add:collection.title|add:'.jpg' %}", alt="{{collection.title}} cover art")
+      li.item
+          a(href="{% url 'track' title=collection.slug %}").image(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}');'", alt="{{collection.title}} cover art")
     
 
 {% endblock content %}

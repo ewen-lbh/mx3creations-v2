@@ -9,7 +9,7 @@
   width: 100vw;
   background: url("../images/misc/background.png") no-repeat;
   background-size: cover;
-  opacity: 0.25;
+  opacity: 0.15;
   z-index: -1000; }
 
 @-webkit-keyframes h1sqr-popup {
@@ -154,7 +154,9 @@
     .main-content .grid .image {
       border-radius: 10px;
       height: 315px;
-      width: 315px; }
+      width: 315px;
+      background-size: cover;
+      background-position: center; }
       .main-content .grid .image span {
         font-size: 20px;
         text-align: center;
@@ -188,13 +190,9 @@
         opacity: 0.5; } }
     .main-content .cover.fullsize, .main-content .artwork.fullsize {
       width: 100%;
-      height: 500px; }
-    .main-content .cover.latest, .main-content .artwork.latest {
-      background: #000;
+      height: 500px;
       background-size: cover;
       background-position: center; }
-  .main-content .cover.latest {
-    background-image: url("../../music/images/Patterns_Landscape.png"); }
   .main-content ul.contact-means li {
     display: inline-block;
     padding-bottom: 20px; }
@@ -202,6 +200,10 @@
       font-size: 20px; }
     .main-content ul.contact-means li:not(:last-child)::after {
       content: ' – '; }
+  .main-content ul.music-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
 
 .footer-wrapper {
   background: #eee;
