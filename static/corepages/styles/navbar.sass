@@ -1,3 +1,17 @@
+.lang-switch
+    position: fixed
+    right: 150px
+    top: 50px
+    font-size: 40px
+    a
+        transition: opacity 0.25s ease
+    a:not(.active)
+        opacity: 0.5
+        &:hover
+            opacity: 1
+    &:hover a 
+        opacity: 0.5
+    
 $navbar-width: 250px * 1.5
 .navbar-switch
     position: fixed
@@ -41,10 +55,10 @@ $navbar-width: 250px * 1.5
         right: -$navbar-width
     .navbar
         margin-left: 40px
-        padding-top: 100px
-        // height: 100%
-        // width: $navbar-width
-        // margin: 10px auto
+        padding-top:  100px
+        // height: 10 field type0%
+        // width: $na field typevbar-width
+        // margin: 10 field typepx auto
         li:not(.logo)
             // margin-top: $navbar-width/4 - 7px
             margin-top: 40px

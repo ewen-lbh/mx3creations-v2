@@ -51,6 +51,8 @@ class Collection(models.Model):
         ("L","Light")
     )
 
+    SLUG_BLACKLIST = ('random','latest')
+
     title = models.CharField("Collection title", max_length=100)
     slug = models.CharField('Collection title slug', max_length=100, unique=True, null=False)
     work_time = models.DurationField("Work time", null=True, blank=True)
@@ -61,6 +63,8 @@ class Collection(models.Model):
 
     # dynamically create the slug
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        if self.slug in SLUG_BLACKLIST:
+            raise Exception(f"Illegal value! {','.join(SLUG_BLACKLIST)} are reserved slugs.")
         self.slug = slugify(self.title)
         super(Collection, self).save()
 
@@ -74,3 +78,8 @@ class Collection(models.Model):
     def duration(self):
         return
         #return sum("<<<<<ici je veux avoir la somme des fields duration de chaque Track lié à cette Collection>>>>>")
+
+    def random():
+        # NOTICE: This might be the cause of slow DB operations
+        collection = Collection.objects.order_by('?').first()
+        return collection

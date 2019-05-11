@@ -1,14 +1,14 @@
-from django.conf.urls import url
+from django.urls import path
 from corepages.views import *
 
 urlpatterns = [
-    url('home', home, name='home'),
-    url('about', about, name='about'),
-    url('contact', contact, name='contact'),
-    url('about', about, name='about'),
-    url('graphism', graphism, name='graphism'),
-    url('search', search, name='search'),
-    url('legal', legal, name='legal'),
-    url('stats', stats, name='stats'),
-    url(r'^$', home, name='home'),
+    path('home', home, name='home'),
+    path('about', about, name='about'),
+    path('contact', contact, name='contact'),
+    path('about', about, name='about'),
+    path('graphism', graphism, name='graphism'),
+    path('search', search, name='search'),
+    path('legal', legal, name='legal'),
+    path('stats', stats, name='stats'),
+    path('', home, name='home'),
 ]

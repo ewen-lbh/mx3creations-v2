@@ -1,4 +1,5 @@
 {% extends 'base.pug' %}
+{% load static %}
 {% block title %}{{ page_title }}{% endblock title %}
 {% block content %}
 .main-content
@@ -22,8 +23,17 @@
   
   if results_count or not search_query
     ul.results
-      for result in results
-        li=result
+      h3 Collections
+      ul.search-results-collections
+        for collection in collections
+          li
+            a(href="{% url 'track' title=collection.slug %}")
+              .cover(style="background-image:url('{% static 'music/images/square/' %}')")
+      h3 Tracks
+      ul.search-results-tracks
+        for track in tracks
+          li
+            a(href="{% url 'track' title=track.collection.slug play=track.slug %}")
 
 
   if not search_query or not results_count

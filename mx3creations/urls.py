@@ -13,16 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.urls import path, include
 from django.contrib import admin
 from corepages import urls
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^news/', include('newsletter.urls')),
-    url(r'^', include('music.urls')),
-    url(r'^', include('corepages.urls')),
-    url('404', urls.handler404),
+    path('admin/', admin.site.urls),
+    path('news/', include('newsletter.urls')),
+    path('', include('music.urls')),
+    path('', include('corepages.urls')),
+    path('404', urls.handler404, name='404'),
 ]
 
 handler404 = 'corepages.views.handler404'

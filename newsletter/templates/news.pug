@@ -4,13 +4,29 @@
 .main-content
   h1
     span#typedTitleSource
-      p News
+      if subscribed
+        p Thanks for signing up !
+      else 
+        if already_subscribed
+          p Oops!
+        else
+          p News
     span#typedTitle
 
-  h2 Let's keep in touch
-  p 
-    | Like #{members_count} others, 
-    a.underline(href="{% url 'subscribe' %}") Subscribe to the newsletter !
+  if not subscribed
+    h2 Let's keep in touch
+  if already_subscribed
+    p.details 
+      | #{email} is already subscribed.
+      br/
+      | If you don't receive e-mails, please check your spam folder or 
+      a.underline(href="{% url 'contact' %}") contact me
+
+  if not subscribed
+    form(action="{% url 'news' %}", method="post").grid-form.form-subscribe-newsletter
+      {% csrf_token %}
+      !=form
+      input(type="submit", value="Subscribe!")
   .sep
 
   ul.news

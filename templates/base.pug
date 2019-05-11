@@ -4,6 +4,7 @@ head
   include includes/head.pug
   title {% block title %}{%endblock%}
 body
+  .site-bg(style="background-image:url('/static/{% block site_bg %}corepages/images/misc/background-fade.png{% endblock %}');opacity:{%block site_bg_opacity %}0.15{% endblock %}")
   include includes/menu.pug
 
   {% block content %}

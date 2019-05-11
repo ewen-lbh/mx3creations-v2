@@ -59,3 +59,6 @@ target/
 
 # credentials
 *.env
+
+# manual hide
+*.hidden.*

@@ -1,10 +1,82 @@
 {% extends 'base.pug' %}
+{% load static %}
 {% block title %} {{page_title}} {% endblock title %}
+{% block site_bg %}music/images/wide/{{collection.slug}}.jpg {% endblock site_bg %}
+{% block site_bg_opacity %}0.05 {% endblock site_bg_opacity %}
 {% block content %}
 .main-content
     h1
         span#typedTitleSource
             p= collection.title
         span#typedTitle
+    
+    p.details
+        if tracks_count > 1
+            =tracks_count
+            |  tracks &mdash; 
+        =collection.get_kind_display
+    
+    p.description=collection.description
+
+    if tracks_count > 1
+        .group
+            .left
+                .square-img(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
+            .right
+                ul.tracks
+                    for track in tracks
+                        if track.slug == play_track.slug
+                            li.active
+                                i.zmdi.zmdi-hc-lg.zmdi-pause
+                                |  
+                                span
+                                    if track.artist != 'Mx3'
+                                        =track.artist
+                                        |  &ndash; 
+                                    =track.title
+                        else
+                            li
+                                a(href="{% url 'track' title=collection.slug play=track.slug %}")
+                                    i.zmdi.zmdi-hc-lg.zmdi-play
+                                    |  
+                                    span
+                                        if track.artist != 'Mx3'
+                                            =track.artist
+                                            |  &ndash; 
+                                        =track.title
+    else
+        .wide-img(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
+        //- a(href="{% url 'track' title=collection.slug play=tracks.first.slug %}")
+            
+                //- if tracks.first.slug == play_track.slug
+                //-     i.zmdi.zmdi-pause.central-btn
+                //- else
+                //-     i.zmdi.zmdi-play.central-btn
+    .sep
+
+    ul.btn-array(class="#{btn_array_class}")
+        li
+            a(href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:collection.slug|add:'.zip' %}")
+                i.zmdi.zmdi-hc-lg.zmdi-download 
+                span Download
+
+        li
+            a(href="{% url 'share' what='collection' item=collection.slug %}")
+                i.zmdi.zmdi-hc-lg.zmdi-share 
+                span Share
+
+        li
+            a(href="{% url 'cover_art' title=collection.slug %}")
+                i.zmdi.zmdi-hc-lg.zmdi-image 
+                span Download cover art
+
+        if collection.playlist_url
+            li
+                a(href="{{ collection.playlist_url }}" target="_blank")
+                    i.zmdi.zmdi-hc-lg.zmdi-youtube-play
+                    span See the music videos
+
+    
+
         
 {% endblock content %}

@@ -4,15 +4,31 @@
 .main-content
   h1
     span#typedTitleSource
-      p Contact me
+      if sent
+        p Your message was sent
+      else
+        if send_error
+          p=send_error
+        else
+          p Contact me
     span#typedTitle
 
-  form(action="contact-process", method="post").grid-form
-    !=form.as_p    
+  if send_error
+    p.details 
+      | If you can't send a message, please contact me using 
+      a.underline(href="#other-means") these means
+
+  form(action="{% url 'contact' %}", method="post").grid-form.form-contact
+    {% csrf_token %}
+    !=form
     input(type="submit", value="> Submit <")
   .sep
 
-  h2 Want other means of contact ?
+  h2#other-means 
+    if send_error
+      | Sorry for the inconvenience.
+    else
+      | Want other means of contact ?
   ul.contact-means
     li
       a.underline(href="https://discord.gg/98eE12") Discord

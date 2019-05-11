@@ -5,6 +5,9 @@ class NewsletterSubscribeForm(forms.ModelForm):
     
     class Meta:
         model = Member
-        fields = '__all__'
+        fields = ('email',)
+        widgets = {
+            'email': forms.TextInput(attrs={'placeholder':'Email address'})
+        }
 
 

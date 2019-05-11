@@ -1,7 +1,6 @@
-from django.conf.urls import url
+from django.urls import path
 from newsletter.views import *
 
 urlpatterns = [
-    url(r'^$', news, name='news'),
-    url('subscribe', subscribe, name='subscribe')
+    path('', news, name='news'),
 ]

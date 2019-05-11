@@ -1,0 +1,14 @@
+{% extends 'base.pug' %}
+{% block title %} {{page_title}} {% endblock title %}
+{% block site_bg %}music/images/wide/{{collection.slug}}.jpg {% endblock site_bg %}
+{% block site_bg_opacity %}0.05 {% endblock site_bg_opacity %}
+{% block content %}
+.main-content
+    h1
+        span#typedTitleSource
+            p=item.title
+        span#typedTitle
+
+    h2 Share this #{thing}
+    
+{% endblock content %}

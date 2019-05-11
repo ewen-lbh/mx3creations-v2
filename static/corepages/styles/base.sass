@@ -6,8 +6,8 @@
     top: 0
     height: 100vh
     width: 100vw
-    background: url('../images/misc/background.png') no-repeat
     background-size: cover
+    background-position: center
     opacity: 0.15
     z-index: -1000
 
@@ -63,8 +63,12 @@ $h1-fz: 60px
             animation: opacity 0.5s ease 0.75s 1 forwards
 
     p.details
-        margin-top: -10px
+        margin-top: -40px
+        margin-bottom: 40px
         opacity: 0.8
+        &-h2
+            margin-top: -10px
+            margin-bottom: 10px
 
     // for non-js
     span#typedTitleSource p
@@ -96,6 +100,12 @@ $h1-fz: 60px
             display: flex
             width: ($hgrid-cell-size + $hgrid-cell-pad)* $hgrid-cell-count - $hgrid-cell-size / 2
             overflow: hidden
+            a:hover
+                .cover
+                    opacity: 1
+                    filter: grayscale(0)
+                    span
+                        opacity: 1
             .cover
                 height: $hgrid-cell-size
                 width: $hgrid-cell-size
@@ -106,6 +116,18 @@ $h1-fz: 60px
                 background-position: center
                 background-repeat: no-repeat
                 @include hoverbw
+
+                span
+                    font-size: 20px
+                    &.light
+                        color: #fff
+                    &.dark
+                        color: #000
+                    text-align: center
+                    padding-top: $hgrid-cell-size * 0.75 - 10px
+                    display: block
+                    opacity: 0
+                    z-index: 10
                 
                 &.large
                     width: $hgrid-cell-size*2
@@ -142,6 +164,9 @@ $h1-fz: 60px
             width: $grid-cell-size
             background-size: cover
             background-position: center
+
+            opacity: 0.5
+            filter: grayscale(0.5)
             span
                 font-size: 20px
                 text-align: center
@@ -149,11 +174,12 @@ $h1-fz: 60px
                 display: block
                 opacity: 0
 
-        .item
-            @include hoverbw
-            &:hover
-                .image span
+        a:hover
+                .image
                     opacity: 1
+                    filter: grayscale(0)
+                    span
+                        opacity: 1
 
 
 
@@ -179,3 +205,84 @@ $h1-fz: 60px
 
     ul.music-list
         display: flex
+
+    .group
+        display: grid
+        grid-template-columns: 400px 1fr
+        .left
+            grid-column: 1
+        .right
+            grid-column: 2
+
+    .square-img
+        height: 400px
+        width: 400px
+        background-size: cover
+        background-position: center
+        border-radius: 10px
+
+    .wide-img
+        height: 500px
+        width: auto
+        background-size: cover
+        background-position: center
+        border-radius: 10px
+    .wide-img, .square-img
+        .central-btn
+            font-size: 200px
+            z-index: 10
+            color: #fff
+            margin-left: 50%
+            margin-top: 25%
+            transform: translate(-50%, -50%)
+    .square-img .central-btn
+        margin-top: 50%
+
+    .group-cover-arts
+        display: grid
+        grid-gap: 20px
+        grid-template-columns: 325px 1fr
+        .square-img, .wide-img
+            background-size: contain
+            background-repeat: no-repeat
+            border-radius: 0px
+            height: 325px
+        .square-img
+            width: 325px
+            background-position: left
+
+        .wide-img
+            width: 100%
+            background-position: right
+            
+            
+
+    ul.tracks
+        margin-left: 40px
+        margin-top: 0
+        li 
+            margin-bottom: 15px
+            a, span
+                font-size: 20px
+            i
+                font-size: 25px
+
+    ul.btn-array
+        display: grid
+        grid-gap: 50px
+        // if we have three li's
+        &.quad
+            grid-template-columns: 1fr 1fr
+        &.tri
+            grid-template-columns: 1fr 1fr 1fr
+        li a 
+            display: grid
+            grid-template-rows: 1fr 1fr
+
+            i, span
+                text-align: center
+            i
+                font-size: 50px
+            span
+                margin-top: 10px
+                font-size: 20px
