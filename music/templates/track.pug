@@ -1,9 +1,22 @@
 {% extends 'base.pug' %}
 {% load static %}
+{% load humanize %}
 {% block title %} {{page_title}} {% endblock title %}
 {% block site_bg %}music/images/wide/{{collection.slug}}.jpg {% endblock site_bg %}
 {% block site_bg_opacity %}0.05 {% endblock site_bg_opacity %}
 {% block content %}
+
+mixin track-list-item
+    span
+        if track.artist != 'Mx3'
+            =track.artist
+            |  &ndash; 
+        =track.title
+    a(href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:track.slug|add:'.mp3' %}")
+        i.zmdi.zmdi-hc-lg.zmdi-download
+    a(href="{% url 'share' what='track' item=track.slug %}")
+        i.zmdi.zmdi-hc-lg.zmdi-share
+
 .main-content
     h1
         span#typedTitleSource
@@ -15,6 +28,9 @@
             =tracks_count
             |  tracks &mdash; 
         =collection.get_kind_display
+        |  &mdash; 
+        =collection.date|date:'SHORT_DATE_FORMAT'
+        |  (#{collection.date|timesince} ago)
     
     p.description=collection.description
 
@@ -23,27 +39,19 @@
             .left
                 .square-img(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
             .right
-                ul.tracks
+                ol.tracks
                     for track in tracks
                         if track.slug == play_track.slug
                             li.active
-                                i.zmdi.zmdi-hc-lg.zmdi-pause
-                                |  
-                                span
-                                    if track.artist != 'Mx3'
-                                        =track.artist
-                                        |  &ndash; 
-                                    =track.title
+                                a.track-link
+                                    i.zmdi.zmdi-hc-lg.zmdi-pause
+                                +track-list-item
                         else
                             li
-                                a(href="{% url 'track' title=collection.slug play=track.slug %}")
-                                    i.zmdi.zmdi-hc-lg.zmdi-play
-                                    |  
-                                    span
-                                        if track.artist != 'Mx3'
-                                            =track.artist
-                                            |  &ndash; 
-                                        =track.title
+                                a(href="{% url 'track' title=collection.slug play=track.slug %}").track-link
+                                    i.zmdi.zdmi-hc-lg.zmdi-play
+                                +track-list-item
+                                
     else
         .wide-img(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
         //- a(href="{% url 'track' title=collection.slug play=tracks.first.slug %}")

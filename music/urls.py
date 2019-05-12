@@ -3,6 +3,7 @@ from music.views import *
 
 urlpatterns = [
     path('music', music, name='music'),
+    path('music/<slug:sort>', music, name='music'),
     
     path('listen/random', Listen.random, name='track_random'),
     path('listen/latest', Listen.latest, name='track_latest'),
