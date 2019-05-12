@@ -6,9 +6,31 @@
 .main-content
     h1
         span#typedTitleSource
-            p=item.title
+            if what == 'collection'
+                p #{collection.title}
+            else
+                p "#{item.title}" by #{item.artist}
         span#typedTitle
 
     h2 Share this #{thing}
+
+    ul.btn-array.quad.white-icons.big
+        li.facebook
+            a(href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmx3creations.com&quote=', title='Share on Facebook', target='_blank', onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent({{share_url}}) + '&quote=' + encodeURIComponent({{share_url}})); return false;")
+                i.zmdi.zmdi-facebook
+                span Share on Facebook
+        li.twitter
+            a(href='https://twitter.com/intent/tweet?source=https%3A%2F%2Fmx3creations.com&text={{share_title}}:%20https%3A%2F%2Fmx3creations.com&via=mx3_fr', target='_blank', title='Tweet', onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent({{share_title}}) + ':%20'  + encodeURIComponent({{share_url}})); return false;")
+                i.zmdi.zmdi-twitter
+                span Tweet
+        li.reddit
+            a(href='http://www.reddit.com/submit?url=https%3A%2F%2Fmx3creations.com&title=', target='_blank', title='Submit to Reddit', onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent({{share_url}}) + '&title=' +  encodeURIComponent({{share_title}})); return false;")
+                i.zmdi.zmdi-reddit
+                span Submit to Reddit
+        li.email
+            a(href='mailto:?subject=&body=:%20https%3A%2F%2Fmx3creations.com', target='_blank', title='Send email', onclick="window.open('mailto:?subject=' + encodeURIComponent({{share_title}}) + '&body=' +  encodeURIComponent({{share_url}})); return false;")
+                i.zmdi.zmdi-email
+                span Send email
+
     
 {% endblock content %}

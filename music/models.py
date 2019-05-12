@@ -15,6 +15,7 @@ class Track(models.Model):
     goodness = models.IntegerField("Goodness /20", default=10, validators=[MaxValueValidator(20), MinValueValidator(0)])
     collection = models.ForeignKey("music.Collection", verbose_name="Track's collection", on_delete=models.CASCADE)
     video_url = models.CharField("YouTube video URL", max_length=100, blank=True, null=True)
+    track_number = models.IntegerField("Track number", validators=[MinValueValidator(1)], blank=True, null=True)
     #date = models.DateField("Date published", default="<<<<<Je voudrais le field 'date' de la Collection liée>>>>>")
 
     # dynamically create the slug
@@ -83,3 +84,41 @@ class Collection(models.Model):
         # NOTICE: This might be the cause of slow DB operations
         collection = Collection.objects.order_by('?').first()
         return collection
+
+    def tracks(slug=None, pk=None):
+        if slug:
+            tracks = Track.objects.filter(collection__slug=slug)
+        elif pk is not None:
+            tracks = Track.objects.filter(collection__pk=pk)
+        else:
+            raise ValueError('Function music.models.Collection.tracks require either slug or pk to be provided.')
+        return tracks
+    
+    def artist(single_artist=True, slug=None, pk=None):
+        if slug:
+            get_tracks_kwargs = {'slug':slug}
+        elif pk is not None:
+            get_tracks_kwargs = {'pk':pk}
+        else:
+            raise ValueError('Function music.models.Collection.artist require either slug or pk to be provided.')
+
+        artists = Collection.tracks(**get_tracks_kwargs)
+        print(artists)
+        #dedupe list
+        artists = list(set(artists))
+
+        if len(artists) == 1:
+            return artists[0]
+        else:
+            if single_artist:
+                return False
+            else:
+                return ', '.join(artists)
+
+    def goodness(slug):
+        tracks = Collection.tracks(slug=slug)
+        return 1/len(tracks) * sum([track.goodness for track in tracks])
+
+    #### TODO : ####
+    # - work_time / duration ratio
+    # - work_time / goodness ratio

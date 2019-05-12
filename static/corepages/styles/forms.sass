@@ -43,8 +43,56 @@
                     height: 60px
 
         &.form-contact
-            label:not([for=id_bugreport])
-                display: none
+            display: grid
+            grid-template-columns: 1fr 1fr
+            grid-template-rows: 30px 60px 30px 400px 40px 30px 
+            grid-row-gap: 20px
 
-            input, textarea
-                margin-bottom: 50px
+            #id_email
+                grid-column: 1
+                grid-row: 2
+
+            label[for=id_email]
+                grid-column: 1
+                grid-row: 1
+
+            #id_message
+                grid-row: 4
+                grid-column: span 2
+            
+            label[for=id_message]
+                grid-row: 3
+                grid-column-start: 1
+
+            #id_bugreport
+                display: none
+                            
+            label[for=id_bugreport]
+                grid-column: span 2
+                grid-row: 5
+                cursor: pointer
+
+                &::before
+                    transform: translateY(5px)
+                    transition: all .125s ease
+                    content: ''
+                    display: inline-block
+                    height: 30px
+                    width: 30px
+                    background: transparent
+                    border: 2px solid #000
+                    border-radius: 50%
+                    margin-right: 10px
+                &.checked::before
+                    border-radius: 0px
+                    background: #000
+
+            .helptext
+                grid-column: 1
+                grid-row: 6
+                
+            input[type=submit]
+                width: 300px
+                margin-left: auto
+                grid-row: 6
+                grid-column: 2

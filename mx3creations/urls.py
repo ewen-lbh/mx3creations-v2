@@ -32,7 +32,7 @@ handler403 = 'corepages.views.handler403'
 handler500 = 'corepages.views.handler500'
 
 #### TODO LIST ####
-# - Contact form CSS
+# X Contact form CSS
 # - Track numbering
 # - Track duration
 # - Stats page

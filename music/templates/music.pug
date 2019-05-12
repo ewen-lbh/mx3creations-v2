@@ -2,6 +2,12 @@
 {% block title %} {{page_title}} {% endblock title %}
 {% load static %}
 {% block content %}
+
+mixin item
+    li.item
+      a(href="{% url 'track' title=collection.slug %}").image(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}');'", alt="#{collection.title} cover art")
+        .image(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
+
 .main-content
   h1
     span#typedTitleSource
@@ -13,11 +19,35 @@
     .cover.fullsize(style="background-image:url('{% static 'music/images/wide/'|add:latest.slug|add:'.jpg' %}');")
   .sep
 
-  h2 Everything
-  ul.grid
-    for collection in collections
-      li.item
-          a(href="{% url 'track' title=collection.slug %}").image(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}');'", alt="#{collection.title} cover art")
-            .image(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
+  h2#tracks Everything
+  p.sortby-header Sort by:
+  ul.links-array.sortby-options
+    for option in sort_options
+      li
+        a.underline(href="{% url 'music' sort=option.0 %}#tracks")
+          =option.1
+        |  &bull; 
+        
+  // if sort == 'goodness'
+    p lol
+
+  if sort == 'kind'
+    h3 Albums  
+    ul.grid
+      for collection in collections.AB
+        +item
+    h3 EPs        
+    ul.grid
+      for collection in collections.EP
+        +item
+    h3 Singles        
+    ul.grid
+      for collection in collections.SG
+        +item
+  else
+    ul.grid
+      for collection in collections
+        +item
+      
 
 {% endblock content %}
