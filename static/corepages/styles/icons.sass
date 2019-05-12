@@ -1,0 +1,26 @@
+@mixin icondef($icon)
+    &.#{$icon}
+        background-image: url('/static/corepages/images/icons/#{$icon}.png')
+        &:hover, &.hovered
+            background-image: url('/static/corepages/images/icons/hovered/#{$icon}.png')
+
+
+    
+i.icon
+    height: 64px
+    padding: 3px
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center
+
+    @include icondef('play')
+    @include icondef('pause')
+    @include icondef('download')
+    @include icondef('share')
+    @include icondef('image')
+    @include icondef('video')
+    @include icondef('mail')
+
+//// TODO LIST ////
+// - Home button in navmenu ? (somewhere easy at least)
+// - custom icons

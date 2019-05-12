@@ -691,3 +691,38 @@ div.sep {
 
 .red {
   color: #f00; }
+
+i.icon {
+  height: 64px;
+  padding: 3px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; }
+  i.icon.play {
+    background-image: url("/static/corepages/images/icons/play.png"); }
+    i.icon.play:hover, i.icon.play.hovered {
+      background-image: url("/static/corepages/images/icons/hovered/play.png"); }
+  i.icon.pause {
+    background-image: url("/static/corepages/images/icons/pause.png"); }
+    i.icon.pause:hover, i.icon.pause.hovered {
+      background-image: url("/static/corepages/images/icons/hovered/pause.png"); }
+  i.icon.download {
+    background-image: url("/static/corepages/images/icons/download.png"); }
+    i.icon.download:hover, i.icon.download.hovered {
+      background-image: url("/static/corepages/images/icons/hovered/download.png"); }
+  i.icon.share {
+    background-image: url("/static/corepages/images/icons/share.png"); }
+    i.icon.share:hover, i.icon.share.hovered {
+      background-image: url("/static/corepages/images/icons/hovered/share.png"); }
+  i.icon.image {
+    background-image: url("/static/corepages/images/icons/image.png"); }
+    i.icon.image:hover, i.icon.image.hovered {
+      background-image: url("/static/corepages/images/icons/hovered/image.png"); }
+  i.icon.video {
+    background-image: url("/static/corepages/images/icons/video.png"); }
+    i.icon.video:hover, i.icon.video.hovered {
+      background-image: url("/static/corepages/images/icons/hovered/video.png"); }
+  i.icon.mail {
+    background-image: url("/static/corepages/images/icons/mail.png"); }
+    i.icon.mail:hover, i.icon.mail.hovered {
+      background-image: url("/static/corepages/images/icons/hovered/mail.png"); }
