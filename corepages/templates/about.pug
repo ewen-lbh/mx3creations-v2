@@ -1,9 +1,165 @@
 {% extends 'base.pug' %}
 {% block title %}{{ page_title }}{% endblock title %}
 {% block content %}
+
+style.
+  p:not(.details), p a, dt, dd, dt a, dd a {
+    font-family: Manrope
+  }
+
 .main-content
   h1
     span#typedTitleSource
       p About
     span#typedTitle
+
+    h2 What do I do ?
+    h3 Music.
+    p I create electronic on FL Studio 20. I started when I was 7 years old, punching in melodies & beats using a Nitendo DS game, "Jam with the Band". 
+    p Since the beginning, my music taste is&mdash;to say the least&mdash;strange. It all started with Trentemøller's "Into the great wide yonder": I immediately fell in love with this incredible work on texture and sounds, and I was just 7 years old.
+    p Today, I still listen to intricate music produced by Max Cooper, Rob Clouth, James Holden, Nathan Fake, Aphex Twin and #[a.underline(href="#artists") plenty others].
+    p My influence also comes from more "mainstream" but yet really talented artists, like deadmau5. A complete and always up-to-date list of tracks I love can be found #[a.underline(href="playlist-spotify") on spotify].
+    p I create music with FL Studio, on a self-built computer running Windows 10 and Pop!_OS.
+    p #[span.firacode ->] 
+      a.underline(href="{% url 'music' %}") Listen to my stuff 
+
+    h3 Graphism.
+    p I also love creating logos, banners, posters, interfaces, websites, icons and&mdash;of course&mdash;cover arts. I use the Adobe Suite for that.
+    p #[span.firacode ->] 
+      a.underline(href="{% url 'graphism' %}") Look at all my creations 
+    
+    h3 Video.
+    p My brother and myself make some short films sometimes, and I usually take care of the special effects part.
+    p I also love motion design, especially animation in interfaces or logos (I love glitchy stuff, as you can tell by the logo in the footer). Just look at how smooth and polished that set of #[a.underline(href="https://photos.app.goo.gl/vuopauhfcwJjW8nD7") icon transitions] from Google is!
+    p #[span.firacode ->] 
+      a.underline(href="{% url 'videos' %}") See everything I made 
+
+    h3 Coding.
+    p I made that website myself, from the backend, database operations and server logic to the design of the page you're reading.
+    p Coding is the skill I learned the most recently. I use it primarily for automation scripts and website creation. For example, I made a #[a.underline(href="https://github.com/ewen-lbh") script to automate music publishing].
+    p #[span.firacode ->] See everything I coded on my 
+      a.underline(href="https://github.com/ewen-lbh") GitHub account
+      |, including the whole source code of my website!
+
+    h2 What do I use ?
+    .group
+      .left
+        h3 Hardware-wise
+        dl 
+          dt Processor
+          dd AMD Ryzen 5 1600 
+
+          dt Graphics
+          dd Radedon RX 560 
+
+          dt RAM
+          dd G.Skill Aegis 2x8Gb 
+
+          dt Motherboard
+          dd MSI B350 PC 
+
+          dt Sound card
+          dd Focusrite Scarlett 2i2 
+
+          dt Speakers
+          dd Prodipe Pro 5 v3 
+
+          dt MIDI Keyboard
+          dd M-Audio Keystation Mini 32 
+
+          dt Launchpad
+          dd Novation Launchpad S
+
+          dt Mouse
+          dd Corsair Glaive
+
+          dt Keyboard
+          dd Corsair K70
+
+      .right
+        h3 Software-wise
+        dl
+          dt DAW
+          dd FL Studio 20 
+
+          dt VSTs
+          dd Serum, Cthulu
+
+          dt IDEs
+          dd Visual Studio Code (web development),#[br] PyCharm CE (python)
+
+          dt Vector-based work
+          dd Adobe Illustrator
+
+          dt General image editing
+          dd Adobe Photoshop
+
+          dt VFX and Motion Design
+          dd Adobe After Effects
+
+          dt Video editing
+          dd Adobe Premiere Pro
+
+          dt Printed stuff
+          dd Adobe InDesign
+
+          dt UI Prototyping
+          dd Adobe XD (on Windows),#[br] Gravit Designer (on Pop!_OS)
+
+          dt OS
+          dd Windows 10 (Gaming, Adobe suite, Music creation),#[br] Pop!_OS (Coding, studying)
+
+
+    h3 On this website
+    dt Fonts
+    dd 
+      span.robotomono Roboto Mono, 
+      span.firacode Fira Code, 
+      span.manrope: a.underline(href="https://www.behance.net/gallery/67424063/Manrope-Modern-Geometric-Sans-Serif-font-family") Manrope
+
+    dt Icons, backgrounds, music, logo, general design, music artworks, music videos, translations
+    dd Self-made!
+
+    h2 I want to thank...
+    dt MMTuts & Grafikart
+    dd For their amazing tutorials on web technologies
+
+    dt Thomas @ #[a.underline(href="https://www.satellite-multimedia.com/") Satellite Multimédia]
+    dd For getting me into web development, and helping me while I was still figuring out HTML
+
+    dt Quentin Volant
+    dd For all the tips, all the time you wasted to help me kill bugs, and hosting me for free for so long.
+
+    h2#artists Artists I like
+    br/
+    p.details In no particular order
+    ul
+      li Mr Bill
+      li Vaetxh
+      li James Holden
+      li Squarepusher
+      li Aphex Twin
+      li Amon Tobin
+      li ediT
+      li Nathan Fake
+      li Lusine
+      li Throwing Snow
+      li Apparat
+      li CharlesTheFirst
+      li Radiohead
+      li Rone
+      li Parrad
+      li deadmau5
+      li Microtrauma
+      li Lane 8
+      li N'to
+      li Worakls
+      li Vessels
+      li Rival Consoles
+      li Jon Hopkins
+      li Trentemøller
+      li Rob Clouth
+      li Max Cooper
+      li Ryan Davis
+     
 {% endblock content %}

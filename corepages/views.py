@@ -93,9 +93,15 @@ def handler500(request, *args, **kwargs):
     return response
 
 def stats(request):
+         
+    page_title = globs.page_title('stats')
+    return render(request, 'stats.pug', locals())
+
+def videos(request):
     
-    page_title = 'stats'
-    return render(request, 'stats.pug', {'page_title':globs.page_title(page_title)})
+        
+    page_title = globs.page_title('videos')
+    return render(request, 'videos.pug', locals())
 
 def legal(request):
     

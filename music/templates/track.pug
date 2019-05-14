@@ -43,7 +43,7 @@ mixin track-list-item
                     for track in tracks
                         if track.slug == play_track.slug
                             li.active
-                                a.track-link
+                                a.track-link(onclick=pause())
                                     i.zmdi.zmdi-hc-lg.zmdi-pause
                                 +track-list-item
                         else
@@ -83,6 +83,27 @@ mixin track-list-item
                 a(href="{{ collection.playlist_url }}" target="_blank")
                     i.zmdi.zmdi-hc-lg.zmdi-youtube-play
                     span See the music videos
+
+    if play_track
+        audio#player(src="{% static 'music/audio/'|add:collection.slug|add:'/'|add:play_track.slug|add:'.mp3' %}" autoplay)
+
+    script.
+        player = $('#player')[0]
+        function play() {
+            player.play()
+        }
+        function pause() {
+            player.pause()
+        }
+        function get_progressbar_width() {
+            WIDTH = 400
+            ratio = player.currentTime / player.duration
+            console.log('DURATION '+ratio)
+            return WIDTH * ratio
+        }
+
+
+        //setTimeout(get_progressbar_width, 200)
 
     
 

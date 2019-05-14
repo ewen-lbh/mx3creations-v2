@@ -141,3 +141,13 @@ def share(request, what, item):
 
     page_title = globs.page_title('share')
     return render(request, 'share.pug', locals())
+
+
+def addallfolders():
+    DIR = '/home/ewen/Coding/projects/mx3creations/static/music/audio/'
+    for collection in Collection.objects.all():
+        foldername = collection.slug
+        os.mkdir(DIR+foldername)
+
+if __name__ == "__main__":
+    addallfolders()

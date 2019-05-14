@@ -16,6 +16,8 @@ class Track(models.Model):
     collection = models.ForeignKey("music.Collection", verbose_name="Track's collection", on_delete=models.CASCADE)
     video_url = models.CharField("YouTube video URL", max_length=100, blank=True, null=True)
     track_number = models.IntegerField("Track number", validators=[MinValueValidator(1)], blank=True, null=True)
+    downloads = models.IntegerField("Downloads count", validators=[MinValueValidator(0)], default=0)
+    likes = models.IntegerField("Likes count", validators=[MinValueValidator(0)], default=0)
     #date = models.DateField("Date published", default="<<<<<Je voudrais le field 'date' de la Collection liée>>>>>")
 
     # dynamically create the slug
@@ -118,6 +120,9 @@ class Collection(models.Model):
     def goodness(slug):
         tracks = Collection.tracks(slug=slug)
         return 1/len(tracks) * sum([track.goodness for track in tracks])
+
+    def get_total(slug, what):
+        return sum([getattr(e, what) for e in tracks(slug)])
 
     #### TODO : ####
     # - work_time / duration ratio

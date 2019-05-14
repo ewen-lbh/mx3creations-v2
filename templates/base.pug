@@ -10,6 +10,11 @@ body
   {% block content %}
   {% endblock content %}
 
+  {% block backtotop %}
+  .sep.sep
+  p.center: a.underline(href="javascript:window.scrollTo(0,0)") Back to top
+  {% endblock backtotop %}
+
   include includes/footer.pug
   script(src='https://cdn.jsdelivr.net/npm/typed.js@2.0.9')
   {% block typedtitles %}

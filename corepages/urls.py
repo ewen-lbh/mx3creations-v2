@@ -10,5 +10,6 @@ urlpatterns = [
     path('search', search, name='search'),
     path('legal', legal, name='legal'),
     path('stats', stats, name='stats'),
+    path('videos', videos, name='videos'),
     path('', home, name='home'),
 ]

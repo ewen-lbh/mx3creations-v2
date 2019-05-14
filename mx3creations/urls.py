@@ -33,6 +33,6 @@ handler500 = 'corepages.views.handler500'
 
 #### TODO LIST ####
 # X Contact form CSS
-# - Track numbering
+# X Track numbering
 # - Track duration
 # - Stats page
