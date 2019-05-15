@@ -12,10 +12,10 @@ mixin track-list-item
             =track.artist
             |  &ndash; 
         =track.title
-    a(href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:track.slug|add:'.mp3' %}")
-        i.zmdi.zmdi-hc-lg.zmdi-download
+    a(href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:track.slug|add:'.mp3' %}" download="{{track.artist}} - {{track.title}}.mp3")
+        span.icon.small.download.onhover
     a(href="{% url 'share' what='track' item=track.slug %}")
-        i.zmdi.zmdi-hc-lg.zmdi-share
+        span.icon.small.share.onhover
 
 .main-content
     h1
@@ -43,13 +43,13 @@ mixin track-list-item
                     for track in tracks
                         if track.slug == play_track.slug
                             li.active
-                                a.track-link(onclick=pause())
-                                    i.zmdi.zmdi-hc-lg.zmdi-pause
+                                a.track-link(onclick="playpause()")
+                                    i.icon.pause.small
                                 +track-list-item
                         else
                             li
                                 a(href="{% url 'track' title=collection.slug play=track.slug %}").track-link
-                                    i.zmdi.zdmi-hc-lg.zmdi-play
+                                    i.icon.play.small
                                 +track-list-item
                                 
     else
@@ -64,7 +64,7 @@ mixin track-list-item
 
     ul.btn-array(class="#{btn_array_class}")
         li
-            a(href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:collection.slug|add:'.zip' %}")
+            a(href="{% static 'music/audio/'|add:collection.slug|add:'.zip' %}" download="{{collection.title}} - {{collection.get_kind_display}} by Mx3")
                 i.icon.large.download 
                 span Download
 
@@ -89,12 +89,24 @@ mixin track-list-item
 
     script.
         player = $('#player')[0]
+        icon = $('ol li.active a .icon')
         function play() {
             player.play()
         }
         function pause() {
             player.pause()
         }
+
+        function playpause() {
+            if (player.paused) {
+                player.play()
+                icon.removeClass('play').addClass('pause')
+            } else {
+                player.pause()
+                icon.removeClass('pause').addClass('play')
+            }
+        }
+
         function get_progressbar_width() {
             WIDTH = 400
             ratio = player.currentTime / player.duration

@@ -268,18 +268,30 @@ $h1-fz: 60px
         margin-top: 0
         li
             display: grid 
-            grid-template-columns: 25px 1fr 30px 30px
+            grid-template-columns: 32px 1fr 32px 32px
             
             margin-bottom: 15px
-            a, span
+            a, span:not(.icon)
                 font-weight: 300
                 font-size: 20px
+
+            span:not(.icon)
+                padding-top: 2px
 
             &.active a, &.active span
                 font-weight: 400
             
-            i
+            .icon
                 font-size: 25px
+                width: 32px
+                &.onhover
+                    opacity: 0
+
+            &:hover
+                .icon
+                    cursor: pointer
+                    opacity: 1
+
 
     ul.links-array
         li

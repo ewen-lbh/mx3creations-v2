@@ -285,16 +285,24 @@
     .main-content ol.tracks li {
       display: -ms-grid;
       display: grid;
-      -ms-grid-columns: 25px 1fr 30px 30px;
-      grid-template-columns: 25px 1fr 30px 30px;
+      -ms-grid-columns: 32px 1fr 32px 32px;
+      grid-template-columns: 32px 1fr 32px 32px;
       margin-bottom: 15px; }
-      .main-content ol.tracks li a, .main-content ol.tracks li span {
+      .main-content ol.tracks li a, .main-content ol.tracks li span:not(.icon) {
         font-weight: 300;
         font-size: 20px; }
+      .main-content ol.tracks li span:not(.icon) {
+        padding-top: 2px; }
       .main-content ol.tracks li.active a, .main-content ol.tracks li.active span {
         font-weight: 400; }
-      .main-content ol.tracks li i {
-        font-size: 25px; }
+      .main-content ol.tracks li .icon {
+        font-size: 25px;
+        width: 32px; }
+        .main-content ol.tracks li .icon.onhover {
+          opacity: 0; }
+      .main-content ol.tracks li:hover .icon {
+        cursor: pointer;
+        opacity: 1; }
   .main-content ul.links-array li {
     display: inline-block; }
   .main-content ul.btn-array {
@@ -700,69 +708,69 @@ ul.seps li:not(:first-child) span.sep::before {
   content: '/ ';
   padding: 0 10px; }
 
-i.icon {
+i.icon, span.icon {
+  display: block;
   height: 64px;
-  padding: 3px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; }
-  i.icon.large {
+  i.icon.large, span.icon.large {
     height: 128px; }
-  i.icon.small {
-    height: 16px; }
-  i.icon.play {
+  i.icon.small, span.icon.small {
+    height: 32px; }
+  i.icon.play, span.icon.play {
     background-image: url("/static/corepages/images/icons/play.png"); }
-    i.icon.play:hover, i.icon.play.hovered {
+    i.icon.play:hover, i.icon.play.hovered, span.icon.play:hover, span.icon.play.hovered {
       background-image: url("/static/corepages/images/icons/play-hover.png"); }
-    i.icon.play.large {
+    i.icon.play.large, span.icon.play.large {
       background-image: url("/static/corepages/images/icons/play-full.png"); }
-      i.icon.play.large:hover, i.icon.play.large.hovered {
+      i.icon.play.large:hover, i.icon.play.large.hovered, span.icon.play.large:hover, span.icon.play.large.hovered {
         background-image: url("/static/corepages/images/icons/play-hover-full.png"); }
-  i.icon.pause {
+  i.icon.pause, span.icon.pause {
     background-image: url("/static/corepages/images/icons/pause.png"); }
-    i.icon.pause:hover, i.icon.pause.hovered {
+    i.icon.pause:hover, i.icon.pause.hovered, span.icon.pause:hover, span.icon.pause.hovered {
       background-image: url("/static/corepages/images/icons/pause-hover.png"); }
-    i.icon.pause.large {
+    i.icon.pause.large, span.icon.pause.large {
       background-image: url("/static/corepages/images/icons/pause-full.png"); }
-      i.icon.pause.large:hover, i.icon.pause.large.hovered {
+      i.icon.pause.large:hover, i.icon.pause.large.hovered, span.icon.pause.large:hover, span.icon.pause.large.hovered {
         background-image: url("/static/corepages/images/icons/pause-hover-full.png"); }
-  i.icon.download {
+  i.icon.download, span.icon.download {
     background-image: url("/static/corepages/images/icons/download.png"); }
-    i.icon.download:hover, i.icon.download.hovered {
+    i.icon.download:hover, i.icon.download.hovered, span.icon.download:hover, span.icon.download.hovered {
       background-image: url("/static/corepages/images/icons/download-hover.png"); }
-    i.icon.download.large {
+    i.icon.download.large, span.icon.download.large {
       background-image: url("/static/corepages/images/icons/download-full.png"); }
-      i.icon.download.large:hover, i.icon.download.large.hovered {
+      i.icon.download.large:hover, i.icon.download.large.hovered, span.icon.download.large:hover, span.icon.download.large.hovered {
         background-image: url("/static/corepages/images/icons/download-hover-full.png"); }
-  i.icon.share {
+  i.icon.share, span.icon.share {
     background-image: url("/static/corepages/images/icons/share.png"); }
-    i.icon.share:hover, i.icon.share.hovered {
+    i.icon.share:hover, i.icon.share.hovered, span.icon.share:hover, span.icon.share.hovered {
       background-image: url("/static/corepages/images/icons/share-hover.png"); }
-    i.icon.share.large {
+    i.icon.share.large, span.icon.share.large {
       background-image: url("/static/corepages/images/icons/share-full.png"); }
-      i.icon.share.large:hover, i.icon.share.large.hovered {
+      i.icon.share.large:hover, i.icon.share.large.hovered, span.icon.share.large:hover, span.icon.share.large.hovered {
         background-image: url("/static/corepages/images/icons/share-hover-full.png"); }
-  i.icon.image {
+  i.icon.image, span.icon.image {
     background-image: url("/static/corepages/images/icons/image.png"); }
-    i.icon.image:hover, i.icon.image.hovered {
+    i.icon.image:hover, i.icon.image.hovered, span.icon.image:hover, span.icon.image.hovered {
       background-image: url("/static/corepages/images/icons/image-hover.png"); }
-    i.icon.image.large {
+    i.icon.image.large, span.icon.image.large {
       background-image: url("/static/corepages/images/icons/image-full.png"); }
-      i.icon.image.large:hover, i.icon.image.large.hovered {
+      i.icon.image.large:hover, i.icon.image.large.hovered, span.icon.image.large:hover, span.icon.image.large.hovered {
         background-image: url("/static/corepages/images/icons/image-hover-full.png"); }
-  i.icon.video {
+  i.icon.video, span.icon.video {
     background-image: url("/static/corepages/images/icons/video.png"); }
-    i.icon.video:hover, i.icon.video.hovered {
+    i.icon.video:hover, i.icon.video.hovered, span.icon.video:hover, span.icon.video.hovered {
       background-image: url("/static/corepages/images/icons/video-hover.png"); }
-    i.icon.video.large {
+    i.icon.video.large, span.icon.video.large {
       background-image: url("/static/corepages/images/icons/video-full.png"); }
-      i.icon.video.large:hover, i.icon.video.large.hovered {
+      i.icon.video.large:hover, i.icon.video.large.hovered, span.icon.video.large:hover, span.icon.video.large.hovered {
         background-image: url("/static/corepages/images/icons/video-hover-full.png"); }
-  i.icon.mail {
+  i.icon.mail, span.icon.mail {
     background-image: url("/static/corepages/images/icons/mail.png"); }
-    i.icon.mail:hover, i.icon.mail.hovered {
+    i.icon.mail:hover, i.icon.mail.hovered, span.icon.mail:hover, span.icon.mail.hovered {
       background-image: url("/static/corepages/images/icons/mail-hover.png"); }
-    i.icon.mail.large {
+    i.icon.mail.large, span.icon.mail.large {
       background-image: url("/static/corepages/images/icons/mail-full.png"); }
-      i.icon.mail.large:hover, i.icon.mail.large.hovered {
+      i.icon.mail.large:hover, i.icon.mail.large.hovered, span.icon.mail.large:hover, span.icon.mail.large.hovered {
         background-image: url("/static/corepages/images/icons/mail-hover-full.png"); }
