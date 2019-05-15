@@ -143,7 +143,7 @@ def share(request, what, item):
     share_title = f'"{item.title}" by {artist}'
     share_message = f'Listen to {share_title} at <a href="{share_url}">{share_url}</a>'
 
-    page_title = globs.page_title('share')
+    page_title = globs.page_title('Share')
     return render(request, 'share.pug', locals())
 
 

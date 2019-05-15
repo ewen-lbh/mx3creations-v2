@@ -12,10 +12,19 @@ mixin track-list-item
             =track.artist
             |  &ndash; 
         =track.title
-    a(href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:track.slug|add:'.mp3' %}" download="{{track.artist}} - {{track.title}}.mp3")
+    a(
+        href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:track.slug|add:'.mp3' %}" download="{{track.artist}} - {{track.title}}.mp3"
+        title="Download this track"
+    )
         span.icon.small.download.onhover
-    a(href="{% url 'share' what='track' item=track.slug %}")
+    a(
+        href="{% url 'share' what='track' item=track.slug %}"
+        title="Share this track"
+    )
         span.icon.small.share.onhover
+
+if play_track
+    .track-progress
 
 .main-content
     h1
@@ -24,7 +33,7 @@ mixin track-list-item
         span#typedTitle
     
     p.details
-        if tracks_count > 1
+        if tracks_count >= 2
             =tracks_count
             |  tracks &mdash; 
         =collection.get_kind_display
@@ -33,8 +42,9 @@ mixin track-list-item
         |  (#{collection.date|timesince} ago)
     
     p.description=collection.description
-
-    if tracks_count > 1
+    .sep
+    
+    if tracks_count >= 2
         .group
             .left
                 .square-img(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
@@ -85,10 +95,10 @@ mixin track-list-item
                     span See the music videos
 
     if play_track
-        audio#player(src="{% static 'music/audio/'|add:collection.slug|add:'/'|add:play_track.slug|add:'.mp3' %}" autoplay)
+        audio#player(src="{% static 'music/audio/'|add:collection.slug|add:'/'|add:play_track.slug|add:'.mp3' %}" autoplay onplay="start_progressbar()")
 
     script.
-        player = $('#player')[0]
+        let player = $('#player')[0]
         icon = $('ol li.active a .icon')
         function play() {
             player.play()
@@ -107,15 +117,17 @@ mixin track-list-item
             }
         }
 
-        function get_progressbar_width() {
-            WIDTH = 400
+        function handle_progressbar() {
             ratio = player.currentTime / player.duration
-            console.log('DURATION '+ratio)
-            return WIDTH * ratio
+            bar_w = width * ratio+'px'
+            $('.track-progress')[0].style.width = bar_w
         }
 
 
-        //setTimeout(get_progressbar_width, 200)
+        function start_progressbar() {
+            width = $('p.details')[0].offsetWidth
+            setInterval(handle_progressbar, 50)
+        }
 
     
 

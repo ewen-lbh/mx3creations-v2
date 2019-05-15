@@ -15,8 +15,7 @@ def news(request):
             subscribed = True
         else:
             already_subscribed = True
-
-    page_title = globs.page_title('subscribe')
+            
     members_count = len(Member.objects.all())
-    page_title = globs.page_title('news')
+    page_title = globs.page_title('News')
     return render(request, 'news.pug', locals())
