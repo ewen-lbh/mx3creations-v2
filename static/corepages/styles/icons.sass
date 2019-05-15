@@ -2,16 +2,27 @@
     &.#{$icon}
         background-image: url('/static/corepages/images/icons/#{$icon}.png')
         &:hover, &.hovered
-            background-image: url('/static/corepages/images/icons/hovered/#{$icon}.png')
+            background-image: url('/static/corepages/images/icons/#{$icon}-hover.png')
+        &.large
+            background-image: url('/static/corepages/images/icons/#{$icon}-full.png')
+            &:hover, &.hovered
+                background-image: url('/static/corepages/images/icons/#{$icon}-hover-full.png')
 
 
     
 i.icon
     height: 64px
+    &.large
+        height: 128px
+    &.small
+        height: 16px
+
     padding: 3px
+    
     background-size: contain
     background-repeat: no-repeat
     background-position: center
+    
 
     @include icondef('play')
     @include icondef('pause')

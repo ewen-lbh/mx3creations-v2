@@ -36,5 +36,10 @@ div.sep
     overflow: hidden
 .red
     color: #f00
+ul.seps
+    li:not(:first-child) span.sep::before
+        content: '/ '
+        padding: 0 10px
+
 
 

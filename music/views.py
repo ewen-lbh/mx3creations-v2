@@ -70,12 +70,13 @@ def track(request, data):
 def music(request, sort='date'):
     latest = Collection.objects.latest('date')
     collections = Collection.objects.all()
-    page_title = globs.page_title('my music')
+    page_title = globs.page_title('My music')
 
     sort_options = [
-        ('date', 'Date'),
+        #format: url, pretty, model field
+        ('date', 'Release date',),
         ('goodness', 'Goodness'),
-        ('kind', 'Kind'),
+        ('kinds', 'Kinds'),
         ('work-time', 'Work time'),
     ]
 
@@ -95,7 +96,7 @@ def music(request, sort='date'):
     elif sort == 'date':
         collections = collections.order_by('-date')
         print(collections)
-    elif sort == 'kind':
+    elif sort == 'kinds':
         collections = {
             'EP': collections.filter(kind='EP').order_by('-date'),
             'AB': collections.filter(kind='AB').order_by('-date'),
@@ -135,9 +136,12 @@ def share(request, what, item):
     }
     if what == 'track':
         share_url_params['play'] = item.slug
+
+    artist = artist or 'Mx3'
     
-    share_url = reverse('track', args=share_url_params)
-    share_title = f'"{item.title}" {"by " + artist if artist else ""}'
+    share_url = 'https://mx3creations.com' + reverse('track', kwargs=share_url_params)
+    share_title = f'"{item.title}" by {artist}'
+    share_message = f'Listen to {share_title} at <a href="{share_url}">{share_url}</a>'
 
     page_title = globs.page_title('share')
     return render(request, 'share.pug', locals())

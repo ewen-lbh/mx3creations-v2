@@ -78,6 +78,10 @@
       content: '>';
       font-family: Fira Code;
       padding-right: 5px; }
+  .main-content h3 {
+    margin-top: 40px;
+    margin-bottom: -20px;
+    font-size: 25px; }
   .main-content p {
     font-size: 20px;
     font-weight: 300; }
@@ -692,37 +696,73 @@ div.sep {
 .red {
   color: #f00; }
 
+ul.seps li:not(:first-child) span.sep::before {
+  content: '/ ';
+  padding: 0 10px; }
+
 i.icon {
   height: 64px;
   padding: 3px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; }
+  i.icon.large {
+    height: 128px; }
+  i.icon.small {
+    height: 16px; }
   i.icon.play {
     background-image: url("/static/corepages/images/icons/play.png"); }
     i.icon.play:hover, i.icon.play.hovered {
-      background-image: url("/static/corepages/images/icons/hovered/play.png"); }
+      background-image: url("/static/corepages/images/icons/play-hover.png"); }
+    i.icon.play.large {
+      background-image: url("/static/corepages/images/icons/play-full.png"); }
+      i.icon.play.large:hover, i.icon.play.large.hovered {
+        background-image: url("/static/corepages/images/icons/play-hover-full.png"); }
   i.icon.pause {
     background-image: url("/static/corepages/images/icons/pause.png"); }
     i.icon.pause:hover, i.icon.pause.hovered {
-      background-image: url("/static/corepages/images/icons/hovered/pause.png"); }
+      background-image: url("/static/corepages/images/icons/pause-hover.png"); }
+    i.icon.pause.large {
+      background-image: url("/static/corepages/images/icons/pause-full.png"); }
+      i.icon.pause.large:hover, i.icon.pause.large.hovered {
+        background-image: url("/static/corepages/images/icons/pause-hover-full.png"); }
   i.icon.download {
     background-image: url("/static/corepages/images/icons/download.png"); }
     i.icon.download:hover, i.icon.download.hovered {
-      background-image: url("/static/corepages/images/icons/hovered/download.png"); }
+      background-image: url("/static/corepages/images/icons/download-hover.png"); }
+    i.icon.download.large {
+      background-image: url("/static/corepages/images/icons/download-full.png"); }
+      i.icon.download.large:hover, i.icon.download.large.hovered {
+        background-image: url("/static/corepages/images/icons/download-hover-full.png"); }
   i.icon.share {
     background-image: url("/static/corepages/images/icons/share.png"); }
     i.icon.share:hover, i.icon.share.hovered {
-      background-image: url("/static/corepages/images/icons/hovered/share.png"); }
+      background-image: url("/static/corepages/images/icons/share-hover.png"); }
+    i.icon.share.large {
+      background-image: url("/static/corepages/images/icons/share-full.png"); }
+      i.icon.share.large:hover, i.icon.share.large.hovered {
+        background-image: url("/static/corepages/images/icons/share-hover-full.png"); }
   i.icon.image {
     background-image: url("/static/corepages/images/icons/image.png"); }
     i.icon.image:hover, i.icon.image.hovered {
-      background-image: url("/static/corepages/images/icons/hovered/image.png"); }
+      background-image: url("/static/corepages/images/icons/image-hover.png"); }
+    i.icon.image.large {
+      background-image: url("/static/corepages/images/icons/image-full.png"); }
+      i.icon.image.large:hover, i.icon.image.large.hovered {
+        background-image: url("/static/corepages/images/icons/image-hover-full.png"); }
   i.icon.video {
     background-image: url("/static/corepages/images/icons/video.png"); }
     i.icon.video:hover, i.icon.video.hovered {
-      background-image: url("/static/corepages/images/icons/hovered/video.png"); }
+      background-image: url("/static/corepages/images/icons/video-hover.png"); }
+    i.icon.video.large {
+      background-image: url("/static/corepages/images/icons/video-full.png"); }
+      i.icon.video.large:hover, i.icon.video.large.hovered {
+        background-image: url("/static/corepages/images/icons/video-hover-full.png"); }
   i.icon.mail {
     background-image: url("/static/corepages/images/icons/mail.png"); }
     i.icon.mail:hover, i.icon.mail.hovered {
-      background-image: url("/static/corepages/images/icons/hovered/mail.png"); }
+      background-image: url("/static/corepages/images/icons/mail-hover.png"); }
+    i.icon.mail.large {
+      background-image: url("/static/corepages/images/icons/mail-full.png"); }
+      i.icon.mail.large:hover, i.icon.mail.large.hovered {
+        background-image: url("/static/corepages/images/icons/mail-hover-full.png"); }

@@ -65,23 +65,23 @@ mixin track-list-item
     ul.btn-array(class="#{btn_array_class}")
         li
             a(href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:collection.slug|add:'.zip' %}")
-                i.zmdi.zmdi-hc-lg.zmdi-download 
+                i.icon.large.download 
                 span Download
 
         li
             a(href="{% url 'share' what='collection' item=collection.slug %}")
-                i.zmdi.zmdi-hc-lg.zmdi-share 
+                i.icon.large.share 
                 span Share
 
         li
             a(href="{% url 'cover_art' title=collection.slug %}")
-                i.zmdi.zmdi-hc-lg.zmdi-image 
+                i.icon.large.image 
                 span Download cover art
 
         if collection.playlist_url
             li
                 a(href="{{ collection.playlist_url }}" target="_blank")
-                    i.zmdi.zmdi-hc-lg.zmdi-youtube-play
+                    i.icon.large.video
                     span See the music videos
 
     if play_track

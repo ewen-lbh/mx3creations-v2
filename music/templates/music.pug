@@ -21,17 +21,14 @@ mixin item
 
   h2#tracks Everything
   p.sortby-header Sort by:
-  ul.links-array.sortby-options
+  ul.links-array.sortby-options.seps
     for option in sort_options
       li
+        span.sep
         a.underline(href="{% url 'music' sort=option.0 %}#tracks")
           =option.1
-        |  &bull; 
-        
-  // if sort == 'goodness'
-    p lol
 
-  if sort == 'kind'
+  if sort == 'kinds'
     h3 Albums  
     ul.grid
       for collection in collections.AB

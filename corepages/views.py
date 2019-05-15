@@ -18,7 +18,7 @@ def home(request):
 
 def graphism(request):
     
-    page_title = globs.page_title('graphism')
+    page_title = globs.page_title('Graphism')
     return render(request, 'graphism.pug', locals())
 
 def contact(request):
@@ -41,12 +41,12 @@ def contact(request):
             regex = re.compile(r'\[.+\](.+)')
             send_error = regex.sub(r'\1', str(e)) + " :/"
     
-    page_title = globs.page_title('contact')
+    page_title = globs.page_title('Contact')
     return render(request, 'contact.pug', locals())
 
 def about(request):
             
-    page_title = globs.page_title('about')
+    page_title = globs.page_title('About')
     return render(request, 'about.pug', locals())
 
 def search(request):
@@ -94,18 +94,18 @@ def handler500(request, *args, **kwargs):
 
 def stats(request):
          
-    page_title = globs.page_title('stats')
+    page_title = globs.page_title('Stats')
     return render(request, 'stats.pug', locals())
 
 def videos(request):
     
         
-    page_title = globs.page_title('videos')
+    page_title = globs.page_title('Videos')
     return render(request, 'videos.pug', locals())
 
 def legal(request):
     
     
     
-    page_title = 'legal'
+    page_title = 'Legal'
     return render(request, 'legal.pug', {'page_title':globs.page_title(page_title)})
