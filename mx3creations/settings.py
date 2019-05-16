@@ -139,3 +139,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# Sessions
+# https://docs.djangoproject.com/fr/2.1/topics/http/sessions/#cookie-session-backend
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'

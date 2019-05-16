@@ -10,7 +10,7 @@
             p=collection.title
         span#typedTitle
 
-    h2 Download cover arts
+    h2 Download artworks
     br/
     p.details Click on an image to download it
 
@@ -22,6 +22,10 @@
         .right
             a(href="{% static 'music/images/wide/'|add:collection.slug|add:'.png' %}" download="#{collection.slug}-wide-cover-art.png") 
                 .wide-img(style="background-image:url('{% static 'music/images/wide/'|add:collection.slug|add:'.jpg' %}')")
-
-    
+   
 {% endblock content %}
+
+{% block backtotop %}
+.sep.sep
+p.center: a.underline(href="{% url 'track' title=collection.slug %}") Back to {{collection.title}}
+{% endblock backtotop %}

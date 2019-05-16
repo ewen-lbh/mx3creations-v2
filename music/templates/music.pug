@@ -25,7 +25,10 @@ mixin item
     for option in sort_options
       li
         span.sep
-        a.underline(href="{% url 'music' sort=option.0 %}#tracks")
+        if sort != option.0
+          a.underline(href="{% url 'music' sort=option.0 %}#tracks")
+            =option.1
+        else
           =option.1
 
   if sort == 'kinds'

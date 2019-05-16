@@ -111,7 +111,7 @@ def music(request, sort='date'):
 
 def cover_art(request, title):
     collection = get_object_or_404(Collection, slug=title)
-    page_title = globs.page_title('download cover arts')
+    page_title = globs.page_title('download artworks')
     return render(request, 'cover_art.pug', locals())
 
 def share(request, what, item):

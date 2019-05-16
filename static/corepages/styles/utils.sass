@@ -42,4 +42,13 @@ ul.seps
         padding: 0 10px
 
 
+@mixin position($mode, $top, $right, $bottom, $left)
+    position: $mode
+    top: $top
+    right: $right
+    bottom: $bottom
+    left: $left
 
+@mixin mobile() 
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px)
+        

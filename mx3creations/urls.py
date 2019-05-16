@@ -36,3 +36,7 @@ handler500 = 'corepages.views.handler500'
 # X Track numbering
 # - Track duration
 # - Stats page
+# - twitter API implementation for "news" page
+# - use current website footer style for social medias
+# - autoplay feature, use cookies to store preference
+# - translations!

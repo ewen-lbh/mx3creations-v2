@@ -18,13 +18,39 @@ mixin track-list-item
     )
         span.icon.small.download.onhover
     a(
-        href="{% url 'share' what='track' item=track.slug %}"
+        onclick="openSharePopup('track', title='#{track.title}', artist='#{track.artist}', slug='#{track.slug}')"
         title="Share this track"
     )
         span.icon.small.share.onhover
 
 if play_track
     .track-progress
+
+.popup.share
+    h2 Share 
+
+    ul.btn-array.quad.white-icons.big
+        li.facebook
+            a(href='https://www.facebook.com/sharer/sharer.php?u={{share_url}}&quote={{share_title}}', title='Share on Facebook', target='_blank', onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent({{share_url}}) + '&quote=' + encodeURIComponent({{share_url}})); return false;")
+                i.zmdi.zmdi-facebook
+                span.hover-u Share on Facebook
+        li.twitter
+            a(href='https://twitter.com/intent/tweet?source={{share_url}}&text={{share_title}}:%20{{share_url}}&via=mx3_fr', target='_blank', title='Tweet', onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent({{share_title}}) + ':%20'  + encodeURIComponent({{share_url}})); return false;")
+                i.zmdi.zmdi-twitter
+                span.hover-u Tweet
+        li.reddit
+            a(href='http://www.reddit.com/submit?url={{share_url}}&title={{share_title}}', target='_blank', title='Submit to Reddit')
+                i.zmdi.zmdi-reddit
+                span.hover-u Submit to Reddit
+        li.email
+            a(href='mailto:?subject={{share_title}}&body={{share_message}}', target='_blank', title='Send email', onclick="window.open('mailto:?subject=' + encodeURIComponent({{share_title}}) + '&body=' +  encodeURIComponent({{share_url}})); return false;")
+                i.zmdi.zmdi-email
+                span.hover-u Send email
+
+    a.popup-close-btn(onclick="closeSharePopup()").fw100
+        | +
+
+.darkened-bg
 
 .main-content
     h1
@@ -79,14 +105,14 @@ if play_track
                 span Download
 
         li
-            a(href="{% url 'share' what='collection' item=collection.slug %}")
+            a(onclick="openSharePopup('collection')")
                 i.icon.large.share 
                 span Share
 
         li
             a(href="{% url 'cover_art' title=collection.slug %}")
                 i.icon.large.image 
-                span Download cover art
+                span Download artwork
 
         if collection.playlist_url
             li
@@ -117,17 +143,58 @@ if play_track
             }
         }
 
-        function handle_progressbar() {
-            ratio = player.currentTime / player.duration
-            bar_w = width * ratio+'px'
-            $('.track-progress')[0].style.width = bar_w
+        async function start_progressbar() {
+            let player = $('#player')[0]
+            player.volume = 0
+            while(player.duration === Infinity) {
+                await new Promise(r => setTimeout(r, 1000));
+                player.currentTime = 10000000*Math.random();
+            }
+            player.style.opacity= 1 
+            player.volume = 1
+            let player_duration = player.duration
+            width = $(window).width()
+            setInterval(() => {
+                ratio = player.currentTime / player_duration
+                console.log(ratio)
+                bar_width = width * ratio
+                //- console.log(bar_width)
+                $('.track-progress')[0].style.width = `${bar_width}px`
+            }, 50)
         }
 
+        function openSharePopup(what, title, artist="Mx3", slug=null) {
+            popup = document.querySelector('.popup.share')
+            if (what == 'collection') {
+                title = `"{{collection.title}}" {{collection.get_kind_display}}`
+            } else {
+                title = `"${title}" by ${artist}`
+            }
 
-        function start_progressbar() {
-            width = $('p.details')[0].offsetWidth
-            setInterval(handle_progressbar, 50)
+            //WARNING: This will break if we change urls for music.views.music or music.views.track
+            share_url = `https://mx3creations.com/listen/{{collection.slug}}`
+            if (what=='track') {
+                share_url += `/${slug}`
+            }
+
+            share_title = `"${title}" by ${artist}`
+            share_message = `Listen to ${share_title} at <a href="${share_url}">${share_url}</a>`
+
+            popup.querySelector('h2').innerText = 'Share '+title
+            popup.classList.add('opened')
         }
+
+        function closeSharePopup() {
+            popup = document.querySelector('.popup.share')
+            popup.classList.remove('opened')
+        }
+
+        //catch escape key to close modal
+        $(document).keyup(e => {
+            if (e.which == 27 && $('.popup.share').hasClass('opened')) 
+                closeSharePopup()
+        })
+        
 
     
 
