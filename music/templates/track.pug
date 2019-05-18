@@ -31,20 +31,20 @@ if play_track
 
     ul.btn-array.quad.white-icons.big
         li.facebook
-            a(href='https://www.facebook.com/sharer/sharer.php?u={{share_url}}&quote={{share_title}}', title='Share on Facebook', target='_blank', onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent({{share_url}}) + '&quote=' + encodeURIComponent({{share_url}})); return false;")
+            a(href="", title='Share on Facebook', target='_blank')
                 i.zmdi.zmdi-facebook
                 span.hover-u {% trans "Share on Facebook" %}
         li.twitter
-            a(href='https://twitter.com/intent/tweet?source={{share_url}}&text={{share_title}}:%20{{share_url}}&via=mx3_fr', target='_blank', title='Tweet', onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent({{share_title}}) + ':%20'  + encodeURIComponent({{share_url}})); return false;")
+            a(href='', target='_blank', title='Tweet')
                 i.zmdi.zmdi-twitter
                 {# Translators: tweet verb #}
                 span.hover-u {% trans "Tweet" %}
         li.reddit
-            a(href='http://www.reddit.com/submit?url={{share_url}}&title={{share_title}}', target='_blank', title='Submit to Reddit')
+            a(href='', target='_blank', title='Submit to Reddit')
                 i.zmdi.zmdi-reddit
                 span.hover-u {% trans "Submit to Reddit" %}
         li.email
-            a(href='mailto:?subject={{share_title}}&body={{share_message}}', target='_blank', title='Send email', onclick="window.open('mailto:?subject=' + encodeURIComponent({{share_title}}) + '&body=' +  encodeURIComponent({{share_url}})); return false;")
+            a(href='', target='_blank', title='Send email')
                 i.zmdi.zmdi-email
                 span.hover-u {% trans "Send email" %}
 
@@ -169,7 +169,7 @@ if play_track
             if (what == 'collection') {
                 title = `"{{collection.title}}" {{collection.get_kind_display}}`
             } else {
-                title = `"${title}" by ${artist}`
+                title = `"${title}" {% trans "by" %} ${artist}`
             }
 
             //WARNING: This will break if we change urls for music.views.music or music.views.track
@@ -178,10 +178,14 @@ if play_track
                 share_url += `/${slug}`
             }
 
-            share_title = `"${title}" {% trans "by" %} ${artist}`
+            share_title = `{% trans "Listen to" %} ${title}`
             share_message = `{% trans "Listen to" %} ${share_title} {% trans "at" %} <a href="${share_url}">${share_url}</a>`
 
             popup.querySelector('h2').innerText = '{% trans "Share" %} '+title
+            popup.querySelector('li.facebook a').setAttribute('href', `https://www.facebook.com/sharer/sharer.php?u=${share_url}&quote=${share_title}`)
+            popup.querySelector('li.twitter a') .setAttribute('href', `https://twitter.com/intent/tweet?source=${share_url}&text=${share_title}:%20${share_url}&via=mx3_fr`)
+            popup.querySelector('li.reddit a')  .setAttribute('href', `http://www.reddit.com/submit?url=${share_url}&title=${share_title}`)
+            popup.querySelector('li.email a')   .setAttribute('href', `mailto:?subject=${share_title}&body=${share_message}`)
             popup.classList.add('opened')
         }
 

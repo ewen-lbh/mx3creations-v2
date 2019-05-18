@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: Ewen Le Bihan <ewen.lebihan7@gmail.com>\n"
-"POT-Creation-Date: 2019-05-18 16:26+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-18 17:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ewen Le Bihan <ewen.lebihan7@gmail.com>\n"
 "Language-Team: French <ewen.lebihan7@gmail.com>\n"
@@ -66,8 +66,8 @@ msgstr ""
 " Contactez-moi à <a class='underline' href='mailto:ewen.lebihan7@gmail.com'> "
 "et décrivez-moi ce que vous essayiez de faire."
 
-#: corepages/templates/about.pug:14 corepages/views.py:57
-#: templates/includes/footer.pug:29 templates/includes/menu.pug:30
+#: corepages/templates/about.pug:14 corepages/views.py:51
+#: templates/includes/footer.pug:29 templates/includes/menu.pug:32
 msgid "About"
 msgstr "À propos"
 
@@ -397,15 +397,15 @@ msgstr "Autres moyens de me contacter ?"
 msgid "french server"
 msgstr "serveur français"
 
-#: corepages/templates/graphism.pug:7
+#: corepages/templates/graphism.pug:8
 msgid "Graphism & VFX creations"
 msgstr "Graphisme & créations vidéos"
 
-#: corepages/templates/graphism.pug:10
+#: corepages/templates/graphism.pug:11
 msgid "The newest"
 msgstr "Le plus récent"
 
-#: corepages/templates/graphism.pug:15 music/templates/music.pug:22
+#: corepages/templates/graphism.pug:16 music/templates/music.pug:22
 msgid "Everything"
 msgstr "Tout"
 
@@ -507,27 +507,27 @@ msgstr ""
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: corepages/templates/videos.pug:7 corepages/views.py:111
+#: corepages/templates/videos.pug:7 corepages/views.py:105
 msgid "Videos"
 msgstr "Vidéos"
 
-#: corepages/views.py:29 templates/includes/footer.pug:27
-#: templates/includes/menu.pug:28
+#: corepages/views.py:23 templates/includes/footer.pug:27
+#: templates/includes/menu.pug:30
 msgid "Graphism"
 msgstr "Graphisme"
 
-#: corepages/views.py:52 templates/includes/footer.pug:33
-#: templates/includes/menu.pug:34
+#: corepages/views.py:46 templates/includes/footer.pug:33
+#: templates/includes/menu.pug:36
 msgid "Contact"
 msgstr "Contact"
 
-#: corepages/views.py:85
+#: corepages/views.py:79
 #, fuzzy
 #| msgid "Search..."
 msgid "Search"
 msgstr "Rechercher..."
 
-#: corepages/views.py:105
+#: corepages/views.py:99
 #, fuzzy
 #| msgid "Statistics"
 msgid "Stats"
@@ -624,11 +624,11 @@ msgstr "Télécharger l'artwork"
 msgid "See the music videos"
 msgstr "Voir les vidéos"
 
-#: music/templates/track.pug:181
+#: music/templates/track.pug:172
 msgid "by"
 msgstr "par"
 
-#: music/templates/track.pug:182
+#: music/templates/track.pug:181 music/templates/track.pug:182
 msgid "Listen to"
 msgstr "Écouter"
 
@@ -667,7 +667,7 @@ msgid "Oops!"
 msgstr "Oops !"
 
 #: newsletter/templates/news.pug:14 newsletter/views.py:21
-#: templates/includes/footer.pug:31 templates/includes/menu.pug:32
+#: templates/includes/footer.pug:31 templates/includes/menu.pug:34
 msgid "News"
 msgstr "News"
 
@@ -688,7 +688,7 @@ msgstr "contactez-moi"
 msgid "Subscribe"
 msgstr "S'abonner"
 
-#: templates/base.pug:15
+#: templates/base.pug:17
 msgid "Back to top"
 msgstr "Retour en haut"
 
@@ -704,11 +704,11 @@ msgstr " "
 msgid "More pages"
 msgstr "Plus de pages"
 
-#: templates/includes/footer.pug:23 templates/includes/menu.pug:24
+#: templates/includes/footer.pug:23 templates/includes/menu.pug:26
 msgid "Home"
 msgstr "Accueil"
 
-#: templates/includes/footer.pug:25 templates/includes/menu.pug:26
+#: templates/includes/footer.pug:25 templates/includes/menu.pug:28
 msgid "Music"
 msgstr "Musique"
 
@@ -734,11 +734,11 @@ msgstr ""
 "Tout oeuvre sous la license <a class='underline' href='http://"
 "creativecommons.org/licenses/by-sa/4.0'> CC BY-SA</a>"
 
-#: templates/includes/menu.pug:13
+#: templates/includes/menu.pug:15
 msgid "Search..."
 msgstr "Rechercher..."
 
-#: templates/includes/menu.pug:19
+#: templates/includes/menu.pug:21
 msgid "GO"
 msgstr "GO"
 
