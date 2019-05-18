@@ -12,7 +12,7 @@ body
 
   {% block backtotop %}
   .sep.sep
-  p.center: a.underline(href="javascript:window.scrollTo(0,0)") Back to top
+  p.center: a.underline(href="javascript:$('html, body').animate({scrollTop:0},1000)") Back to top
   {% endblock backtotop %}
 
   include includes/footer.pug
@@ -26,3 +26,24 @@ body
         backDelay:2800,
     });
   {% endblock %}
+
+  {% block smoothscroll %}
+  script.
+    $(function() {
+        /**
+        * Smooth scrolling to page anchor on click
+        **/
+        $("a[href*='#']:not([href='#'])").click(function() {
+            if (
+                location.hostname == this.hostname
+                && this.pathname.replace(/^\//,"") == location.pathname.replace(/^\//,"")
+            ) {
+                var anchor = $(this.hash);
+                anchor = anchor.length ? anchor : $("[name=" + this.hash.slice(1) +"]");
+                if ( anchor.length ) {
+                    $("html, body").animate( { scrollTop: anchor.offset().top }, 1000);
+                }
+            }
+        });
+    });
+  {% endblock smoothscroll %}
