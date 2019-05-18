@@ -648,15 +648,15 @@ ul.btn-array {
         .navbar-wrapper .navbar li form input[type='submit']:hover {
           cursor: pointer; }
 
-.grid-form {
+form.grid-form {
   display: -ms-grid;
   display: grid; }
-  .grid-form label {
+  form.grid-form label {
     font-size: 30px;
     font-weight: 300;
     text-align: left;
     margin-bottom: 10px; }
-  .grid-form input, .grid-form textarea, .grid-form select {
+  form.grid-form input, form.grid-form textarea, form.grid-form select {
     -webkit-box-shadow: none;
     box-shadow: none;
     -webkit-transition: border-color .25 ease;
@@ -670,33 +670,33 @@ ul.btn-array {
     transition: background .25s ease;
     font-size: 20px;
     padding: 5px 10px; }
-    .grid-form input:hover, .grid-form textarea:hover, .grid-form select:hover {
+    form.grid-form input:hover, form.grid-form textarea:hover, form.grid-form select:hover {
       background: rgba(38, 140, 206, 0.5); }
-  .grid-form textarea {
+  form.grid-form textarea {
     border-left: 2px solid #000 !important; }
-  .grid-form input, .grid-form select {
+  form.grid-form input, form.grid-form select {
     height: 50px; }
-  .grid-form input[type=submit] {
+  form.grid-form input[type=submit] {
     cursor: pointer; }
-  .grid-form.form-subscribe-newsletter {
+  form.grid-form.form-subscribe-newsletter {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 3fr 1fr;
     grid-template-columns: 3fr 1fr; }
-    .grid-form.form-subscribe-newsletter label {
+    form.grid-form.form-subscribe-newsletter label {
       display: none; }
-    .grid-form.form-subscribe-newsletter input#id_email {
+    form.grid-form.form-subscribe-newsletter input#id_email {
       padding-left: 20px;
       -ms-grid-column: 1;
       grid-column: 1; }
-    .grid-form.form-subscribe-newsletter input[type=submit] {
+    form.grid-form.form-subscribe-newsletter input[type=submit] {
       -ms-grid-column: 2;
       grid-column: 2;
       border-bottom: none !important;
       border-left: 2px solid #000 !important;
       border-top: 2px solid #000 !important;
       height: 60px; }
-  .grid-form.form-contact {
+  form.grid-form.form-contact {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
@@ -704,35 +704,35 @@ ul.btn-array {
     -ms-grid-rows: 30px 60px 30px 400px 40px 30px;
     grid-template-rows: 30px 60px 30px 400px 40px 30px;
     grid-row-gap: 20px; }
-    .grid-form.form-contact #id_email {
+    form.grid-form.form-contact #id_email {
       -ms-grid-column: 1;
       grid-column: 1;
       -ms-grid-row: 2;
       grid-row: 2; }
-    .grid-form.form-contact label[for=id_email] {
+    form.grid-form.form-contact label[for=id_email] {
       -ms-grid-column: 1;
       grid-column: 1;
       -ms-grid-row: 1;
       grid-row: 1; }
-    .grid-form.form-contact #id_message {
+    form.grid-form.form-contact #id_message {
       -ms-grid-row: 4;
       grid-row: 4;
       -ms-grid-column-span: 2;
       grid-column: span 2; }
-    .grid-form.form-contact label[for=id_message] {
+    form.grid-form.form-contact label[for=id_message] {
       -ms-grid-row: 3;
       grid-row: 3;
       -ms-grid-column: 1;
       grid-column-start: 1; }
-    .grid-form.form-contact #id_bugreport {
+    form.grid-form.form-contact #id_bugreport {
       display: none; }
-    .grid-form.form-contact label[for=id_bugreport] {
+    form.grid-form.form-contact label[for=id_bugreport] {
       -ms-grid-column-span: 2;
       grid-column: span 2;
       -ms-grid-row: 5;
       grid-row: 5;
       cursor: pointer; }
-      .grid-form.form-contact label[for=id_bugreport]::before {
+      form.grid-form.form-contact label[for=id_bugreport]::before {
         -webkit-transform: translateY(5px);
         -ms-transform: translateY(5px);
         transform: translateY(5px);
@@ -747,21 +747,29 @@ ul.btn-array {
         border: 2px solid #000;
         border-radius: 50%;
         margin-right: 10px; }
-      .grid-form.form-contact label[for=id_bugreport].checked::before {
+      form.grid-form.form-contact label[for=id_bugreport].checked::before {
         border-radius: 0px;
         background: #000; }
-    .grid-form.form-contact .helptext {
+    form.grid-form.form-contact .helptext {
       -ms-grid-column: 1;
       grid-column: 1;
       -ms-grid-row: 6;
       grid-row: 6; }
-    .grid-form.form-contact input[type=submit] {
+    form.grid-form.form-contact input[type=submit] {
       width: 300px;
       margin-left: auto;
       -ms-grid-row: 6;
       grid-row: 6;
       -ms-grid-column: 2;
       grid-column: 2; }
+  form.grid-form.langswitch {
+    margin-top: -5px; }
+    form.grid-form.langswitch select {
+      overflow: auto;
+      width: 100px;
+      height: 75px;
+      background: transparent;
+      border-bottom: none !important; }
 
 ::root {
   --c-main: #121212;

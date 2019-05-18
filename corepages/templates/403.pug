@@ -1,17 +1,18 @@
 {% extends 'base.pug' %}
+{% load i18n %}
 {% block title %}{{ page_title }}{% endblock title %}
 {% block content %}
 .main-content
     h1
       span#typedTitleSource
-        p You have no power here
+        p {% trans "You have no power here" %}
       span#typedTitle
 
-    h2 Access forbidden.
+    h2 {% trans "Access forbidden." %}
     br/
     p.details 
-        | You can't access that page. Try to authentificate first.
+        | {% trans "You can't access that page. Try to authentificate first." %}
         br/
-        | If the issue persists, please 
-        a.underline(href="{% url 'contact' %}") contact me.
+        | {% trans "If the issue persists, please " %}
+        a.underline(href="{% url 'contact' %}") {% trans "contact me." %}
 {% endblock content %}

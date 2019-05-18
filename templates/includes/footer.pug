@@ -1,10 +1,12 @@
+{% load i18n %}
+
 .sep
 .footer-wrapper
     .footer
         .leftright
             .left
-                h3 Follow me
-                p.fw300 Twitter, Instagram and Facebook are in French
+                h3 {% trans "Follow me" %}
+                p.fw300 {% trans "Twitter, Instagram and Facebook are in French" %}
                 ul
                     li #[a.underline(href="https://twitter.com/mx3_fr") Twitter]
                     li #[a.underline(href="https://facebook.com/mx3fr") Facebook]
@@ -15,31 +17,28 @@
                     li
                         a.underline(href="https://reddit.com/u/Chroneis") Reddit
             .right
-                h3 More pages
+                h3 {% trans "More pages" %}
                 ul
                     li
-                        a.underline(href="{% url 'home' %}") Home
+                        a.underline(href="{% url 'home' %}") {% trans "Home" %}
                     li
-                        a.underline(href="{% url 'music' %}") Music
+                        a.underline(href="{% url 'music' %}") {% trans "Music" %}
                     li
-                        a.underline(href="{% url 'graphism' %}") Graphism
+                        a.underline(href="{% url 'graphism' %}") {% trans "Graphism" %}
                     li
-                        a.underline(href="{% url 'about' %}") About
+                        a.underline(href="{% url 'about' %}") {% trans "About" %}
                     li
-                        a.underline(href="{% url 'news' %}") News
+                        a.underline(href="{% url 'news' %}") {% trans "News" %}
                     li
-                        a.underline(href="{% url 'contact' %}") Contact
+                        a.underline(href="{% url 'contact' %}") {% trans "Contact" %}
                     li
-                        a.underline(href="{% url 'stats' %}") Statistics
+                        a.underline(href="{% url 'stats' %}") {% trans "Statistics" %}
                     li
-                        a.underline(href="{% url 'legal' %}") Legal notice
+                        a.underline(href="{% url 'legal' %}") {% trans "Legal notice" %}
 
         .below
             .logo
             p.fw300.center
-                | Made with 
-                span.red.halfbig 
-                    i.zmdi.zmdi-favorite
-                |  by Ewen Le Bihan
+                | {% trans "Made with <span class='red halfbig'><i class='zmdi zmdi-favorite'></i></span> by Ewen Le Bihan" %}
                 br/
-                | All works under the #[a.underline(href="http://creativecommons.org/licenses/by-sa/4.0/") CC BY-SA] license
+                | {% trans "All works under the <a class='underline' href='http://creativecommons.org/licenses/by-sa/4.0'> CC BY-SA</a> license" %}

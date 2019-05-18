@@ -1,8 +1,10 @@
-{% load static %}
-span.lang-switch
-  a(href="change-lang-fr") FR
-  | |
-  a(href="change-lang-en").active EN
+{% load static i18n %}
+{% get_current_language as current_lang_code %}
+{% get_available_languages as languages_list %}
+{% get_language_info_list for languages_list as languages %}
+
+
+
 button.navbar-switch(onclick="$('.navbar-wrapper').toggleClass('hidden'); $('.navbar-switch').toggleClass('switched')", style='position: fixed;top: 5px;z-index: 10000;')
   | +
 .navbar-wrapper.hidden
@@ -10,19 +12,29 @@ button.navbar-switch(onclick="$('.navbar-wrapper').toggleClass('hidden'); $('.na
     li
       form(action="{% url 'search' %}", method="get")
         input(name="q" 
-        placeholder="Search...", 
+        placeholder="{% trans 'Search...' %}", 
         autocomplete="off"
         onfocus="$('.navbar-wrapper').addClass('search-opened')" 
         onblur="$('.navbar-wrapper').removeClass('search-opened')"
         )
         input(type="submit", 
-        value="GO" 
+        value="{% trans 'GO' %}" 
         onfocus="$('.navbar-wrapper').addClass('search-opened')" 
         onblur="$('.navbar-wrapper').removeClass('search-opened')"
         )
-    li #[a.hover-u(href="{% url 'home' %}") Home]
-    li #[a.hover-u(href="{% url 'music' %}") Music]
-    li #[a.hover-u(href="{% url 'graphism' %}") Graphism]
-    li #[a.hover-u(href="{% url 'about' %}") About]
-    li #[a.hover-u(href="{% url 'news' %}") News]
-    li #[a.hover-u(href="{% url 'contact' %}") Contact]
+    li: a.hover-u(href="{% url 'home' %}") 
+        | {% trans 'Home' %}
+    li: a.hover-u(href="{% url 'music' %}") 
+        | {% trans 'Music' %}
+    li: a.hover-u(href="{% url 'graphism' %}") 
+        | {% trans 'Graphism' %}
+    li: a.hover-u(href="{% url 'about' %}") 
+        | {% trans 'About' %}
+    li: a.hover-u(href="{% url 'news' %}") 
+        | {% trans 'News' %}
+    li: a.hover-u(href="{% url 'contact' %}") 
+        | {% trans 'Contact' %}
+
+// put active class on current language
+script.
+  $('.{{current_lang_code}}').addClass('active')

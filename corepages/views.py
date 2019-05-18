@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response, loader, redirect
 from django.http import Http404, HttpResponse, HttpResponseNotFound, HttpResponseRedirect, HttpResponseServerError, HttpResponseForbidden
 from django.contrib.postgres.search import SearchQuery, SearchVector
+from django.utils.translation import gettext as _
 from django.core.mail import send_mail
 from music.models import Track, Collection
 from music.views import Listen
@@ -9,6 +10,7 @@ import re
 from .forms import ContactForm
 # Create your views here.
 def home(request):
+
     proudest_tracks = Track.objects.order_by('-goodness', '-collection__date')[:5]
     proudest = list()
     for track in proudest_tracks:
@@ -17,8 +19,8 @@ def home(request):
     return render(request, 'home.pug', locals())
 
 def graphism(request):
-    
-    page_title = globs.page_title('Graphism')
+
+    page_title = globs.page_title(_("Graphism"))
     return render(request, 'graphism.pug', locals())
 
 def contact(request):
@@ -40,13 +42,13 @@ def contact(request):
             sent = False
             regex = re.compile(r'\[.+\](.+)')
             send_error = regex.sub(r'\1', str(e)) + " :/"
-    
-    page_title = globs.page_title('Contact')
+
+    page_title = globs.page_title(_("Contact"))
     return render(request, 'contact.pug', locals())
 
 def about(request):
-            
-    page_title = globs.page_title('About')
+
+    page_title = globs.page_title(_("About"))
     return render(request, 'about.pug', locals())
 
 def search(request):
@@ -72,9 +74,9 @@ def search(request):
     if len(collections) == 1:
         col = collections.first()
         return redirect('track', title=col.slug)
-    
+
     results_count = len(collections) + len(tracks)
-    page_title = globs.page_title('Search')
+    page_title = globs.page_title(_("Search"))
     return render(request, 'search.pug', locals())
 
 def handler404(request, *args, **kwargs):
@@ -93,19 +95,19 @@ def handler500(request, *args, **kwargs):
     return response
 
 def stats(request):
-         
-    page_title = globs.page_title('Stats')
+
+    page_title = globs.page_title(_("Stats"))
     return render(request, 'stats.pug', locals())
 
 def videos(request):
-    
-        
-    page_title = globs.page_title('Videos')
+
+
+    page_title = globs.page_title(_("Videos"))
     return render(request, 'videos.pug', locals())
 
 def legal(request):
-    
-    
-    
+
+
+
     page_title = 'Legal'
     return render(request, 'legal.pug', {'page_title':globs.page_title(page_title)})

@@ -1,5 +1,5 @@
 {% extends 'base.pug' %}
-{% load static %}
+{% load static i18n %}
 {% block title %} {{page_title}} {% endblock title %}
 {% block site_bg %}music/images/wide/{{collection.slug}}.jpg {% endblock site_bg %}
 {% block site_bg_opacity %}0.05 {% endblock site_bg_opacity %}
@@ -10,9 +10,9 @@
             p=collection.title
         span#typedTitle
 
-    h2 Download artworks
+    h2 {% trans "Download artworks" %}
     br/
-    p.details Click on an image to download it
+    p.details {% trans "Click on an image to download it" %}
 
     .group-cover-arts
         .left
@@ -27,5 +27,5 @@
 
 {% block backtotop %}
 .sep.sep
-p.center: a.underline(href="{% url 'track' title=collection.slug %}") Back to {{collection.title}}
+p.center: a.underline(href="{% url 'track' title=collection.slug %}") {% blocktrans %} Back to {{collection.title}} {% endblocktrans %}
 {% endblock backtotop %}

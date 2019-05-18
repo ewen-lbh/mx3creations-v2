@@ -4,10 +4,10 @@
 .main-content
     h1
       span#typedTitleSource
-        p Something's wrong on my end.
+        p {% trans "Something's wrong on my end." %}
       span#typedTitle
 
-    h2 Internal server error.
+    h2 {% trans "Internal server error." %}
     br/
-    p.details Please contact me at #[a.underline(href="mailto:ewen.lebihan7@gmail.com") ewen.lebihan7@gmail.com] and describe what you were trying to do
+    p.details {% blocktrans %} Please contact me at <a class='underline' href='mailto:ewen.lebihan7@gmail.com'> ewen.lebihan7@gmail.com</a> and describe what you were trying to do {% endblocktrans %}
 {% endblock content %}

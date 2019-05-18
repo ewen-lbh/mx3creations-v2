@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404, reverse
+from django.utils.translation import gettext as _
 from django.utils.timezone import localdate
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from .models import Collection, Track
@@ -70,14 +71,14 @@ def track(request, data):
 def music(request, sort='date'):
     latest = Collection.objects.latest('date')
     collections = Collection.objects.all()
-    page_title = globs.page_title('My music')
+    page_title = globs.page_title(_('My music'))
 
     sort_options = [
         #format: url, pretty, model field
-        ('date', 'Release date',),
-        ('goodness', 'Goodness'),
-        ('kinds', 'Kinds'),
-        ('work-time', 'Work time'),
+        ('date', _('Release date',)),
+        ('goodness', _('Goodness')),
+        ('kinds', _('Kinds')),
+        ('work-time', _('Work time')),
     ]
 
     print(collections)
@@ -111,7 +112,7 @@ def music(request, sort='date'):
 
 def cover_art(request, title):
     collection = get_object_or_404(Collection, slug=title)
-    page_title = globs.page_title('download artworks')
+    page_title = globs.page_title(_("download artworks"))
     return render(request, 'cover_art.pug', locals())
 
 def share(request, what, item):
@@ -143,7 +144,7 @@ def share(request, what, item):
     share_title = f'"{item.title}" by {artist}'
     share_message = f'Listen to {share_title} at <a href="{share_url}">{share_url}</a>'
 
-    page_title = globs.page_title('Share')
+    page_title = globs.page_title(_("Share"))
     return render(request, 'share.pug', locals())
 
 

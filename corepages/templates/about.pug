@@ -1,4 +1,5 @@
 {% extends 'base.pug' %}
+{% load i18n %}
 {% block title %}{{ page_title }}{% endblock title %}
 {% block content %}
 
@@ -10,129 +11,127 @@ style.
 .main-content
   h1
     span#typedTitleSource
-      p About
+      p {% trans "About" %}
     span#typedTitle
 
-    h2 What do I do ?
-    h3 Music.
-    p I create electronic on FL Studio 20. I started when I was 7 years old, punching in melodies & beats using a Nitendo DS game, "Jam with the Band". 
-    p Since the beginning, my music taste is&mdash;to say the least&mdash;strange. It all started with Trentemøller's "Into the great wide yonder": I immediately fell in love with this incredible work on texture and sounds, and I was just 7 years old.
-    p Today, I still listen to intricate music produced by Max Cooper, Rob Clouth, James Holden, Nathan Fake, Aphex Twin and #[a.underline(href="#artists") plenty others].
-    p My influence also comes from more "mainstream" but yet really talented artists, like deadmau5. A complete and always up-to-date list of tracks I love can be found #[a.underline(href="playlist-spotify") on spotify].
-    p I create music with FL Studio, on a self-built computer running Windows 10 and Pop!_OS.
+    h2 {% trans "What do I do ?" %}
+    h3 {% trans "Music." %}
+    p {% trans "I create electronic on FL Studio 20. I started when I was 7 years old, punching in melodies & beats using a Nitendo DS game, \"Jam with the Band\". " %}
+    p {% trans "Since the beginning, my music taste is&mdash;to say the least&mdash;strange. It all started with Trentemøller's \"Into the great wide yonder\": I immediately fell in love with this incredible work on texture and sounds, and I was just 7 years old." %}
+    p {% trans "Today, I still listen to intricate music produced by Max Cooper, Rob Clouth, James Holden, Nathan Fake, Aphex Twin and  <a class='underline' href='#artists'>plenty others</a>." %}
+    p {% trans "My influence also comes from more \"mainstream\" but yet really talented artists, like deadmau5. A complete and always up-to-date list of tracks I love can be found <a class='underline' href='playlist-spotify'>on spotify</a>." %}
+    p {% trans "I create music with FL Studio, on a self-built computer running Windows 10 and Pop!_OS." %}
     p #[span.firacode ->] 
-      a.underline(href="{% url 'music' %}") Listen to my stuff 
+      a.underline(href="{% url 'music' %}") {% trans "Listen to my stuff " %}
 
-    h3 Graphism.
-    p I also love creating logos, banners, posters, interfaces, websites, icons and&mdash;of course&mdash;cover arts. I use the Adobe Suite for that.
+    h3 {% trans "Graphism." %}
+    p {% trans "I also love creating logos, banners, posters, interfaces, websites, icons and&mdash;of course&mdash;cover arts. I use the Adobe Suite for that." %}
     p #[span.firacode ->] 
-      a.underline(href="{% url 'graphism' %}") Look at all my creations 
+      a.underline(href="{% url 'graphism' %}") {% trans "Look at all my creations " %}
     
-    h3 Video.
-    p My brother and myself make some short films sometimes, and I usually take care of the special effects part.
-    p I also love motion design, especially animation in interfaces or logos (I love glitchy stuff, as you can tell by the logo in the footer). Just look at how smooth and polished that set of #[a.underline(href="https://photos.app.goo.gl/vuopauhfcwJjW8nD7") icon transitions] from Google is!
+    h3 {% trans "Video." %}
+    p {% trans "My brother and myself make some short films sometimes, and I usually take care of the special effects part." %}
+    p {% trans "I also love motion design, especially animation in interfaces or logos (I love glitchy stuff, as you can tell by the logo in the footer). Just look at how smooth and polished that set of <a class='underline' href='https://photos.app.goo.gl/vuopauhfcwJjW8nD7'>icon transitions</a> from Google is!" %}
     p #[span.firacode ->] 
-      a.underline(href="{% url 'videos' %}") See everything I made 
+      a.underline(href="{% url 'videos' %}") {% trans "See everything I made" %}
 
-    h3 Coding.
-    p I made that website myself, from the backend, database operations and server logic to the design of the page you're reading.
-    p Coding is the skill I learned the most recently. I use it primarily for automation scripts and website creation. For example, I made a #[a.underline(href="https://github.com/ewen-lbh/mx3-publishr") script to automate music publishing].
-    p #[span.firacode ->] See everything I coded on my 
-      a.underline(href="https://github.com/ewen-lbh") GitHub account
-      |, including the whole source code of my website!
+    h3 {% trans "Coding." %}
+    p {% trans "I made that website myself, from the backend, database operations and server logic to the design of the page you're reading." %}
+    p {% trans "Coding is the skill I learned the most recently. I use it primarily for automation scripts and website creation. For example, I made a <a class='underline' href='https://github.com/ewen-lbh/mx3-publishr'>script to automate music publishing</a>." %}
+    p #[span.firacode ->] {% blocktrans %} See everything I coded on my <a class='underline' href="https://github.com/ewen-lbh">GitHub account</a>, including the whole source code of my website! {% endblocktrans %}
 
-    h2 What do I use ?
+    h2 {% trans "What do I use ?" %}
     .group
       .left
-        h3 Hardware-wise
+        h3 {% trans "Hardware-wise" %}
         dl 
-          dt Processor
+          dt {% trans "Processor" %}
           dd AMD Ryzen 5 1600 
 
-          dt Graphics
+          dt {% trans "Graphics" %}
           dd Radedon RX 560 
 
-          dt RAM
+          dt {% trans "RAM" %}
           dd G.Skill Aegis 2x8Gb 
 
-          dt Motherboard
+          dt {% trans "Motherboard" %}
           dd MSI B350 PC 
 
-          dt Sound card
+          dt {% trans "Sound card" %}
           dd Focusrite Scarlett 2i2 
 
-          dt Speakers
+          dt {% trans "Speakers" %}
           dd Prodipe Pro 5 v3 
 
-          dt MIDI Keyboard
+          dt {% trans "MIDI Keyboard" %}
           dd M-Audio Keystation Mini 32 
 
-          dt Launchpad
+          dt {% trans "Launchpad" %}
           dd Novation Launchpad S
 
-          dt Mouse
+          dt {% trans "Mouse" %}
           dd Corsair Glaive
 
-          dt Keyboard
+          dt {% trans "Keyboard" %}
           dd Corsair K70
 
       .right
-        h3 Software-wise
+        h3 {% trans "Software-wise" %}
         dl
-          dt DAW
+          dt {% trans "DAW" %}
           dd FL Studio 20 
 
-          dt VSTs
+          dt {% trans "VSTs" %}
           dd Serum, Cthulu
 
-          dt IDEs
-          dd Visual Studio Code (web development),#[br] PyCharm CE (python)
+          dt {% trans "IDEs" %}
+          dd Visual Studio Code ({% trans "web development" %}),<br/> PyCharm CE (python)
 
-          dt Vector-based work
+          dt {% trans "Vector-based work" %}
           dd Adobe Illustrator
 
-          dt General image editing
+          dt {% trans "General image editing" %}
           dd Adobe Photoshop
 
-          dt VFX and Motion Design
+          dt {% trans "VFX and Motion Design" %}
           dd Adobe After Effects
 
-          dt Video editing
+          dt {% trans "Video editing" %}
           dd Adobe Premiere Pro
 
-          dt Printed stuff
+          dt {% trans "Printed stuff" %}
           dd Adobe InDesign
 
-          dt UI Prototyping
-          dd Adobe XD (on Windows),#[br] Gravit Designer (on Pop!_OS)
+          dt {% trans "UI Prototyping" %}
+          dd Adobe XD ({% trans "on Windows" %}),<br/> Gravit Designer ({% trans "on Pop!_OS" %})
 
-          dt OS
-          dd Windows 10 (Gaming, Adobe suite, Music creation),#[br] Pop!_OS (Coding, studying)
+          dt {% trans "OS" %}
+          dd Windows 10 ({% trans "Gaming, Adobe suite, Music creation" %}),<br/> Pop!_OS ({% trans "Coding, studying" %})
 
 
-    h3 On this website
-    dt Fonts
+    h3 {% trans "On this website" %}
+    dt {% trans "Fonts" %}
     dd 
       span.robotomono Roboto Mono, 
       span.firacode Fira Code, 
       span.manrope: a.underline(href="https://www.behance.net/gallery/67424063/Manrope-Modern-Geometric-Sans-Serif-font-family") Manrope
 
-    dt Icons, backgrounds, music, logo, general design, music artworks, music videos, translations
-    dd Self-made!
+    dt {% trans "Icons, backgrounds, music, logo, general design, music artworks, music videos, translations" %}
+    dd {% trans "Self-made!" %}
 
-    h2 I want to thank...
-    dt MMTuts & Grafikart
-    dd For their amazing tutorials on web technologies
+    h2 {% trans "I want to thank..." %}
+    dt {% trans "MMTuts & Grafikart" %}
+    dd {% trans "For their amazing tutorials on web technologies" %}
 
-    dt Thomas @ #[a.underline(href="https://www.satellite-multimedia.com/") Satellite Multimédia]
-    dd For getting me into web development, and helping me while I was still figuring out HTML
+    dt {% trans "Thomas @ <a class='underline' href='https://www.satellite-multimedia.com/'> Satellite Multimédia </a>" %}
+    dd {% trans "For getting me into web development, and helping me while I was still figuring out HTML" %}
 
-    dt Quentin Volant
-    dd For all the tips, all the time you wasted to help me kill bugs, and hosting me for free for so long.
+    dt {% trans "Quentin Volant" %}
+    dd {% trans "For all the tips, all the time you wasted to help me kill bugs, and hosting me for free for so long." %}
 
-    h2#artists Artists I like
+    h2#artists {% trans "Artists I like" %}
     br/
-    p.details In no particular order
+    p.details {% trans "In no particular order" %}
     ul
       li Mr Bill
       li Vaetxh

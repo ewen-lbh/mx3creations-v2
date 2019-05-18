@@ -1,31 +1,28 @@
 {% extends 'base.pug' %}
-{% load static %}
+{% load static i18n %}
 {% block title %} {{page_title}} {% endblock title %}
 {% block content %}
 .main-content
-  h1
-    | Hi! I'm 
-    span.fw400 Mx3
-    | , a
+  h1 {% trans "Hi! I'm <span class='fw400'> Mx3</span>, a" %}
     br
     span#typedTitle
     span#typedTitleSource
-      p web developer.
-      p music producer.
-      p graphist.
-      p VFX artist.
-      p motion designer.
+      p {% trans "web developer." %}
+      p {% trans "music producer." %}
+      p {% trans "graphist." %}
+      p {% trans "VFX artist." %}
+      p {% trans "motion designer." %}
   p.intro
-    | I make intricate, complex, melodic and yet minimal music.
+    | {% trans "I make intricate, melodic and yet minimal music." %}
     br/
     br/
-    | I also create everything I need: this website, music videos, cover arts, automation scripts,...
+    | {% trans "I also create everything I need: this website, music videos, cover arts, automation scripts,..." %}
     br/
     br/
     span.firacode -> 
-    a.underline(href='about') Learn more
+    a.underline(href='about') {% trans "Learn more" %}
   .sep
-  h2 Proudest tracks
+  h2 {% trans "Proudest tracks" %}
   .horizontal-grid-overflow.tracks
     .grid
       for track, collection in proudest
@@ -39,8 +36,8 @@
     a(href='music')
       .arrow
   .sep
-  h2 Cherry-picked artworks
-  p.details-h2 Excluding cover arts
+  h2 {% trans "Cherry-picked artworks" %}
+  p.details-h2 {% trans "Excluding cover arts" %}
   .horizontal-grid-overflow.artworks
     .grid(data-root-path="artworks")
       a(href="Illustration_Ink-Bottle.jpg")
@@ -55,11 +52,8 @@
       .arrow
   .sep
 
-  h2 Still want more?
-  p.details-h2
-    | Click on the big 
-    span.fw400 +
-    | !
+  h2 {% trans "Still want more?" %}
+  p.details-h2 {% trans "Click on the big + !" %}
 {% endblock content %}
 
 {% block typedtitles %}

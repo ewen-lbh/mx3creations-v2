@@ -1,10 +1,12 @@
 doctype html
-{% load static %}
+{% load static i18n %}
 head
   include includes/head.pug
   title {% block title %}{%endblock%}
 body
   .site-bg(style="background-image:url('/static/{% block site_bg %}corepages/images/misc/background-fade.png{% endblock %}');opacity:{%block site_bg_opacity %}0.15{% endblock %}")
+  span.lang-switch
+    include includes/langswitch.html
   include includes/menu.pug
 
   {% block content %}
@@ -12,7 +14,7 @@ body
 
   {% block backtotop %}
   .sep.sep
-  p.center: a.underline(href="javascript:$('html, body').animate({scrollTop:0},1000)") Back to top
+  p.center: a.underline(href="javascript:$('html, body').animate({scrollTop:0},1000)") {% trans 'Back to top' %}
   {% endblock backtotop %}
 
   include includes/footer.pug

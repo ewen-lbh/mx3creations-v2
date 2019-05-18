@@ -1,6 +1,6 @@
 {% extends 'base.pug' %}
 {% block title %} {{page_title}} {% endblock title %}
-{% load static %}
+{% load static i18n %}
 {% block content %}
 
 mixin item
@@ -11,16 +11,16 @@ mixin item
 .main-content
   h1
     span#typedTitleSource
-      p My music
+      p {% trans "My music" %}
     span#typedTitle
   
-  h2 The latest: "#{latest.title}" #{latest.get_kind_display}
+  h2 {% blocktrans with title=latest.title kind=latet.get_kind_display %} The latest: "{{title}}" {{kind}} {% endblocktrans %}
   a(href="{% url 'track_latest' %}")
     .cover.fullsize(style="background-image:url('{% static 'music/images/wide/'|add:latest.slug|add:'.jpg' %}');")
   .sep
 
-  h2#tracks Everything
-  p.sortby-header Sort by:
+  h2#tracks {% trans "Everything" %}
+  p.sortby-header {% trans "Sort by:" %}
   ul.links-array.sortby-options.seps
     for option in sort_options
       li
@@ -32,15 +32,15 @@ mixin item
           =option.1
 
   if sort == 'kinds'
-    h3 Albums  
+    h3 {% trans "Albums" %}
     ul.grid
       for collection in collections.AB
         +item
-    h3 EPs        
+    h3 {% trans "EPs" %}
     ul.grid
       for collection in collections.EP
         +item
-    h3 Singles        
+    h3 {% trans "Singles" %}
     ul.grid
       for collection in collections.SG
         +item

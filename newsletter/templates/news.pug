@@ -1,16 +1,17 @@
 {% extends 'base.pug' %}
+{% load i18n %}
 {% block title %} {{page_title}} {% endblock title %}
 {% block content %}
 .main-content
   h1
     span#typedTitleSource
       if subscribed
-        p Thanks for signing up !
+        p {% trans "Thanks for signing up !" %}
       else 
         if already_subscribed
-          p Oops!
+          p {% trans "Oops!" %}
         else
-          p News
+          p {% trans "News" %}
     span#typedTitle
 
   if not subscribed
@@ -19,16 +20,16 @@
     br/
     
     p.details
-      | #{email} is already subscribed.
+      | {% blocktrans %} {{email}} is already subscribed. {% endblocktrans %}
       br/
-      | If you don't receive e-mails, please check your spam folder or 
-      a.underline(href="{% url 'contact' %}") contact me
+      | {% trans "If you don't receive e-mails, please check your spam folder or" %}
+      a.underline(href="{% url 'contact' %}") {% trans "contact me" %}
 
   if not subscribed
     form(action="{% url 'news' %}", method="post").grid-form.form-subscribe-newsletter
       {% csrf_token %}
       !=form
-      input(type="submit", value="Subscribe!")
+      input(type="submit", value='{% trans "Subscribe" %}')
   .sep
 
   ul.news

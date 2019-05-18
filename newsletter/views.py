@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.utils.translation import gettext as _
 import globs
 from .forms import NewsletterSubscribeForm
 from .models import Member
@@ -17,5 +18,5 @@ def news(request):
             already_subscribed = True
             
     members_count = len(Member.objects.all())
-    page_title = globs.page_title('News')
+    page_title = globs.page_title(_("News"))
     return render(request, 'news.pug', locals())
