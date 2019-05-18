@@ -14,7 +14,7 @@ body
 
   {% block backtotop %}
   .sep.sep
-  p.center: a.underline(href="javascript:$('html, body').animate({scrollTop:0},1000)") {% trans 'Back to top' %}
+  p.center: a.underline(onclick="$('html, body').animate({scrollTop:0},1000)") {% trans 'Back to top' %}
   {% endblock backtotop %}
 
   include includes/footer.pug
