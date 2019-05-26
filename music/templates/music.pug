@@ -5,8 +5,9 @@
 
 mixin item
     li.item
-      a(href="{% url 'track' title=collection.slug %}").image(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}');'", alt="#{collection.title} cover art")
-        .image(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
+      a(href="{% url 'track' title=collection.slug %}").image(alt="#{collection.title} cover art")
+        .image(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.png' %}'),
+                                       url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
 
 .main-content
   h1
@@ -16,7 +17,8 @@ mixin item
   
   h2 {% blocktrans with title=latest.title kind=latet.get_kind_display %} The latest: "{{title}}" {{kind}} {% endblocktrans %}
   a(href="{% url 'track_latest' %}")
-    .cover.fullsize(style="background-image:url('{% static 'music/images/wide/'|add:latest.slug|add:'.jpg' %}');")
+    .cover.fullsize(style="background-image:url('{% static 'music/images/wide/'|add:latest.slug|add:'.png' %}'),
+                                            url('{% static 'music/images/wide/'|add:latest.slug|add:'.jpg' %}');")
   .sep
 
   h2#tracks {% trans "Everything" %}

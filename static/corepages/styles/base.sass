@@ -1,5 +1,5 @@
 @import 'utils'
-    
+@import 'vars'
 .site-bg
     position: fixed
     left: 0
@@ -12,6 +12,10 @@
     background-position: center
     opacity: 0.15
     z-index: -1000
+    &.cover-is-dark
+        opacity: 0.15 !important
+    &.cover-is-light
+        opacity: 0.05 !important
 
 $h1-fz: 60px
 @keyframes h1sqr-popup
@@ -33,7 +37,7 @@ $h1-fz: 60px
         transform: rotate(360deg)
 
 .track-progress
-    background: #268cce
+    background: var(--c-pop)
     height: 20px
     opacity: 0.5
     position: fixed
@@ -53,7 +57,7 @@ $h1-fz: 60px
     margin: 0 auto
     padding: 0 40px
     z-index: 1000
-    background: #fff
+    background: var(--c-alt)
     a.popup-close-btn
         position: absolute
         top: -10px
@@ -70,21 +74,23 @@ $h1-fz: 60px
             +position(fixed, 0, 0, 0, 0)
 
 .darkened-bg
-    background: #000
+    background: var(--c-main)
     opacity: 0
     transition: opacity .25s ease
 
 h1
+    color: var(--c-main)
     font-size: $h1-fz
     font-weight: 100
     &::before
         content: ''
         height: (3/4) * $h1-fz
         animation: h1sqr-popup 0.5s ease 0s 1 forwards
-        background: #268cce
+        background: var(--c-pop)
         display: inline-block
 
 h2
+    color: var(--c-main)
     font-size: 40px
     font-weight: 400
     margin-bottom: 10px
@@ -94,11 +100,13 @@ h2
         padding-right: 5px
 
 h3
+    color: var(--c-main)
     margin-top: 40px
     margin-bottom: -20px
     font-size: 25px
 
 p
+    color: var(--c-main)
     font-size: 20px
     font-weight: 300
     &.intro
@@ -164,9 +172,9 @@ $hgrid-cell-count: 5
             span
                 font-size: 20px
                 &.light
-                    color: #fff
+                    color: var(--c-alt)
                 &.dark
-                    color: #000
+                    color: var(--c-main)
                 text-align: center
                 padding-top: $hgrid-cell-size * 0.75 - 10px
                 display: block
@@ -180,7 +188,7 @@ $hgrid-cell-count: 5
         $arrow-size: $hgrid-cell-size / 4
         height: $arrow-size
         width: $arrow-size
-        background: url('../images/icons/right-caret.png') #fff
+        background: url('../images/icons/right-caret.png') var(--c-alt)
         background-size: $arrow-size - $arrow-size/3
         background-position: center
         background-repeat: no-repeat
@@ -276,7 +284,7 @@ ul.music-list
     .central-btn
         font-size: 200px
         z-index: 10
-        color: #fff
+        color: var(--c-alt)
         margin-left: 50%
         margin-top: 25%
         transform: translate(-50%, -50%)
@@ -312,6 +320,7 @@ ol.tracks
         a, span:not(.icon)
             font-weight: 300
             font-size: 20px
+            color: var(--c-main)
 
         span:not(.icon)
             padding-top: 2px
@@ -353,7 +362,7 @@ ul.btn-array
     &.white-icons
         li a
             i, span
-                color: #fff
+                color: var(--c-alt)
     li.facebook
         $fa-color: #3b5998
         background:  $fa-color

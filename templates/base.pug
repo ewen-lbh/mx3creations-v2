@@ -4,7 +4,7 @@ head
   include includes/head.pug
   title {% block title %}{%endblock%}
 body
-  .site-bg(style="background-image:url('/static/{% block site_bg %}corepages/images/misc/background-fade.png{% endblock %}');opacity:{%block site_bg_opacity %}0.15{% endblock %}")
+  .site-bg(style="background-image:url('/static/{% block site_bg %}corepages/images/misc/background-fade.png{% endblock %}'), url('/static/{% block site_bg_lowres %}corepages/images/misc/background-fade.png{% endblock %}');opacity:{%block site_bg_opacity %}0.15{% endblock %}" class="{% block site_bg_classes %}{% endblock site_bg_classes %}")
   span.lang-switch
     include includes/langswitch.html
   include includes/menu.pug

@@ -17,11 +17,13 @@
     .group-cover-arts
         .left
             a(href="{% static 'music/images/square/'|add:collection.slug|add:'.png' %}" download="#{collection.slug}-square-cover-art.png") 
-                .square-img(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
+                .square-img(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.png' %}'),
+                                                    url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
     
         .right
             a(href="{% static 'music/images/wide/'|add:collection.slug|add:'.png' %}" download="#{collection.slug}-wide-cover-art.png") 
-                .wide-img(style="background-image:url('{% static 'music/images/wide/'|add:collection.slug|add:'.jpg' %}')")
+                .wide-img(style="background-image:url('{% static 'music/images/wide/'|add:collection.slug|add:'.png' %}'),
+                                                    url('{% static 'music/images/wide/'|add:collection.slug|add:'.jpg' %}')")
    
 {% endblock content %}
 

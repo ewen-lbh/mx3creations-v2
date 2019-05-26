@@ -1,3 +1,4 @@
+@import 'vars'
 form.grid-form
         display: grid
 
@@ -10,7 +11,7 @@ form.grid-form
             box-shadow: none
             transition: border-color .25 ease
             border:none !important
-            border-bottom:2px solid #000 !important
+            border-bottom:2px solid var(--c-main) !important
             background: transparentize(#268cce, 0.9)
             transition: background .25s ease
             &:hover
@@ -18,7 +19,7 @@ form.grid-form
             font-size: 20px
             padding: 5px 10px
         textarea
-            border-left:2px solid #000 !important
+            border-left:2px solid var(--c-main) !important
         input, select
             height: 50px
         input[type=submit]
@@ -38,8 +39,8 @@ form.grid-form
                 &[type=submit]
                     grid-column: 2
                     border-bottom: none !important
-                    border-left: 2px solid #000 !important
-                    border-top : 2px solid #000 !important
+                    border-left: 2px solid var(--c-main) !important
+                    border-top : 2px solid var(--c-main) !important
                     height: 60px
 
         &.form-contact
@@ -80,12 +81,12 @@ form.grid-form
                     height: 30px
                     width: 30px
                     background: transparent
-                    border: 2px solid #000
+                    border: 2px solid var(--c-main)
                     border-radius: 50%
                     margin-right: 10px
                 &.checked::before
                     border-radius: 0px
-                    background: #000
+                    background: var(--c-main)
 
             .helptext
                 grid-column: 1

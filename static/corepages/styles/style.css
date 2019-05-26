@@ -1,4 +1,10 @@
 @charset "UTF-8";
+body {
+  --c-main: #000;
+  --c-alt: #fff;
+  --c-pop: #268cce;
+  --c-alt-muted: #eee; }
+
 a.underline {
   font-weight: 300;
   border-bottom: 1px solid currentColor;
@@ -62,6 +68,12 @@ ul.seps li:not(:first-child) span.sep::before {
   content: '/ ';
   padding: 0 10px; }
 
+body {
+  --c-main: #000;
+  --c-alt: #fff;
+  --c-pop: #268cce;
+  --c-alt-muted: #eee; }
+
 .site-bg {
   position: fixed;
   left: 0;
@@ -74,6 +86,10 @@ ul.seps li:not(:first-child) span.sep::before {
   background-position: center;
   opacity: 0.15;
   z-index: -1000; }
+  .site-bg.cover-is-dark {
+    opacity: 0.15 !important; }
+  .site-bg.cover-is-light {
+    opacity: 0.05 !important; }
 
 @-webkit-keyframes h1sqr-popup {
   from {
@@ -120,7 +136,7 @@ ul.seps li:not(:first-child) span.sep::before {
     transform: rotate(360deg); } }
 
 .track-progress {
-  background: #268cce;
+  background: var(--c-pop);
   height: 20px;
   opacity: 0.5;
   position: fixed;
@@ -143,7 +159,7 @@ ul.seps li:not(:first-child) span.sep::before {
   margin: 0 auto;
   padding: 0 40px;
   z-index: 1000;
-  background: #fff;
+  background: var(--c-alt);
   -webkit-transition: -webkit-transform 0.25s ease;
   transition: -webkit-transform 0.25s ease;
   -o-transition: transform 0.25s ease;
@@ -173,13 +189,14 @@ ul.seps li:not(:first-child) span.sep::before {
       left: 0; }
 
 .darkened-bg {
-  background: #000;
+  background: var(--c-main);
   opacity: 0;
   -webkit-transition: opacity .25s ease;
   -o-transition: opacity .25s ease;
   transition: opacity .25s ease; }
 
 h1 {
+  color: var(--c-main);
   font-size: 60px;
   font-weight: 100; }
   h1::before {
@@ -187,10 +204,11 @@ h1 {
     height: 45px;
     -webkit-animation: h1sqr-popup 0.5s ease 0s 1 forwards;
     animation: h1sqr-popup 0.5s ease 0s 1 forwards;
-    background: #268cce;
+    background: var(--c-pop);
     display: inline-block; }
 
 h2 {
+  color: var(--c-main);
   font-size: 40px;
   font-weight: 400;
   margin-bottom: 10px; }
@@ -200,11 +218,13 @@ h2 {
     padding-right: 5px; }
 
 h3 {
+  color: var(--c-main);
   margin-top: 40px;
   margin-bottom: -20px;
   font-size: 25px; }
 
 p {
+  color: var(--c-main);
   font-size: 20px;
   font-weight: 300; }
   p.intro {
@@ -266,16 +286,16 @@ span#typedTitleSource p {
       opacity: 0;
       z-index: 10; }
       .horizontal-grid-overflow .grid .cover span.light {
-        color: #fff; }
+        color: var(--c-alt); }
       .horizontal-grid-overflow .grid .cover span.dark {
-        color: #000; }
+        color: var(--c-main); }
     .horizontal-grid-overflow .grid .cover.large {
       width: 400px; }
 
 .horizontal-grid-overflow .arrow {
   height: 50px;
   width: 50px;
-  background: url("../images/icons/right-caret.png") #fff;
+  background: url("../images/icons/right-caret.png") var(--c-alt);
   background-size: 33.33333px;
   background-position: center;
   background-repeat: no-repeat;
@@ -388,7 +408,7 @@ ul.music-list {
 .wide-img .central-btn, .square-img .central-btn {
   font-size: 200px;
   z-index: 10;
-  color: #fff;
+  color: var(--c-alt);
   margin-left: 50%;
   margin-top: 25%;
   -webkit-transform: translate(-50%, -50%);
@@ -427,7 +447,8 @@ ol.tracks {
     margin-bottom: 15px; }
     ol.tracks li a, ol.tracks li span:not(.icon) {
       font-weight: 300;
-      font-size: 20px; }
+      font-size: 20px;
+      color: var(--c-main); }
     ol.tracks li span:not(.icon) {
       padding-top: 2px; }
     ol.tracks li.active a, ol.tracks li.active span {
@@ -465,7 +486,7 @@ ul.btn-array {
       -ms-transform: translateY(-125%);
       transform: translateY(-125%); }
   ul.btn-array.white-icons li a i, ul.btn-array.white-icons li a span {
-    color: #fff; }
+    color: var(--c-alt); }
   ul.btn-array li.facebook {
     background: #3b5998; }
     ul.btn-array li.facebook:hover {
@@ -495,8 +516,14 @@ ul.btn-array {
       margin-top: 10px;
       font-size: 20px; }
 
+body {
+  --c-main: #000;
+  --c-alt: #fff;
+  --c-pop: #268cce;
+  --c-alt-muted: #eee; }
+
 .footer-wrapper {
-  background: #eee;
+  background: var(--c-alt-muted);
   display: table-row;
   height: 200px; }
   .footer-wrapper .footer .leftright {
@@ -581,13 +608,13 @@ ul.btn-array {
   -o-transition: transform 0.25s ease;
   transition: transform 0.25s ease;
   transition: transform 0.25s ease, -webkit-transform 0.25s ease;
-  color: #000;
+  color: var(--c-main);
   mix-blend-mode: difference;
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg); }
   .navbar-switch.switched {
-    color: #fff;
+    color: var(--c-alt);
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg); }
@@ -604,7 +631,7 @@ ul.btn-array {
   height: 100%;
   overflow: hidden;
   width: 375px;
-  background: #000;
+  background: var(--c-main);
   padding-bottom: 0;
   margin-left: 10px;
   -webkit-transition: all 0.125s ease;
@@ -622,7 +649,7 @@ ul.btn-array {
       .navbar-wrapper .navbar li:not(.logo) a, .navbar-wrapper .navbar li:not(.logo) textarea, .navbar-wrapper .navbar li:not(.logo) input {
         font-size: 35px;
         font-weight: 400;
-        color: #fff; }
+        color: var(--c-alt); }
     .navbar-wrapper .navbar li.logo div {
       background: url("../images/misc/logo-dark.png");
       background-repeat: no-repeat;
@@ -639,7 +666,7 @@ ul.btn-array {
       .navbar-wrapper .navbar li form textarea, .navbar-wrapper .navbar li form input {
         display: inline-block;
         background: transparent;
-        color: #fff;
+        color: var(--c-alt);
         border: none;
         font-size: 0.75em;
         width: 710px; }
@@ -647,6 +674,12 @@ ul.btn-array {
         font-family: Fira Code; }
         .navbar-wrapper .navbar li form input[type='submit']:hover {
           cursor: pointer; }
+
+body {
+  --c-main: #000;
+  --c-alt: #fff;
+  --c-pop: #268cce;
+  --c-alt-muted: #eee; }
 
 form.grid-form {
   display: -ms-grid;
@@ -663,7 +696,7 @@ form.grid-form {
     -o-transition: border-color .25 ease;
     transition: border-color .25 ease;
     border: none !important;
-    border-bottom: 2px solid #000 !important;
+    border-bottom: 2px solid var(--c-main) !important;
     background: rgba(38, 140, 206, 0.1);
     -webkit-transition: background .25s ease;
     -o-transition: background .25s ease;
@@ -673,7 +706,7 @@ form.grid-form {
     form.grid-form input:hover, form.grid-form textarea:hover, form.grid-form select:hover {
       background: rgba(38, 140, 206, 0.5); }
   form.grid-form textarea {
-    border-left: 2px solid #000 !important; }
+    border-left: 2px solid var(--c-main) !important; }
   form.grid-form input, form.grid-form select {
     height: 50px; }
   form.grid-form input[type=submit] {
@@ -693,8 +726,8 @@ form.grid-form {
       -ms-grid-column: 2;
       grid-column: 2;
       border-bottom: none !important;
-      border-left: 2px solid #000 !important;
-      border-top: 2px solid #000 !important;
+      border-left: 2px solid var(--c-main) !important;
+      border-top: 2px solid var(--c-main) !important;
       height: 60px; }
   form.grid-form.form-contact {
     display: -ms-grid;
@@ -744,12 +777,12 @@ form.grid-form {
         height: 30px;
         width: 30px;
         background: transparent;
-        border: 2px solid #000;
+        border: 2px solid var(--c-main);
         border-radius: 50%;
         margin-right: 10px; }
       form.grid-form.form-contact label[for=id_bugreport].checked::before {
         border-radius: 0px;
-        background: #000; }
+        background: var(--c-main); }
     form.grid-form.form-contact .helptext {
       -ms-grid-column: 1;
       grid-column: 1;
@@ -771,9 +804,11 @@ form.grid-form {
       background: transparent;
       border-bottom: none !important; }
 
-::root {
-  --c-main: #121212;
-  --c-accent: #268cce; }
+body {
+  --c-main: #000;
+  --c-alt: #fff;
+  --c-pop: #268cce;
+  --c-alt-muted: #eee; }
 
 * {
   font-family: Roboto Mono, monospace; }
@@ -785,7 +820,7 @@ a:not(.nodef) {
   text-decoration: none;
   color: var(--c-main); }
   a:not(.nodef):hover {
-    color: var(--c-accent); }
+    color: var(--c-pop); }
 
 ul:not(.nodef), ol:not(.nodef) {
   list-style: none;
