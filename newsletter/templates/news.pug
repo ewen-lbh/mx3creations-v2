@@ -22,7 +22,7 @@
     p.details
       | {% blocktrans %} {{email}} is already subscribed. {% endblocktrans %}
       br/
-      | {% trans "If you don't receive e-mails, please check your spam folder or" %}
+      | {% trans "If you don't receive e-mails, please check your spam folder or " %}
       a.underline(href="{% url 'contact' %}") {% trans "contact me" %}
 
   if not subscribed

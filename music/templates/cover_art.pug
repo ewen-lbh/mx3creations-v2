@@ -29,5 +29,5 @@
 
 {% block backtotop %}
 .sep.sep
-p.center: a.underline(href="{% url 'track' title=collection.slug %}") {% blocktrans %} Back to {{collection.title}} {% endblocktrans %}
+p.center: a.underline(href="{% url 'track' title=collection.slug %}") {% blocktrans %} Back to {{collection_title}} {% endblocktrans %}
 {% endblock backtotop %}
