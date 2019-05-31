@@ -32,6 +32,14 @@ handler404 = 'corepages.views.handler404'
 handler403 = 'corepages.views.handler403'
 handler500 = 'corepages.views.handler500'
 
+# Rosetta
+from django.conf import settings
+
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += [
+        path('rosetta/', include('rosetta.urls'))
+    ]
+
 #### TODO LIST ####
 # X Contact form CSS
 # X Track numbering
