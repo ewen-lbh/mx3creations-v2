@@ -23,9 +23,9 @@ urlpatterns = [
     path('news/', include('newsletter.urls')),
     path('', include('music.urls')),
     path('', include('corepages.urls')),
-    path('404', urls.handler404, name='404'),
-    path('403', urls.handler403, name='403'),
-    path('500', urls.handler500, name='500'),
+    path('404/', urls.handler404, name='404'),
+    path('403/', urls.handler403, name='403'),
+    path('500/', urls.handler500, name='500'),
 ]
 
 handler404 = 'corepages.views.handler404'
