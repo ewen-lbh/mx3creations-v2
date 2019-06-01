@@ -6,6 +6,7 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from .models import Collection, Track
 import os
 import corepages
+import time
 import globs
 
 # Create your views here.
@@ -59,6 +60,7 @@ def track(request, data):
         # ▶ artist – title
         page_title = f"▶ {data['play_track'].artist} – {data['play_track'].title}"
 
+
     # set artist in page if they're all the same (treated in template)
     # Collection.artist returns False if multiple different artists are in the same collection's tracks
     multiple_artists = not Collection.artist(slug=data['collection'].slug)
@@ -81,9 +83,6 @@ def music(request, sort='date'):
         ('work-time', _('Work time')),
     ]
 
-    print(collections)
-
-
     def goodness_sort(collection):
         goodness = Collection.goodness(slug=collection.slug)
         print(goodness, collection.slug)
@@ -91,12 +90,8 @@ def music(request, sort='date'):
 
     if sort == 'goodness':
         collections = sorted(collections, reverse=True, key=goodness_sort)
-        
-        print(collections)
-
     elif sort == 'date':
         collections = collections.order_by('-date')
-        print(collections)
     elif sort == 'kinds':
         collections = {
             'EP': collections.filter(kind='EP').order_by('-date'),
