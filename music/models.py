@@ -45,7 +45,12 @@ class Track(models.Model):
 
     def duration(self):
         from mutagen.mp3 import MP3
-        audio = MP3(staticfiles_storage.path(f'static/music/audio/{self.collection.slug}/{self.slug}.mp3'))
+        from mutagen import MutagenError
+        try:
+            audio = MP3(staticfiles_storage.path(f'static/music/audio/{self.collection.slug}/{self.slug}.mp3'))
+        # If the file does not exist
+        except MutagenError:
+            return datetime.timedelta(seconds=0)
         duration = round(audio.info.length)
         return datetime.timedelta(seconds=duration)
 
