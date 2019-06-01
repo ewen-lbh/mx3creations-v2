@@ -13,6 +13,7 @@ mixin track-list-item
             =track.artist
             |  &ndash; 
         =track.title
+        span(id="{{track.slug}}-duration")
     a(
         href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:track.slug|add:'.mp3' %}" download="{{track.artist}} - {{track.title}}.mp3"
         title='{% trans "Download this track" %}'
@@ -201,8 +202,32 @@ if play_track
                 closeSharePopup()
         })
         
+        //set track durations
+        var ctx = new webkitAudioContext();
+        function getMusicLength(url) {
+            var req = new XMLHttpRequest();
+            req.open('GET', url, true);
+            req.responseType = 'arraybuffer';
+            
+            req.onload = function() {
+            
+                ctx.decodeAudioData(req.response, function(buffer) {
+                console.log(buffer);
+                console.log(buffer.duration); // 116
+                })
+            };
+            
+            req.send();
+        }
 
-    
+        document.querySelectorAll('span[id$=-duration]').forEach(e => {
+            trackname = e.id.replace('-duration','')
+            fullpath = `/static/music/audios/`+'{{collection.slug}}'+`/${trackname}.mp3`
+            duration = getMusicLength(fullpath)
+            e.innerText = duration + ' secs'
+        })
+
+
 
         
 {% endblock content %}
