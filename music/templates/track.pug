@@ -8,12 +8,12 @@
 {% block content %}
 
 mixin track-list-item
-    span
+    span.title
         if track.artist != 'Mx3'
             =track.artist
             |  &ndash; 
         =track.title
-        span(id="{{track.slug}}-duration")
+
     a(
         href="{% static 'music/audio/'|add:collection.slug|add:'/'|add:track.slug|add:'.mp3' %}" download="{{track.artist}} - {{track.title}}.mp3"
         title='{% trans "Download this track" %}'
@@ -24,6 +24,9 @@ mixin track-list-item
         title='{% trans "Share this track" %}'
     )
         span.icon.small.share.onhover
+
+    span.duration
+        =track.duration_display
 
 if play_track
     .track-progress
@@ -64,7 +67,9 @@ if play_track
     p.details
         if tracks_count >= 2
             =tracks_count
-            |  tracks &mdash; 
+            |  tracks &mdash;
+        =collection.duration_display
+        |  &mdash; 
         =collection.get_kind_display
         |  &mdash; 
         =collection.date|date:'SHORT_DATE_FORMAT'
@@ -219,13 +224,6 @@ if play_track
             
             req.send();
         }
-
-        document.querySelectorAll('span[id$=-duration]').forEach(e => {
-            trackname = e.id.replace('-duration','')
-            fullpath = `/static/music/audios/`+'{{collection.slug}}'+`/${trackname}.mp3`
-            duration = getMusicLength(fullpath)
-            e.innerText = duration + ' secs'
-        })
 
 
 

@@ -442,8 +442,8 @@ ol.tracks {
   ol.tracks li {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 32px 1fr 32px 32px;
-    grid-template-columns: 32px 1fr 32px 32px;
+    -ms-grid-columns: 32px 4fr 32px 32px 1fr;
+    grid-template-columns: 32px 4fr 32px 32px 1fr;
     margin-bottom: 15px; }
     ol.tracks li a, ol.tracks li span:not(.icon) {
       font-weight: 300;

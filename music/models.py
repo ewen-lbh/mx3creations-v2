@@ -3,6 +3,14 @@ from django.shortcuts import reverse
 from django.utils import timezone
 from django.utils.text import slugify
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.staticfiles.storage import staticfiles_storage
+import datetime
+
+def get_duration_display(timedelta):
+    h, m, s = str(timedelta).split(':')
+    hours = '{:02}:'.format(int(h)) if int(h) else ''
+    rest = '{:02}:{:02}'.format(int(m), int(s))
+    return f"{hours}{rest}"
 
 # Create your models here.
 class Track(models.Model):
@@ -36,10 +44,13 @@ class Track(models.Model):
         return reverse("track_detail", kwargs={"pk": self.pk})
 
     def duration(self):
-        # duration = get_duration(audio_filename(title=self.title, collection=self.collection.title))
-        # if not Track.objects.get(pk=self.pk).duration:
-        #     self.duration = duration
-        return 
+        from mutagen.mp3 import MP3
+        audio = MP3(staticfiles_storage.path(f'static/music/audio/{self.collection.slug}/{self.slug}.mp3'))
+        duration = round(audio.info.length)
+        return datetime.timedelta(seconds=duration)
+
+    def duration_display(self):
+        return get_duration_display(self.duration())
 
 class Collection(models.Model):
 
@@ -79,8 +90,14 @@ class Collection(models.Model):
         return self.title
 
     def duration(self):
-        return
-        #return sum("<<<<<ici je veux avoir la somme des fields duration de chaque Track lié à cette Collection>>>>>")
+        duration = sum([
+            e.duration().seconds for e in Track.objects.filter(collection__slug=self.slug)
+        ])
+        return datetime.timedelta(seconds=duration)
+
+    def duration_display(self):
+        return get_duration_display(self.duration())
+
 
     def random():
         # NOTICE: This might be the cause of slow DB operations
