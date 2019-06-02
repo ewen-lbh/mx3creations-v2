@@ -519,6 +519,45 @@ ul.btn-array {
       margin-top: 10px;
       font-size: 20px; }
 
+ul.results h3 {
+  margin-bottom: 5px; }
+
+ul.results ul.search-results-collections {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (250px)[4];
+  grid-template-columns: repeat(4, 250px);
+  grid-gap: 15px; }
+  ul.results ul.search-results-collections li a .cover {
+    height: 250px;
+    background-position: center;
+    background-size: contain; }
+
+ul.results ul.search-results-tracks li {
+  background: #fff;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 1fr;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 10px;
+  height: 100px;
+  margin-bottom: 20px; }
+  ul.results ul.search-results-tracks li .infos {
+    z-index: 10;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    display: -ms-grid;
+    display: grid; }
+    ul.results ul.search-results-tracks li .infos .title {
+      font-weight: 200;
+      font-size: 1.5em; }
+    ul.results ul.search-results-tracks li .infos .artist, ul.results ul.search-results-tracks li .infos .collection {
+      font-weight: 400; }
+  ul.results ul.search-results-tracks li .artwork {
+    height: 100px;
+    width: 100px;
+    background-size: contain; }
+
 body {
   --c-main: #000;
   --c-alt: #fff;

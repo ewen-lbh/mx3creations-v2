@@ -28,13 +28,24 @@
         for collection in collections
           li
             a(href="{% url 'track' title=collection.slug %}")
-              .cover(style="background-image:url('{% static 'music/images/square/' %}')")
+              .cover(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
       h3 {% trans "Tracks" %}
       ul.search-results-tracks
         for track in tracks
           li
             a(href="{% url 'track' title=track.collection.slug play=track.slug %}")
-
+              .artwork(style="background-image:url('{% static 'music/images/square/'|add:track.collection.slug|add:'.jpg' %}')")
+            .infos
+              .title
+                a(href="{% url 'track' title=track.collection.slug play=track.slug %}")
+                  =track.title
+              .artist
+                | by #{track.artist}
+              if track.title != track.collection.title
+                .collection
+                  | from 
+                  a(href="{% url 'track' title=track.collection.slug %}")
+                    =track.collection
 
   if not search_query or not results_count
     p {% trans "That's sad. Wanna try  <a class='underline' href='/listen/random'>something exciting</a>?" %}
