@@ -13,5 +13,6 @@ urlpatterns = [
     path('stats/', stats, name='stats'),
     path('statistics/', stats, name='stats'),
     path('videos/', videos, name='videos'),
+    path('brand-resources/', brand_resources, name='brand_resources'),
     path('', home, name='home'),
 ]

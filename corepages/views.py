@@ -185,3 +185,9 @@ def legal(request):
 
     page_title = 'Legal'
     return render(request, 'legal.pug', {'page_title':globs.page_title(page_title)})
+
+def brand_resources(request):
+
+    
+    page_title = globs.page_title(_("Brand resources"))
+    return render(request, 'brand_resources.pug', locals())

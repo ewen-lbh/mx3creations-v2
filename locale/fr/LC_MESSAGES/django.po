@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-02 16:07+0000\n"
-"PO-Revision-Date: 2019-06-02 16:07+0000\n"
+"POT-Creation-Date: 2019-06-02 16:40+0000\n"
+"PO-Revision-Date: 2019-06-02 16:41+0000\n"
 "Last-Translator: b'  <ewen.lebihan7@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -393,6 +393,11 @@ msgstr "Artistes que j'aime bien"
 msgid "In no particular order"
 msgstr "Dans aucun ordre particulier "
 
+#: corepages/templates/brand_resources.pug:8 corepages/views.py:192
+#: templates/includes/footer.pug:37
+msgid "Brand resources"
+msgstr "Ressources de branding"
+
 #: corepages/templates/contact.pug:9
 msgid "Your message was sent"
 msgstr "Votre message a été envoyé"
@@ -602,8 +607,6 @@ msgid "Members"
 msgstr "Membres"
 
 #: corepages/views.py:163
-#, fuzzy
-#| msgid "Coding."
 msgid "Coding"
 msgstr "Programmation."
 
@@ -611,7 +614,7 @@ msgstr "Programmation."
 msgid "Projects on GitHub"
 msgstr "Projets sur GitHub"
 
-#: music/templates/cover_art.pug:13
+#: music/templates/cover_art.pug:13 music/views.py:108
 msgid "Download artworks"
 msgstr "Télécharger les pochettes"
 
@@ -720,10 +723,6 @@ msgstr "Types"
 msgid "Work time"
 msgstr "Temps de travail"
 
-#: music/views.py:108
-msgid "download artworks"
-msgstr "télécharger les pochettes"
-
 #: newsletter/templates/news.pug:9
 msgid "Thanks for signing up !"
 msgstr "Merci pour l'inscription !"
@@ -778,7 +777,7 @@ msgstr "Accueil"
 msgid "Legal notice"
 msgstr "Informations légales"
 
-#: templates/includes/footer.pug:40
+#: templates/includes/footer.pug:42
 msgid ""
 "Made with <span class='red halfbig'><i class='zmdi zmdi-"
 "favorite'></i></span> by Ewen Le Bihan"
@@ -786,7 +785,7 @@ msgstr ""
 "Fait avec <span class='red halfbig'><i class='zmdi zmdi-"
 "favorite'></i></span> par Ewen Le Bihan"
 
-#: templates/includes/footer.pug:42
+#: templates/includes/footer.pug:44
 msgid ""
 "All works under the <a class='underline' "
 "href='http://creativecommons.org/licenses/by-sa/4.0'> CC BY-SA</a> license"
@@ -801,6 +800,12 @@ msgstr "Rechercher..."
 #: templates/includes/menu.pug:21
 msgid "GO"
 msgstr "GO"
+
+#~ msgid "%s's artworks"
+#~ msgstr "Pochettes de %s"
+
+#~ msgid "download artworks"
+#~ msgstr "télécharger les pochettes"
 
 #~ msgid "Stats"
 #~ msgstr "Stats"
