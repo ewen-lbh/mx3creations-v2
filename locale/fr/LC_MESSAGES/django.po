@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 19:46+0000\n"
-"PO-Revision-Date: 2019-05-31 19:51+0000\n"
+"POT-Creation-Date: 2019-06-02 08:04+0000\n"
+"PO-Revision-Date: 2019-06-02 08:04+0000\n"
 "Last-Translator: b'  <ewen.lebihan7@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -85,9 +85,6 @@ msgstr ""
 "&quot;Jam with the Band&quot;"
 
 #: corepages/templates/about.pug:20
-#| msgid ""
-#| "Since the beginning, my music taste is&mdash;to say the least&mdash;strange."
-#| " It all started with Trentemøller's \\"
 msgid ""
 "Since the beginning, my music taste is&mdash;to say the least&mdash;strange."
 " It all started with Trentemøller's &quot;Into the great wide yonder&quot;: "
@@ -529,11 +526,14 @@ msgid "Tracks"
 msgstr "Morceaux"
 
 #: corepages/templates/search.pug:40
+#| msgid ""
+#| "That's sad. Wanna try  <a class='underline' href='listen/random'>something "
+#| "exciting</a>?"
 msgid ""
-"That's sad. Wanna try  <a class='underline' href='listen/random'>something "
+"That's sad. Wanna try  <a class='underline' href='/listen/random'>something "
 "exciting</a>?"
 msgstr ""
-"C'est triste. Essayer <a class='underline' href='listen/random'>quelque "
+"C'est triste. Essayer <a class='underline' href='/listen/random'>quelque "
 "chose de surprenant</a> ?"
 
 #: corepages/templates/stats.pug:8 templates/includes/footer.pug:35
@@ -575,7 +575,7 @@ msgstr "Cliquez sur une image pour la télécharger"
 msgid " Back to %(collection_title)s "
 msgstr "Retour à %(collection_title)s"
 
-#: music/templates/music.pug:15 music/views.py:74
+#: music/templates/music.pug:15 music/views.py:76
 msgid "My music"
 msgstr "Ma musique"
 
@@ -600,86 +600,86 @@ msgstr "EPs"
 msgid "Singles"
 msgstr "Singles"
 
-#: music/templates/track.pug:18
+#: music/templates/track.pug:19
 msgid "Download this track"
 msgstr "Télécharger ce morceau "
 
-#: music/templates/track.pug:23
+#: music/templates/track.pug:24
 msgid "Share this track"
 msgstr "Partager ce morceau"
 
-#: music/templates/track.pug:31
+#: music/templates/track.pug:35
 msgid "Share "
 msgstr "Partager"
 
-#: music/templates/track.pug:37
+#: music/templates/track.pug:41
 msgid "Share on Facebook"
 msgstr "Partager sur Facebook"
 
 #. Translators: tweet verb
-#: music/templates/track.pug:42
+#: music/templates/track.pug:46
 msgid "Tweet"
 msgstr "Tweeter"
 
-#: music/templates/track.pug:46
+#: music/templates/track.pug:50
 msgid "Submit to Reddit"
 msgstr "Envoyer sur Reddit"
 
-#: music/templates/track.pug:50
+#: music/templates/track.pug:54
 msgid "Send email"
 msgstr "Envoyer par mail"
 
-#: music/templates/track.pug:70
+#: music/templates/track.pug:76
 #, python-format
 msgid " %(date)s ago "
 msgstr "il y a %(date)s"
 
-#: music/templates/track.pug:107
+#: music/templates/track.pug:113
 msgid "Download"
 msgstr "Télécharger"
 
-#: music/templates/track.pug:112 music/templates/track.pug:185
-#: music/views.py:148
+#: music/templates/track.pug:118 music/templates/track.pug:192
+#: music/views.py:143
 msgid "Share"
 msgstr "Partager"
 
-#: music/templates/track.pug:117
+#: music/templates/track.pug:123
 msgid "Download artwork"
 msgstr "Télécharger la pochette"
 
-#: music/templates/track.pug:123
+#: music/templates/track.pug:129
 msgid "See the music videos"
 msgstr "Voir les vidéos"
 
-#: music/templates/track.pug:173
+#: music/templates/track.pug:180
 msgid "by"
 msgstr "par"
 
-#: music/templates/track.pug:182 music/templates/track.pug:183
+#: music/templates/track.pug:189 music/templates/track.pug:190
 msgid "Listen to"
 msgstr "Écoutez "
 
-#: music/templates/track.pug:183
+#: music/templates/track.pug:190
 msgid "at"
 msgstr "à"
 
-#: music/views.py:78
+#: music/views.py:80
 msgid "Release date"
 msgstr "Date de sortie"
 
-#: music/views.py:79
+#: music/views.py:81
 msgid "Goodness"
 msgstr "Meilleurs"
 
-#: music/views.py:80
+#: music/views.py:82
 msgid "Kinds"
 msgstr "Types"
 
-#: music/views.py:81
+#: music/views.py:83
 msgid "Work time"
 msgstr "Temps de travail"
 
-#: music/views.py:115
+#: music/views.py:110
 msgid "download artworks"
 msgstr "télécharger les pochettes"
 
