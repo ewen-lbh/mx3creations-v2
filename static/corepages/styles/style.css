@@ -46,6 +46,9 @@ div.sep {
 .small {
   font-size: 0.5em; }
 
+.halfsmall {
+  font-size: 0.75em; }
+
 .center {
   text-align: center; }
 
@@ -956,6 +959,9 @@ div.sep {
 
 .small {
   font-size: 0.5em; }
+
+.halfsmall {
+  font-size: 0.75em; }
 
 .center {
   text-align: center; }
