@@ -444,6 +444,7 @@ ol.tracks {
     display: grid;
     -ms-grid-columns: 32px 4fr 32px 32px 1fr;
     grid-template-columns: 32px 4fr 32px 32px 1fr;
+    grid-gap: 10px;
     margin-bottom: 15px; }
     ol.tracks li a, ol.tracks li span:not(.icon) {
       font-weight: 300;
@@ -461,6 +462,8 @@ ol.tracks {
     ol.tracks li:hover .icon {
       cursor: pointer;
       opacity: 1; }
+    ol.tracks li .duration {
+      opacity: 0.5; }
 
 ul.links-array li {
   display: inline-block; }
