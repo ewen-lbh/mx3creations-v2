@@ -35,7 +35,7 @@ body
         /**
         * Smooth scrolling to page anchor on click
         **/
-        $("a[href*='#']:not([href='#'])").click(function() {
+        $("a[href*='#']:not([href='#'])").click(() => {
             if (
                 location.hostname == this.hostname
                 && this.pathname.replace(/^\//,"") == location.pathname.replace(/^\//,"")
@@ -47,5 +47,14 @@ body
                 }
             }
         });
+        /**
+        * Auto target _blank on external links
+        **/
+        document.querySelectorAll("a[href^=http]").forEach(link => {
+          // we can bypass this by adding the class "no-new-tab" to an external link
+          if (!link.classList.contains('no-new-tab')) {
+            link.setAttribute('target','_blank')
+          }
+        })
     });
   {% endblock smoothscroll %}
