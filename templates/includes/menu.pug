@@ -46,6 +46,16 @@ script.
     $('.navbar-switch').toggleClass('switched')
   }
 
+  function openNav() {
+    $('.navbar-wrapper').removeClass('hidden')
+    $('.navbar-switch').addClass('switched')
+  }
+
+  function closeNav() {
+    $('.navbar-wrapper').addClass('hidden')
+    $('.navbar-switch').removeClass('switched')
+  }
+
 // close menu on ESC key press (if it's opened)
 script.
   $(document).keyup(e => {

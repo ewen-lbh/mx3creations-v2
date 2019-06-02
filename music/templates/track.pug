@@ -172,6 +172,7 @@ if play_track
         }
 
         function openSharePopup(what, title, artist="Mx3", slug=null) {
+            closeNav()
             popup = document.querySelector('.popup.share')
             if (what == 'collection') {
                 title = `"{{collection.title}}" {{collection.get_kind_display}}`
