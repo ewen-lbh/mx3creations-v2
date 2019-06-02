@@ -64,6 +64,12 @@ div.sep {
 .red {
   color: #f00; }
 
+.faded {
+  opacity: 0.5; }
+
+.italic {
+  font-style: italic; }
+
 ul.seps li:not(:first-child) span.sep::before {
   content: '/ ';
   padding: 0 10px; }
@@ -966,6 +972,12 @@ div.sep {
 
 .red {
   color: #f00; }
+
+.faded {
+  opacity: 0.5; }
+
+.italic {
+  font-style: italic; }
 
 ul.seps li:not(:first-child) span.sep::before {
   content: '/ ';
