@@ -103,7 +103,6 @@ class Collection(models.Model):
     def duration_display(self):
         return get_duration_display(self.duration())
 
-
     def random():
         # NOTICE: This might be the cause of slow DB operations
         collection = Collection.objects.order_by('?').first()
@@ -149,3 +148,4 @@ class Collection(models.Model):
     #### TODO : ####
     # - work_time / duration ratio
     # - work_time / goodness ratio
+    # - reorganize infos for track view (too messy atm)
