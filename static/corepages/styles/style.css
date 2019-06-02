@@ -573,6 +573,19 @@ ul.fav-artists {
       margin: auto 0;
       margin-left: 20px; }
 
+ul.stats {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr; }
+  ul.stats li .number {
+    text-align: center;
+    font-size: 5em;
+    font-weight: 200; }
+  ul.stats li .desc {
+    text-align: center;
+    font-size: 20px; }
+
 body {
   --c-main: #000;
   --c-alt: #fff;

@@ -9,7 +9,9 @@ urlpatterns = [
     path('graphism/', graphism, name='graphism'),
     path('search/', search, name='search'),
     path('legal/', legal, name='legal'),
+    # TODO: make /stats/ redirect to /statistics/
     path('stats/', stats, name='stats'),
+    path('statistics/', stats, name='stats'),
     path('videos/', videos, name='videos'),
     path('', home, name='home'),
 ]

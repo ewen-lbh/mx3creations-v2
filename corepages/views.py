@@ -4,10 +4,13 @@ from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.utils.translation import gettext as _
 from django.core.mail import send_mail
 from music.models import Track, Collection
+from newsletter.models import Member, Article
 from music.views import Listen
 import globs
+import os
 import re
 from .forms import ContactForm
+from mx3creations.settings import STATIC_ROOT, STATIC_URL
 # Create your views here.
 def home(request):
 
@@ -95,8 +98,79 @@ def handler500(request, *args, **kwargs):
     return response
 
 def stats(request):
+    music_hours=round(sum([e.duration().seconds for e in Collection.objects.all()]) / 3600, 2)
+    music_count=len(Track.objects.all())
+    music_albums = len(Collection.objects.filter(kind='AB'))
+    music_eps = len(Collection.objects.filter(kind='EP'))
+    music_singles = len(Collection.objects.filter(kind='SG'))
+    music_remixes = len(Track.objects.filter(is_remix=True))
+    # If the video_url field is not empty nor null
+    music_videos = len(Track.objects.exclude(video_url__isnull=True).exclude(video_url__exact=''))
+    # NOTICE: If we have more or less than 2 cover arts for each collection, this will break
+    graphism_covers = len(Collection.objects.all()) * 2
+    newsletter_members = len(Member.objects.all())
+    coding_repos = 14
 
-    page_title = globs.page_title(_("Stats"))
+    stats = [
+        {
+            'name':_("Music"),
+            'stats': [
+                {
+                    'value': music_count,
+                    'desc': _("Tracks")
+                },
+                {
+                    'value': music_hours,
+                    'desc': _("Hours of music")
+                },
+                {
+                    'value': music_videos,
+                    'desc': _("Music videos")
+                },
+                {
+                    'value': music_remixes,
+                    'desc': _("Remixes")
+                },
+                {
+                    'value': music_albums + music_eps,
+                    'desc': _("Albums & EPs")
+                },
+                {
+                    'value': music_singles,
+                    'desc': _("Singles")
+                },
+            ]
+        },
+        {
+            'name': _("Graphism"),
+            'stats': [
+                {
+                    'value': graphism_covers,
+                    'desc': _("Cover arts")
+                }
+            ]
+        },
+        {
+            'name': _("Newsletter"),
+            'stats': [
+                {
+                    'value': newsletter_members,
+                    'desc': _("Members")
+                }
+            ]
+        },
+        {
+            'name': _("Coding"),
+            'stats': [
+                {
+                    'value': coding_repos,
+                    'desc': _("Projects on GitHub")
+                }
+            ]
+        }
+    ]
+
+    page_title = globs.page_title(_("Statistics"))
     return render(request, 'stats.pug', locals())
 
 def videos(request):
