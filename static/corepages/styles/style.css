@@ -558,6 +558,21 @@ ul.results ul.search-results-tracks li {
     width: 100px;
     background-size: contain; }
 
+ul.fav-artists {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px; }
+  ul.fav-artists li {
+    margin-bottom: 20px;
+    height: 100px; }
+    ul.fav-artists li .name {
+      font-size: 2em;
+      font-weight: 200;
+      margin: auto 0;
+      margin-left: 20px; }
+
 body {
   --c-main: #000;
   --c-alt: #fff;
