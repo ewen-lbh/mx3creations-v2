@@ -1,4 +1,5 @@
 {% load i18n %}
+{% get_current_language as lang %}
 
 .sep
 .footer-wrapper
@@ -6,35 +7,27 @@
         .leftright
             .left
                 h3 {% trans "Follow me" %}
-                p.fw300 {% trans "Twitter, Instagram and Facebook are in French" %}
+                if lang != 'fr'
+                    p.fw300 {% trans "Twitter, Instagram and Facebook are in French" %}
                 ul
-                    li #[a.underline.no-new-tab(href="https://twitter.com/mx3_fr") Twitter]
-                    li #[a.underline.no-new-tab(href="https://facebook.com/mx3fr") Facebook]
-                    li #[a.underline.no-new-tab(href="https://instagram.com/mx3_fr") Instagram]
-                    li #[a.underline.no-new-tab(href="https://youtube.com/c/mx3_music") YouTube]
-                    li #[a.underline.no-new-tab(href="https://github.com/ewen-lbh") GitHub]
-                    li #[a.underline.no-new-tab(href="https://reddit.com/u/Chroneis") Reddit]
+                    li: a.underline.no-new-tab(href="https://twitter.com/mx3_fr") Twitter
+                    li: a.underline.no-new-tab(href="https://facebook.com/mx3fr") Facebook
+                    li: a.underline.no-new-tab(href="https://instagram.com/mx3_fr") Instagram
+                    li: a.underline.no-new-tab(href="https://youtube.com/c/mx3_music") YouTube
+                    li: a.underline.no-new-tab(href="https://github.com/ewen-lbh") GitHub
+                    li: a.underline.no-new-tab(href="https://reddit.com/u/Chroneis") Reddit
             .right
                 h3 {% trans "More pages" %}
                 ul
-                    li
-                        a.underline(href="{% url 'home' %}") {% trans "Home" %}
-                    li
-                        a.underline(href="{% url 'music' %}") {% trans "Music" %}
-                    li
-                        a.underline(href="{% url 'graphism' %}") {% trans "Graphism" %}
-                    li
-                        a.underline(href="{% url 'about' %}") {% trans "About" %}
-                    li
-                        a.underline(href="{% url 'news' %}") {% trans "News" %}
-                    li
-                        a.underline(href="{% url 'contact' %}") {% trans "Contact" %}
-                    li
-                        a.underline(href="{% url 'stats' %}") {% trans "Statistics" %}
-                    li
-                        a.underline(href="{% url 'legal' %}") {% trans "Legal notice" %}
-                    li
-                        a.underline(href="{% url 'brand_resources' %}") {% trans "Brand resources" %}
+                    li: a.underline(href="{% url 'home' %}") {% trans "Home" %}
+                    li: a.underline(href="{% url 'music' %}") {% trans "Music" %}
+                    li: a.underline(href="{% url 'graphism' %}") {% trans "Graphism" %}
+                    li: a.underline(href="{% url 'about' %}") {% trans "About" %}
+                    li: a.underline(href="{% url 'news' %}") {% trans "News" %}
+                    li: a.underline(href="{% url 'contact' %}") {% trans "Contact" %}
+                    li: a.underline(href="{% url 'stats' %}") {% trans "Statistics" %}
+                    li: a.underline(href="{% url 'legal' %}") {% trans "Legal notice" %}
+                    li: a.underline(href="{% url 'brand_resources' %}") {% trans "Brand resources" %}
 
         .below
             .logo
