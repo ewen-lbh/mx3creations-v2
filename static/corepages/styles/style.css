@@ -572,8 +572,10 @@ ul.fav-artists {
   grid-gap: 20px; }
   ul.fav-artists li {
     margin-bottom: 20px;
-    height: 100px; }
+    height: 100px;
+    text-align: center; }
     ul.fav-artists li .name {
+      text-align: center;
       font-size: 2em;
       font-weight: 200;
       margin: auto 0;
