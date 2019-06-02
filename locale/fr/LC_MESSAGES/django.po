@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-02 08:04+0000\n"
-"PO-Revision-Date: 2019-06-02 08:04+0000\n"
+"POT-Creation-Date: 2019-06-02 13:17+0000\n"
+"PO-Revision-Date: 2019-06-02 13:19+0000\n"
 "Last-Translator: b'  <ewen.lebihan7@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -525,10 +525,15 @@ msgstr "Albums"
 msgid "Tracks"
 msgstr "Morceaux"
 
-#: corepages/templates/search.pug:40
-#| msgid ""
-#| "That's sad. Wanna try  <a class='underline' href='listen/random'>something "
-#| "exciting</a>?"
+#: corepages/templates/search.pug:43 music/templates/track.pug:180
+msgid "by"
+msgstr "par"
+
+#: corepages/templates/search.pug:46
+msgid "from"
+msgstr "de"
+
+#: corepages/templates/search.pug:51
 msgid ""
 "That's sad. Wanna try  <a class='underline' href='/listen/random'>something "
 "exciting</a>?"
@@ -575,7 +580,7 @@ msgstr "Cliquez sur une image pour la télécharger"
 msgid " Back to %(collection_title)s "
 msgstr "Retour à %(collection_title)s"
 
-#: music/templates/music.pug:15 music/views.py:76
+#: music/templates/music.pug:15 music/views.py:74
 msgid "My music"
 msgstr "Ma musique"
 
@@ -639,7 +644,7 @@ msgid "Download"
 msgstr "Télécharger"
 
 #: music/templates/track.pug:118 music/templates/track.pug:192
-#: music/views.py:143
+#: music/views.py:141
 msgid "Share"
 msgstr "Partager"
 
@@ -651,10 +656,6 @@ msgstr "Télécharger la pochette"
 msgid "See the music videos"
 msgstr "Voir les vidéos"
 
-#: music/templates/track.pug:180
-msgid "by"
-msgstr "par"
-
 #: music/templates/track.pug:189 music/templates/track.pug:190
 msgid "Listen to"
 msgstr "Écoutez "
@@ -663,23 +664,23 @@ msgstr "Écoutez "
 msgid "at"
 msgstr "à"
 
-#: music/views.py:80
+#: music/views.py:78
 msgid "Release date"
 msgstr "Date de sortie"
 
-#: music/views.py:81
+#: music/views.py:79
 msgid "Goodness"
 msgstr "Meilleurs"
 
-#: music/views.py:82
+#: music/views.py:80
 msgid "Kinds"
 msgstr "Types"
 
-#: music/views.py:83
+#: music/views.py:81
 msgid "Work time"
 msgstr "Temps de travail"
 
-#: music/views.py:110
+#: music/views.py:108
 msgid "download artworks"
 msgstr "télécharger les pochettes"
 

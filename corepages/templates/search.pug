@@ -40,11 +40,11 @@
                 a(href="{% url 'track' title=track.collection.slug play=track.slug %}")
                   =track.title
               .artist
-                | by #{track.artist}
+                | {% trans "by" %} #{track.artist}
               if track.title != track.collection.title
                 .collection
-                  | from 
-                  a(href="{% url 'track' title=track.collection.slug %}")
+                  | {% trans "from" %} 
+                  a.underline(href="{% url 'track' title=track.collection.slug %}")
                     =track.collection
 
   if not search_query or not results_count
