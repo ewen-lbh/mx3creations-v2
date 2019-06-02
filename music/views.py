@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, reverse
 from django.utils.translation import gettext as _
 from django.utils.timezone import localdate
@@ -14,13 +14,11 @@ class Listen:
     # --- DIFFERENT METHODS TO GET COLLECTION & (TRACK)
     def latest(request):
         collection = Collection.objects.latest('date')
-        tracks = Collection.tracks(pk=collection.pk).order_by('track_number')
-        return track(request, locals())
+        return HttpResponseRedirect(reverse('track', kwargs={'title':collection.slug}))
     
     def random(request):
         collection = Collection.random()
-        tracks = Collection.tracks(pk=collection.pk).order_by('track_number')
-        return track(request, locals())
+        return HttpResponseRedirect(reverse('track', kwargs={'title':collection.slug}))
 
     def by_id(request, pk, play=None):
         collection = get_object_or_404(Collection, pk=pk)
