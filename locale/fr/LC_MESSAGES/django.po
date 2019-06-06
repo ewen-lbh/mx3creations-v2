@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-02 17:11+0000\n"
-"PO-Revision-Date: 2019-06-02 17:11+0000\n"
+"POT-Creation-Date: 2019-06-06 21:51+0200\n"
+"PO-Revision-Date: 2019-06-06 19:55+0000\n"
 "Last-Translator: b'  <ewen.lebihan7@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -67,7 +67,6 @@ msgid "About"
 msgstr "À propos"
 
 #: corepages/templates/about.pug:18
-#| msgid "For legal information, see "
 msgid "For legal information, see"
 msgstr "Pour des informations légales, voir"
 
@@ -76,7 +75,6 @@ msgid "here."
 msgstr "ici."
 
 #: corepages/templates/about.pug:21
-#| msgid "For statistics about this website, visit "
 msgid "For statistics about this website, visit"
 msgstr "Pour des statistiques sur ce site web, visitez"
 
@@ -758,6 +756,10 @@ msgstr "Oops !"
 #: templates/includes/footer.pug:26 templates/includes/menu.pug:34
 msgid "News"
 msgstr "Actus"
+
+#: newsletter/templates/news.pug:18
+msgid "Let's keep in touch"
+msgstr "Restons en contact"
 
 #: newsletter/templates/news.pug:23
 #, python-format
