@@ -1,0 +1,111 @@
+@import 'vars'
+
+form.grid-form
+    display: grid
+    label
+        font-size: 30px
+        font-weight: 300
+        text-align: left
+        margin-bottom: 10px
+    input, textarea, select
+        box-shadow: none
+        transition: border-color .25 ease
+        border:none !important
+        border-bottom:2px solid var(--c-main) !important
+        background: transparentize(#268cce, 0.9)
+        transition: background .25s ease
+        &:hover
+            background: transparentize(#268cce, 0.5)
+        font-size: 20px
+        padding: 5px 10px
+    textarea
+        border-left:2px solid var(--c-main) !important
+    input, select
+        height: 50px
+    input[type=submit]
+        cursor: pointer
+
+
+    &.form-subscribe-newsletter
+        display: grid
+        grid-template-columns: 3fr 1fr
+
+        label
+            display: none
+        input
+            &#id_email
+                padding-left: 20px
+                grid-column: 1
+            &[type=submit]
+                grid-column: 2
+                border-bottom: none !important
+                border-left: 2px solid var(--c-main) !important
+                border-top : 2px solid var(--c-main) !important
+                height: 60px
+
+    &.form-contact
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-template-rows: 30px 60px 30px 400px 40px 30px 
+        grid-row-gap: 20px
+
+        #id_email
+            grid-column: 1
+            grid-row: 2
+
+        label[for=id_email]
+            grid-column: 1
+            grid-row: 1
+
+        #id_message
+            grid-row: 4
+            grid-column: span 2
+        
+        label[for=id_message]
+            grid-row: 3
+            grid-column-start: 1
+
+        #id_bugreport
+            display: none
+                        
+        label[for=id_bugreport]
+            grid-column: span 2
+            grid-row: 5
+            cursor: pointer
+
+            &::before
+                transform: translateY(5px)
+                transition: all .125s ease
+                content: ''
+                display: inline-block
+                height: 30px
+                width: 30px
+                background: transparent
+                border: 2px solid var(--c-main)
+                border-radius: 50%
+                margin-right: 10px
+            &.checked::before
+                border-radius: 0px
+                background: var(--c-main)
+
+        .helptext
+            grid-column: 1
+            grid-row: 6
+            
+        input[type=submit]
+            width: 300px
+            margin-left: auto
+            grid-row: 6
+            grid-column: 2
+
+    &.langswitch
+        margin-top: -5px
+        select
+            scrollbar-width: none
+            overflow: auto
+            width: 100px
+            height: 75px
+            background: transparent
+            border-bottom: none !important
+            option[selected]
+                background-color:transparentize(#268cce, 0.9)
