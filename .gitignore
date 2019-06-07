@@ -84,3 +84,9 @@ target/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# SASS compiler cache
+.sass-cache/*
+
+# fuse_hidden
+.fuse_hidden*
