@@ -14,7 +14,13 @@ body
 
   {% block backtotop %}
   .sep.sep
-  p.center: a.underline(onclick="$('html, body').animate({scrollTop:0},1000)") {% trans 'Back to top' %}
+  p.center.backtotop: a.underline(onclick="$('html, body').animate({scrollTop:0},1000)") {% trans 'Back to top' %}
+  script.
+    let PAGE_HEIGHT = (document.height !== undefined) ? document.height : document.body.offsetHeight;
+    let VIEWPORT_HEIGHT = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    if (PAGE_HEIGHT <= VIEWPORT_HEIGHT) {
+      $('.backtotop').css({'display':'none'})
+    }
   {% endblock backtotop %}
 
   include includes/footer.pug
