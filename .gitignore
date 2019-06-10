@@ -85,8 +85,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# SASS compiler cache
+# SASS compiler stuff
 .sass-cache/*
+prepros*.config
 
 # fuse_hidden
 .fuse_hidden*
