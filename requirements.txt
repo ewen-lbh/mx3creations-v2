@@ -2,3 +2,4 @@ pypugjs==5.8.1
 python-dotenv==0.7.1
 django-rosetta==0.9.3
 mutagen==1.42.0
+tweepy==3.7.0

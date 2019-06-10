@@ -33,13 +33,21 @@
   .sep
 
   ul.news
-    li
-      a(href="") some
-    li
-      a(href="") more
-    li
-      a(href="") db
-    li
-      a(href="") magic
+    {% for tweet in tweets %}
+    <p class="text"> {{tweet.text|safe}} </p>
+    <a href="{{tweet.url}}"><div class="image-fullwidth tall" data-src="{{tweet.image}}" style="background-image:url('{{tweet.image}}');"></div></a>
+    <br>
+    {% endfor %}
+  
+  // make img fullsize on hover
+  script.
+    document.querySelectorAll('ul.news .image-fullwidth').forEach(image => {
+      im = new Image
+      im.src = image.dataset.src
+      im.onload = () => {
+        image.onmouseover = () => {image.style.height = im.height + 'px'}
+        image.onmouseout  = () => {image.style.height = '400px'}
+      }
+    })
 
 {% endblock content %}
