@@ -172,8 +172,6 @@ if play_track
         }
 
         function openSharePopup(what, title, artist="Mx3", slug=null) {
-            closeNav()
-            popup = document.querySelector('.popup.share')
             if (what == 'collection') {
                 title = `"{{collection.title}}" {{collection.get_kind_display}}`
             } else {
@@ -189,12 +187,25 @@ if play_track
             share_title = `{% trans "Listen to" %} ${title}`
             share_message = `{% trans "Listen to" %} ${share_title} {% trans "at" %} <a href="${share_url}">${share_url}</a>`
 
-            popup.querySelector('h2').innerText = '{% trans "Share" %} '+title
-            popup.querySelector('li.facebook a').setAttribute('href', `https://www.facebook.com/sharer/sharer.php?u=${share_url}&quote=${share_title}`)
-            popup.querySelector('li.twitter a') .setAttribute('href', `https://twitter.com/intent/tweet?source=${share_url}&text=${share_title}:%20${share_url}&via=mx3_fr`)
-            popup.querySelector('li.reddit a')  .setAttribute('href', `http://www.reddit.com/submit?url=${share_url}&title=${share_title}`)
-            popup.querySelector('li.email a')   .setAttribute('href', `mailto:?subject=${share_title}&body=${share_message}`)
-            popup.classList.add('opened')
+            if (navigator.share) {
+                navigator.share({
+                    title: share_title,
+                    url: share_url,
+                    text:share_message,
+                }).then(() => {
+                    console.log("Thanks for sharing !")
+                }).catch(console.error)
+            } else {
+                closeNav()
+                popup = document.querySelector('.popup.share')
+
+                popup.querySelector('h2').innerText = '{% trans "Share" %} '+title
+                popup.querySelector('li.facebook a').setAttribute('href', `https://www.facebook.com/sharer/sharer.php?u=${share_url}&quote=${share_title}`)
+                popup.querySelector('li.twitter a') .setAttribute('href', `https://twitter.com/intent/tweet?source=${share_url}&text=${share_title}:%20${share_url}&via=mx3_fr`)
+                popup.querySelector('li.reddit a')  .setAttribute('href', `http://www.reddit.com/submit?url=${share_url}&title=${share_title}`)
+                popup.querySelector('li.email a')   .setAttribute('href', `mailto:?subject=${share_title}&body=${share_message}`)
+                popup.classList.add('opened')
+            }
         }
 
         function closeSharePopup() {
