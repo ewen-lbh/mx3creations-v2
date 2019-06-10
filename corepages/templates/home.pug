@@ -18,9 +18,12 @@
     br/
     | {% trans "I also create everything I need: this website, music videos, cover arts, automation scripts,..." %}
     br/
-    br/
-    span.firacode -> 
-    a.underline(href='about') {% trans "Learn more" %}
+    ul.links-array.big
+      li: span.firacode ->
+      li: a.underline(href='about') {% trans "Learn more" %}
+      li: a.underline(href='music') {% trans "Listen" %}
+      li: a.underline(href='graphism') {% trans "See" %}   
+    
   .sep
   h2 {% trans "Proudest tracks" %}
   .horizontal-grid-overflow.tracks
@@ -39,7 +42,7 @@
   h2 {% trans "Cherry-picked artworks" %}
   p.details-h2 {% trans "Excluding cover arts" %}
   .horizontal-grid-overflow.artworks
-    .grid(data-root-path="artworks")
+    .grid
       a(href="Illustration_Ink-Bottle.jpg")
         .cover.img1
       a(href="Banner_FreeZaxe.png")
