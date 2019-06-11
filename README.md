@@ -2,6 +2,23 @@
 The source code of my website's full rewrite, in django.
 You can visit it right now at [mx3creations.com/beta](https://mx3creations.com/beta)
 
+## Roadmap / TODO list
+- [ ] Global audio player
+- [ ] Continuous audio playback w/ cookies storing playback position info
+- [ ] Home button in navmenu ? (somewhere easy at least)
+- [ ] `music.views.track`: Reorganize infos (too messy atm)
+- [ ] `music.views.track`: Work time / duration ratio
+- [ ] Use current website footer social media style
+- [ ] Move `globs.py`, it's not an elegant solution at all
+- [ ] `music.views.track.btn_array_class`: Figure out more elegant solution
+- [x] Translations
+- [x] Contact form CSS
+- [x] Stats page
+- [x] Pull tweets w/ tweepy for /news/
+- [x] Redirect /stats/ to /statistics/
+- [X] custom icons
+- [x] Import TODOs here
+
 ## Contributing
 To request bugs or feature requests, you can either:
 - Contact me on [my current website](https://mx3creations.com/bug-report)

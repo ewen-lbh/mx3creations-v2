@@ -41,7 +41,6 @@ def track(request, data):
     if tracks_count == 1 and data['tracks'][0].video_url:
         data['collection'].playlist_url = data['tracks'][0].video_url
 
-    # TODO shame !
     btn_array_class = 'quad' if data['collection'].playlist_url else 'tri'
 
     # auto-play collections w/ 1 track

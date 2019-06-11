@@ -40,13 +40,3 @@ if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += [
         path('rosetta/', include('rosetta.urls'))
     ]
-
-#### TODO LIST ####
-# X Contact form CSS
-# X Track numbering
-# - Track duration
-# - Stats page
-# - twitter API implementation for "news" page
-# - use current website footer style for social medias
-# - autoplay feature, use cookies to store preference
-# - translations!

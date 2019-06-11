@@ -144,8 +144,3 @@ class Collection(models.Model):
 
     def get_total(slug, what):
         return sum([getattr(e, what) for e in tracks(slug)])
-
-    #### TODO : ####
-    # - work_time / duration ratio
-    # - work_time / goodness ratio
-    # - reorganize infos for track view (too messy atm)
