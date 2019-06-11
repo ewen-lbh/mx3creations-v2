@@ -9,8 +9,7 @@ urlpatterns = [
     path('graphism/', graphism, name='graphism'),
     path('search/', search, name='search'),
     path('legal/', legal, name='legal'),
-    # TODO: make /stats/ redirect to /statistics/
-    path('stats/', stats, name='stats'),
+    path('stats/', lambda req: HttpResponseRedirect('/statistics/'), name='stats'),
     path('statistics/', stats, name='stats'),
     path('videos/', videos, name='videos'),
     path('brand-resources/', brand_resources, name='brand_resources'),
