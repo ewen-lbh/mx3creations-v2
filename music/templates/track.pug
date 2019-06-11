@@ -128,49 +128,7 @@ if play_track
                     i.icon.large.video
                     span {% trans "See the music videos" %}
 
-    if play_track
-        audio#player(src="{% static 'music/audio/'|add:collection.slug|add:'/'|add:play_track.slug|add:'.mp3' %}" autoplay onplay="start_progressbar()")
-
     script.
-        let player = $('#player')[0]
-        icon = $('ol li.active a .icon')
-        function play() {
-            player.play()
-        }
-        function pause() {
-            player.pause()
-        }
-
-        function playpause() {
-            if (player.paused) {
-                player.play()
-                icon.removeClass('play').addClass('pause')
-            } else {
-                player.pause()
-                icon.removeClass('pause').addClass('play')
-            }
-        }
-
-        async function start_progressbar() {
-            let player = $('#player')[0]
-            player.volume = 0
-            while(player.duration === Infinity) {
-                await new Promise(r => setTimeout(r, 1000));
-                player.currentTime = 10000000*Math.random();
-            }
-            player.style.opacity= 1 
-            player.volume = 1
-            let player_duration = player.duration
-            width = $(window).width()
-            setInterval(() => {
-                ratio = player.currentTime / player_duration
-                console.log(ratio)
-                bar_width = width * ratio
-                //- console.log(bar_width)
-                $('.track-progress')[0].style.width = `${bar_width}px`
-            }, 50)
-        }
-
         function openSharePopup(what, title, artist="Mx3", slug=null) {
             if (what == 'collection') {
                 title = `"{{collection.title}}" {{collection.get_kind_display}}`
@@ -218,26 +176,18 @@ if play_track
             if (e.which == 27 && $('.popup.share').hasClass('opened')) 
                 closeSharePopup()
         })
-        
-        //set track durations
-        var ctx = new webkitAudioContext();
-        function getMusicLength(url) {
-            var req = new XMLHttpRequest();
-            req.open('GET', url, true);
-            req.responseType = 'arraybuffer';
-            
-            req.onload = function() {
-            
-                ctx.decodeAudioData(req.response, function(buffer) {
-                console.log(buffer);
-                console.log(buffer.duration); // 116
-                })
-            };
-            
-            req.send();
-        }
-
-
 
         
 {% endblock content %}
+
+
+// AUDIO PLAYER
+
+{% if play_track %}
+    {% block playerTrack %}{{ play_track.title  }}{% endblock %}
+    {% block playerTitle %}{{ collection.title  }}{% endblock %}
+    {% block playerArtist %}{{ play_track.artist }}{% endblock %}
+
+    {% block playerAudioURL %}{% static 'music/audio/'|add:collection.slug|add:'/'|add:play_track.slug|add:'.mp3' %}{% endblock %}
+    {% block playerImageURL %}{% static 'music/images/square/'|add:collection.slug|add:'.jpg'%}{% endblock %}
+{% endblock %}

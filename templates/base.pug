@@ -4,6 +4,8 @@ head
   include includes/head.pug
   title {% block title %}{%endblock%}
 body
+
+  
   .site-bg(style="background-image:url('/static/{% block site_bg %}corepages/images/misc/background-fade.png{% endblock %}'), url('/static/{% block site_bg_lowres %}corepages/images/misc/background-fade.png{% endblock %}');opacity:{%block site_bg_opacity %}0.15{% endblock %}" class="{% block site_bg_classes %}{% endblock site_bg_classes %}")
   span.lang-switch
     include includes/langswitch.html
@@ -64,3 +66,39 @@ body
         })
     });
   {% endblock smoothscroll %}
+
+  #player(data-resource-url="{% block playerAudioURL %}{% endblock %}")
+    .image(style="background-image:url('{% block playerImageURL %}{% endblock %}');")
+    .title
+      .track {% block playerTrackTitle %}{% endblock %}
+      .from  {% block playerTitle %}{% endblock %}
+      .by  {% block playerArtist %}{% endblock %}
+    .controls
+      .play-pause.icon(onclick='playerToggle()')
+    .progress-bar
+      .time-current
+      .bar
+      .time-remaining
+
+  script(src='/static/corepages/scripts/cookies.js')
+  script(src='/static/music/scripts/player.js')
+  script.
+    playerInfos = getPlayerInfos()
+    // if no cookies were set, try loading from the DOM
+    if (!playerInfos) {
+        savePlayer()
+        playerInfos = getPlayerInfos()
+    }
+    if (playerInfos) {
+        // load the player infos into the DOM, start the loop
+        loadPlayer(playerInfos)
+        // save player infos before unloading the page
+        window.addEventListener('beforeunload', event => {
+            savePlayer()
+        })
+    } else {
+        // destroy player if:
+        // 1. no data was loaded server-side (eg. the user plays another track)
+        // 2. no data was found in cookies (eg. no audio was playing before the new page loaded)
+        //$('#player')[0].remove()
+    }
