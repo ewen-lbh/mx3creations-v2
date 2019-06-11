@@ -6,8 +6,9 @@ You can visit it right now at [mx3creations.com/beta](https://mx3creations.com/b
 - [ ] Global audio player
 - [ ] Continuous audio playback w/ cookies storing playback position info
 - [ ] Home button in navmenu ? (somewhere easy at least)
-- [ ] `music.views.track`: Reorganize infos (too messy atm)
-- [ ] `music.views.track`: Work time / duration ratio
+- [ ] /listen/: Reorganize infos (too messy atm)
+- [ ] /statistics/: Use GH api to get projects count (rn it's just a random int)
+- [ ] /listen/: Work time / duration ratio
 - [ ] Use current website footer social media style
 - [ ] Move `globs.py`, it's not an elegant solution at all
 - [ ] `music.views.track.btn_array_class`: Figure out more elegant solution
