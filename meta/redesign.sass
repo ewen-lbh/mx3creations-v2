@@ -1,0 +1,269 @@
+$accent: #8CECEF
+$accent-bright: #24E5EB
+$c-coding: #a1f28e
+$c-music: #Efba6b
+$c-video: #9e92df
+$c-about: #EF7272
+$c-news: #EDF25C
+$c-contact: #EE88BB
+$c-feedback: #89BFE2
+$c-graphism: #8cecef
+
+/*  - - - - - - - -
+ * UTIL CLASSES
+ * - - - - - - - - 
+ */
+
+span.c-about
+  color: $c-about
+span.c-news
+  color: $c-news
+span.c-contact
+  color: $c-contact
+span.c-feedback
+  color: $c-feedback
+span.c-music
+  color: $c-music
+span.c-graphism
+  color: $c-graphism
+span.c-video
+  color: $c-video
+span.c-coding
+  color: $c-coding
+.sep
+  border-bottom: 3px solid #000
+  height: 34rem
+
+.array
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+/*  - - - - - - - -
+ * COMPONENTS CLASSES
+ * - - - - - - - - 
+ */
+
+p
+  font-family: 'Fantasque Sans Mono', sans-serif
+  font-size: 2rem
+
+.btn.btn-highlight
+  font-family: "Leo Rounded", sans-serif
+  position: relative
+  font-size: 2.5rem
+  
+  &.music::before
+    background: $c-music
+    
+  &.video::before
+    background: $c-video
+    
+  &.coding::before
+    background: $c-coding
+    
+  &.graphism::before
+    background: $c-graphism
+  
+  &::before
+    transition: width 0.125s ease, left 0.125s ease, bottom 0.25s ease 0.25s, height 0.25s ease 0.25s
+    background: $accent
+    width: 110%
+    left: -5%
+    height: 40%
+    position: absolute
+    bottom: 30%
+    content: ''
+    z-index: -1
+  
+  &:hover::before
+    width: 130%
+    left: -15%
+    height: 140%
+    bottom: -20%
+ 
+p
+  text-align: left
+  margin-left: 50%
+  transform: translateX(-50%)
+  margin-bottom: 4rem
+  
+.left, .center, .right, .centeright
+  position: absolute
+  width: 33%
+  margin: 2em 0 0 2em
+  border-right: 3px solid #000
+.left
+  left: 0
+.center
+  left: 33%
+.right
+  right: 0
+  border-right: none
+.centeright
+  right: 0
+  left: calc(33% + 2em)
+  width: 66%
+  transform: none
+h2
+  font-family: 'Leo Rounded', sans-serif
+  font-size: 2.5em
+  font-weight: normal
+  &.catsep
+    font-weight: bold
+    margin-left: 2em
+
+.btn.btn-underline
+  display: block
+  font-family: Nord, sans-serif
+  font-size: 4rem
+  &::before
+    border-radius: 0.025em
+    transition: all 0.25s ease
+    content: ''
+    height: 0.05em
+    background: #000
+    width: 0%
+    position: absolute
+    bottom: 0.125em
+    left: 12.5%
+ 
+  &:hover::before 
+    width: 25%
+  span[class^=c-]
+    transition: color 0.25s ease
+    &:nth-child(1)
+      transition-delay: 0.125s
+    &:nth-child(2)
+      transition-delay: 0.25s
+    &:nth-child(3)
+      transition-delay: 0.375s
+    &:nth-child(4)
+      transition-delay: 0.5s
+  &:not(:hover) span[class^=c-]
+      color: #000
+    
+a:not(.nodefault)
+  text-decoration: none
+  color: #000
+  &:not(.btn)
+    transition: box-shadow 0.125s ease
+    box-shadow: inset 0px -0.125em 0px 0px $accent-bright
+    &:hover
+      box-shadow: inset 0px -1em 0px 0px $accent
+      
+=headertitledef($icon)
+  h2.iconheader
+    &.iconheader-#{$icon}
+      .icon
+        background-image: url(/static/corepages/images/icons/colored/#{$icon}.png)
+    
++headertitledef(music)
++headertitledef(graphism)
++headertitledef(video)
++headertitledef(coding)
++headertitledef(about)
++headertitledef(contact)
++headertitledef(feedback)
++headertitledef(news)
+
+h2.iconheader
+  .icon
+    display: inline-block
+    height: 1.5em
+    width: 1.5em
+    margin-right: 0.25em
+    background-size: contain
+    background-position: center
+    background-repeat: no-repeat
+  &:not(.colored) .icon
+    filter: grayscale(100%)
+  .text
+    display: inline-block
+    vertical-align: top
+    line-height: 1.5em
+     
+
+=iconbtndef($icon)
+  .btn.btn-icon.#{$icon} 
+    .icon
+      background-image: url(/static/corepages/images/icons/colored/#{$icon}.png)
+      background-size: contain
+      background-repeat: no-repeat
+      background-position: center
+      margin: 0 auto
+      height: 15rem
+      width: 15rem
+    
++iconbtndef(music)
++iconbtndef(graphism)
++iconbtndef(video)
++iconbtndef(coding)
++iconbtndef(about)
++iconbtndef(contact)
++iconbtndef(feedback)
++iconbtndef(news)
+
+.btn.btn-icon
+  height: 20rem
+  width: 20rem
+  *
+    transition: background 0.25s ease, padding 0.25s ease
+  .text
+    text-align: center
+    font-family: Leo Rounded, sans-serif
+    font-size: 2.5em
+    font-weight: normal
+
+  
+  .description
+    opacity: 0
+    position: relative
+    top: -23rem
+    font-size: 1.75em
+
+
+  &:hover
+    .description
+      opacity: 0.5
+    .icon
+      padding: 1rem
+
+  &.music:hover 
+    .icon
+      background: $c-music
+    .text
+      color: $c-music
+  &.graphism:hover 
+    .icon
+      background: $c-graphism
+    .text
+      color: $c-graphism
+  &.video:hover 
+    .icon
+      background: $c-video
+    .text
+      color: $c-video
+  &.coding:hover 
+    .icon
+      background: $c-coding
+    .text
+      color: $c-coding
+  &.about:hover 
+    .icon
+      background: $c-about
+    .text
+      color: $c-about
+  &.contact:hover 
+    .icon
+      background: $c-contact
+    .text
+      color: $c-contact
+  &.feedback:hover 
+    .icon
+      background: $c-feedback
+    .text
+      color: $c-feedback
+  &.news:hover 
+    .icon
+      background: $c-news
+    .text
+      color: $c-news
