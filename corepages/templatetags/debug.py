@@ -5,12 +5,11 @@ register = template.Library()
 @register.simple_tag
 def debug(the_var=None):
     """
-    Permet de débugger des variables de template.
-    Utilisation dans un template :
+    Debug tremplate variables
+    Usage in a template :
     {% load debug %}
-    {% debug la_variable_a_debugger %} ou juste {% debug %}
-    :param the_var: La variable à passer en paramètre. Optionnel si on ne veut que tester que le code s'exécute bien
-    à cet endroit
+    {% debug variable_name %} or simply {% debug %}
+    :param the_var: The variable to debug. Optional, debugs the template if not specified
     :return:
     """
     print("--- DEBUGGING ---")
