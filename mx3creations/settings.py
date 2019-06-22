@@ -25,7 +25,7 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.getenv('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
@@ -158,10 +158,12 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 # Extra security (from check --deploy)
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-#SESSION_COOKIE_SECURE = True
-#CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
 #SECURE_HSTS_SECONDS = 60
-#SECURE_SSL_REDIRECT = True
+#SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+#SECURE_HSTS_PRELOAD = False
 # WARN: Possible breaking change if we want to use iframes to serve some parts of the website
 # (eg to implement continuous music playback accross page navigation)
 X_FRAME_OPTIONS = 'DENY'
