@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299 280">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #000;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="share" transform="translate(-574.5 -2066)">
+    <g id="Ellipse_16" data-name="Ellipse 16" class="cls-1" transform="translate(596 2079)">
+      <circle class="cls-2 primary-shape" cx="127" cy="127" r="127"/>
+    </g>
+    <line id="Ligne_37" data-name="Ligne 37" class="cls-1" x2="150" transform="translate(574.5 2206.5)"/>
+    <line id="Ligne_38" data-name="Ligne 38" class="cls-1" x1="121" y2="121" transform="translate(720.5 2085.5)"/>
+    <line id="Ligne_42" data-name="Ligne 42" class="cls-1" x1="117" y1="117" transform="translate(720.5 2206.5)"/>
+    <line id="Ligne_40" data-name="Ligne 40" class="cls-1" x1="153" transform="translate(720.5 2206.5)"/>
+  </g>
+</svg>

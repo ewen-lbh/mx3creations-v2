@@ -1,0 +1,140 @@
+#player
+    width: 100vw
+    height: 75px
+    +mobile
+        height: 110px
+    position: fixed
+    bottom: 0
+    left: 0
+    right: 0
+    background: #fff
+    border-top: 2px solid #000
+    z-index: 100
+    box-shadow: 0px 20px 50px rgba(0,0,0,0.5)
+
+    transition: bottom 0.25s ease
+    &.closed, &.inactive
+        bottom: -150px
+    +mobile
+        &.mobile-closed
+            bottom: -150px
+
+#player .player-content
+    padding: 10px 20px
+    +desktop
+        // max-width: 1000px   
+        // margin: 0 auto
+    display: grid
+    grid-template-columns: 100px max-content max-content auto
+    grid-gap: 20px
+    +mobile
+        grid-template-columns: 1fr
+        grid-gap: 5px
+    @media (min-width: 1200px)
+        grid-gap: 50px
+
++mobile
+    #player .player-content
+        .cover, .time
+            display: none !important
+    #player
+        width: 100vw
+
+#player .player-content .cover
+    top: -45px
+    width: 100px
+    height: 100px
+    @media (min-width: 1200px)
+        top: -75px
+        width: 130px
+        height: 130px
+    position: relative
+    z-index: 101
+    background-size: cover
+    background-position: center
+    // border-radius: 5px
+    display: block
+
+#player .player-content .infos
+    +mobile
+        text-align: center
+    .title
+        +desktop
+            max-width: 35vw
+        font-family: Nord, sans-serif
+        font-size: 35px
+        +mobile
+            // font-family: Fantasque Sans Mono, sans-serif
+            font-size: 30px
+    .from, .collection
+        font-family: Fantasque Sans Mono, sans-serif
+        font-size: 20px
+    +mobile
+        .from 
+            display: none
+    .collection
+        +mobile
+            display: none
+        box-shadow: inset 0px -0.125em 0px 0px var(--player-accent)
+        &:hover
+            box-shadow: inset 0px -1em 0px 0px var(--player-accent-transparent)
+    .title, .collection
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+#player .player-content .controls
+    display: grid
+    font-size: 50px
+    grid-template-columns: 40px 40px 40px 50px
+    +mobile
+        margin: 0 auto
+    .disabled
+        opacity: 0.25
+            
+    a:nth-child(1)
+        text-align: left
+    a:nth-child(2)
+        text-align: center
+    a:nth-child(3)
+        text-align: right
+    a:nth-child(4)
+        text-align: right
+        i
+            transform: scale(0.65)
+        +mobile
+            display: none
+
+
+#player .player-content .time
+    span, a
+        font-family: Fantasque Sans Mono, sans-serif
+        font-size: 25px
+    .time-separator
+        opacity: 0.5
+    .time-bar, .time-bar-total
+        .time-separator
+            opacity: 0.25
+        margin-top: 10px
+        top: 35px
+        position: absolute
+        height: 10px
+    .time-bar
+        width: 0
+        background: var(--player-accent)
+    .time-bar-total
+        width: 300px
+        background: rgba(0,0,0,0.125)
+
+#player .player-content .close-btn
+    position: absolute
+    display: block
+    height: 50px
+    width: 50px
+    right: 20px
+    top: 20px
+    +mobile
+        top: 15px
+        right: 25px 
+        text-align: right
+    font-size: 40px

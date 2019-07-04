@@ -1,0 +1,177 @@
+body.home 
+    #header
+        height: 325px
+        +mobile
+            height: 300px
+        .header-image
+            +desktop
+                opacity: 1
+            +mobile
+                opacity: 0.25
+            height: 325px
+            background-position: top
+            +mobile
+                height: 300px
+        .header-content
+            padding-top: 150px
+            +mobile
+                padding-top: 130px
+            .header-title
+                overflow: hidden
+                .source p, .source, .animated, .mobile
+                    font-family: Fantasque Sans Mono, sans-serif
+                    text-transform: uppercase
+                .source p
+                    display: none
+                font-size: 50px
+                margin-bottom: 10px
+                // text-align: left
+            .header-description
+                font-family: Fantasque Sans Mono, sans-serif
+                font-size: 20px
+                +desktop
+                    width: 50%
+                    text-align: left
+                margin: 0
+
+    #main
+        +desktop
+            .group
+                &:first-child
+                    padding-top: 20px
+                padding-top: 150px
+                max-width: 1000px
+                margin: 0 auto
+            .header-wrapper
+                display: flex
+                justify-content: center
+        h2.iconheader
+            +mobile
+                margin-top: -48px
+                text-align: center
+                margin-bottom: 15px
+            .text
+                font-size: 40px
+                line-height: 40px
+                +mobile
+                    font-size: 30px
+                    line-height: 30px
+                vertical-align: top
+            .icon 
+                &, svg
+                    height: 50px
+                    width: 50px
+                +mobile
+                    display: block
+                    margin-left: 50%
+                    transform: translateX(-50%)
+                    &, svg
+                        width: 75px
+                        height: 75px
+
+
+        ul[class^=proudest]
+            +desktop
+                display: grid
+                grid-template-columns: 1fr 1fr
+            align-items: center
+
+            margin-top: 10px
+            li
+                +mobile
+                    width: calc(100vw - 40px)
+                    &:nth-child(4)
+                        display: none
+
+                display: grid
+                grid-template-columns: 125px 1fr
+                +mobile
+                    grid-template-columns: 75px 1fr
+                    
+                margin-bottom: 20px
+                grid-gap: 20px
+                .title
+                    font-weight: bold
+                    font-size: 25px
+                    +mobile
+                        font-size: 20px
+                .date
+                    margin-left: 10px
+                    opacity: 0.5
+                    font-size: 18px
+                    position: relative
+                .subtitle
+                    display: block
+                    margin-top: 10px
+                    font-size: 20px
+                    +mobile
+                        font-size: 18px
+                .image
+                    height: 125px
+                    +mobile
+                        height: 75px
+                    background-size: cover
+                    background-position: center
+                    border-radius: 5px
+                    width: 125px
+                    +mobile
+                        width: 75px
+                    display: block
+                    .icon
+                        position: relative
+                        font-size: 100px
+                        top: 25px
+                        left: 40px
+                        opacity: 0
+                    &:hover
+                        .icon
+                            opacity: 1
+                        opacity: 0.5
+
+        .more-btn-wrapper
+            display: flex
+            justify-content: center
+            align-items: center
+            +desktop
+                margin-top: 30px
+            +mobile
+                margin-bottom: 20px
+                .btn-highlight
+                    font-size: 30px
+        +mobile
+            .group:not(#currentSlide)
+                display: none
+        ul.carousel-controls
+            display: flex
+            justify-content: space-between
+            align-items: center
+            li a
+                transition: all .25s ease
+            .dot-prev, .dot-next
+                color: rgba(0,0,0,0.75)
+                &.disabled
+                    color: rgba(0,0,0,0.25)
+                font-size: 40px
+            [class*=dot]:not(.dot-prev):not(.dot-next)
+                display: inline-block
+                background-color: rgba(0,0,0,0.25)
+                height: 25px
+                width: 25px
+                border-radius: 50%
+
+            #currentDot
+                transform: scale(1.25)
+                border-radius: 0
+                &.music
+                    background-color: $c-music
+                &.graphism 
+                    background-color: $c-graphism
+                &.video
+                    background-color: $c-video
+                &.coding
+                    background-color: $c-coding
+        +desktop
+            ul.carousel-controls
+                display: none
+
+        

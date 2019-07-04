@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 274.492 257.232">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+
+      .cls-2, .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="download" transform="translate(-142 -2079.5)">
+    <path id="Tracé_1" data-name="Tracé 1" class="cls-1 primary-shape" d="M2649.356,227.576V482.069l220.732-122.389Z" transform="translate(634.069 -553.356) rotate(90)"/>
+    <line id="Ligne_46" data-name="Ligne 46" class="cls-2" y2="127" transform="translate(278.881 2079.5)"/>
+    <line id="Ligne_47" data-name="Ligne 47" class="cls-2" x1="226" transform="translate(165.5 2287.5)"/>
+    <g id="Groupe_49" data-name="Groupe 49" transform="translate(2268.583 2176.014) rotate(90)">
+      <path id="Tracé_1-2" data-name="Tracé 1" class="cls-2" d="M2649.355,227.576V334.159L2707.58,282.9Z" transform="translate(-2619.355 1708.424)"/>
+    </g>
+  </g>
+</svg>

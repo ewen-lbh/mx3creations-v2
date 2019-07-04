@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 218.093 204.359">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ef7272;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #000;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="About" transform="translate(-246.833 -243)">
+    <path id="Tracé_3" data-name="Tracé 3" class="cls-1 primary-shape" d="M4240.833,484.491s25.826-115.57,120.524-117.793,97.568,117.793,97.568,117.793Z" transform="translate(-3994 -37.131)"/>
+    <g id="Ellipse_6" data-name="Ellipse 6" class="cls-2" transform="translate(307 243)">
+      <circle class="cls-3" cx="59" cy="59" r="59"/>
+      <circle class="cls-4" cx="59" cy="59" r="57.5"/>
+    </g>
+  </g>
+</svg>

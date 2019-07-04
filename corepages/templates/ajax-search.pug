@@ -1,0 +1,77 @@
+-load i18n static 
+
+
+if not search_query
+    p.status.empty-query: -trans "Type something..."
+
+elif not results_count
+        p.status.no-results: -trans "Nothing found"
+
+elif more_results_available
+    p.status.more-results
+        -blocktrans 
+            | {{results_count}}/{{original_results_count}} results shown.
+        a(href="{% url 'search' q=search_query %}"): -trans "More results..."
+else
+    p.status.results-count 
+        -blocktrans count counter=results_count 
+            | Found 1 result {% plural %} Found {{counter}} results
+
+if search_query
+    if music_tracks or music_collections
+        h4.iconheader
+            -autoescape off
+                .icon!=icons.music
+            .text {% trans "music" %}
+    if music_tracks
+        h5 
+            -blocktrans count counter=music_tracks|length 
+                | 1 track {% plural %} {{counter}} tracks
+        ul.music.tracks
+            for track in music_tracks
+                li
+                    a(href="{% url 'track' title=track.collection.slug play=track.slug %}").nodefault
+                        .cover(style="background-image:url('{% static 'music/images/square/'|add:track.collection.slug|add:'.jpg' %}')")
+                    .text
+                        h6.title=track.title
+                        p.infos
+                            -blocktrans with artist=track.artist
+                                | by {{artist}}
+                            br/
+                            if track.collection.kind != 'SG'
+                                -blocktrans with kind=track.collection.get_kind_display
+                                    | from the {{kind}} "
+                                a(href="{% url 'track' title=track.collection.slug %}") #{track.collection.title}
+                                | "
+                            else
+                                | #{track.collection.get_kind_display}
+
+    if music_collections
+        h5 
+            -blocktrans count counter=music_collections|length
+                | 1 ep, single or albums {% plural %} {{counter}} ep's, singles or albums
+        ul.music.collections
+            for collection in music_collections
+                li
+                    a(href="{% url 'track' title=collection.slug %}").nodefault
+                        .cover(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
+                    .text
+                        h6.title=collection.title
+                        p.infos
+                            if collection.tracks|length > 1
+                                -blocktrans with trackscount=collection.tracks|length kind=collection.get_kind_display 
+                                    | {{trackscount}}-tracks {{kind}}
+                            else
+                                | #{collection.get_kind_display|title}
+                            br/
+                            | #{collection.duration_display}
+    if graphism_things
+        h4.iconheader.graphism 
+            -autoescape off
+                .icon!=icons.graphism
+
+            .text: -trans "graphism"
+        
+        ul.graphism
+
+

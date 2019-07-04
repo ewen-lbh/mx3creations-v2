@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292.35 233.315">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9e92df;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #000;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Video" transform="translate(-168.5 -186.685)">
+    <rect id="Rectangle_2" data-name="Rectangle 2" class="cls-1 primary-shape" width="106" height="173" transform="translate(257 247)"/>
+    <path id="Tracé_1" data-name="Tracé 1" class="cls-2" d="M2649.355,227.576V428.1l147.822-96.437Z" transform="translate(-2339 -38)"/>
+    <line id="Ligne_2" data-name="Ligne 2" class="cls-2" x1="23" transform="translate(168.5 298.5)"/>
+    <line id="Ligne_55" data-name="Ligne 55" class="cls-2" x1="51" transform="translate(240.5 298.5)"/>
+    <g id="Ellipse_1" data-name="Ellipse 1" class="cls-2" transform="translate(190 273)">
+      <circle class="cls-3" cx="26" cy="26" r="26"/>
+      <circle class="cls-4" cx="26" cy="26" r="24.5"/>
+    </g>
+  </g>
+</svg>

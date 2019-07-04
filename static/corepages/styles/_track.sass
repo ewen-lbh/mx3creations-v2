@@ -1,0 +1,198 @@
+body.listen 
+    #header
+        +desktop
+            .header-title
+                margin-top: 50px 
+        +mobile
+            height: auto
+        .header-image
+            opacity: 0.25
+            +mobile
+                opacity: 0
+    #content .play.btn-highlight::before
+            background: var(--cover-accent-transparent)
+            
+body.listen #content
+    +desktop
+        #main
+            margin: 0 auto
+            max-width: 1200px
+    @media(min-width:1100px) and (max-width:1300px)
+        #main
+            margin: 0 auto
+            max-width: 1000px
+    .popup
+        display: none
+
+    .description 
+        margin: 50px 0
+        font-size: 20px
+        +mobile
+            text-align: justify
+            font-size: 17px
+            margin-bottom: 20px
+        line-height: 1.2
+        .ending
+            color: var(--cover-accent)
+
+    a.play.btn-highlight
+        display: inline-block
+        margin-left: 50%
+        text-align: center
+        transform: translateX(-50%)
+    .listen.multi
+        $cover-size: 400px
+        padding: 30px 0
+        margin: 0 auto
+        display: grid
+        grid-template-columns: $cover-size 1fr
+        +mobile
+            grid-template-columns: 1fr
+        grid-gap: 30px
+        .cover
+            +mobile
+                display: none
+            height: $cover-size
+            width: $cover-size
+            background-size: cover
+            border-radius: 10px
+        .contents
+            +desktop
+                max-width: 700px
+            .tracklist
+                margin-top: 50px
+                & > li
+                    display: grid
+                    grid-template-columns: 1fr 100px
+                    +mobile
+                        grid-template-columns: 1fr
+                    padding: 5px 10px
+                    +desktop
+                        &:hover
+                            grid-template-columns: 1fr 50px 50px
+                            width: 100%
+                            .title, .duration
+                                color: var(--cover-accent)
+
+                    margin-bottom: 5px
+                    .title, .duration, .tracknum, .play-indicator
+                        font-family: Fantasque Sans Mono, sans-serif
+                        font-size: 30px
+                        +mobile
+                            font-size: 25px
+                    .tracknum
+                        +desktop
+                            display: none
+                    .title
+                        overflow: hidden
+                    .play-indicator
+                        display: none
+                        color: var(--cover-accent)
+                    .duration
+                        z-index: -1
+                        opacity: 0.5
+                        display: inline
+                        text-align: right
+                        +mobile
+                            display: none
+                    .action
+                        margin-left: -12px 
+                        margin-right: 2px
+                        display: none
+                        &:hover
+                            .icon svg
+                                fill: var(--cover-accent)
+                        .icon 
+                            svg
+                                transform-origin: center
+                                transform: scale(0.75)
+                                height: 30px
+                    +desktop
+                        &:hover
+                            .action
+                                display: inline
+                            .duration
+                                display: none
+                            // background: rgba(0,0,0,0.125)
+
+
+    .listen.single
+        .cover
+            +mobile
+                display: none
+            margin-top: 50px
+            width: 100%
+            height: 400px
+            background-size: cover
+            background-position: center
+            border-radius: 10px
+    .mobile-cover
+        +desktop
+            display: none
+        margin: 0 auto
+        margin-top: 20px
+        height: calc(100vw - 40px)
+        width: calc(100vw - 40px)
+        max-height: 50vh
+        max-width: 50vh
+        background-size: cover
+        background-position: center
+        border-radius: 10px
+
+    .actions
+        margin-top: 100px
+        +mobile
+            width: 100vw
+            position: absolute
+            left: 0
+            margin-top: 50px
+            background: var(--cover-accent-really-transparent)
+        .actions-content
+            +desktop
+                display: flex
+                justify-content: space-around
+            +mobile
+                padding: 15px
+                display: grid
+                grid-template-columns: 1fr 1fr
+            li
+                .text
+                    font-family: Leo Rounded, sans-serif
+                    +desktop
+                        font-size: 30px
+                    +mobile
+                        color: var(--cover-accent)
+                        font-weight: bold
+                        opacity: 0.75
+                        font-size: 25px
+                    text-align: center
+                .icon
+                    +desktop
+                        +iconstyle('outline')
+                        svg .cls-2, svg .cls-3
+                            stroke: #000
+                        &:active 
+                            svg .primary-shape
+                                stroke: none
+                                fill: var(--cover-accent)
+                        &:hover
+                            svg .primary-shape
+                                stroke: none
+                                fill: var(--cover-accent-transparent)
+                    +mobile
+                        +iconstyle('outline-thick')
+                        svg
+                            .primary-shape, .cls-1, .cls-2, .cls-3, .cls-4
+                                stroke: var(--cover-accent)
+                            margin: 0 auto
+                    svg
+                        padding: 10px 0
+                        +desktop
+                            height: 150px
+                        +mobile
+                            margin-left: 50%
+                            transform: translateX(-50%)
+                            height: 100px
+            //fixing misalignement of icon
+            li.artwork .icon
+                padding-left: 25px

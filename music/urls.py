@@ -8,6 +8,7 @@ urlpatterns = [
     path('listen/random/', Listen.random, name='track_random'),
     path('listen/latest/', Listen.latest, name='track_latest'),
     path('listen/<slug:title>/artworks/', cover_art, name='cover_art'),
+    path('listen/<slug:title>/videos/', lambda req: Http404(), name='cover_art'),
     path('listen/<slug:title>/', Listen.by_title, name='track'),
     path('listen/<int:pk>/', Listen.by_id, name='track'),
     path('listen/<slug:title>/<slug:play>/', Listen.by_title, name='track'),

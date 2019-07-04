@@ -1,0 +1,82 @@
+-extends "base.pug"
+-load i18n static debug
+-block title
+    | #{page_title}
+-block body_classes
+    | news
+-block header_title
+    -trans "News"
+-block header_mobile_title
+    -trans "News"
+
+
+{% block content %}
+
+.centerer
+    .newsletter
+        h2
+            if already_subscribed
+                -trans "Oops!"
+            else
+                if subscribed
+                    -trans "Thanks for subscribing!"
+                else
+                    -trans "Keep in touch"
+
+        p.status
+            if already_subscribed
+                -blocktrans
+                    | {{email}} is already subscribed. 
+                br/
+                -trans "If you don't receive e-mails, please check your spam folder or "
+                a.underline(href="{% url 'contact' %}") {% trans "contact me" %}
+
+        .form-wrapper
+            form(action="{% url 'news' %}", method="post" onSubmit="return submitSearch()").subscribe.hide-on-navbar-open
+                -csrf_token
+                !=form
+                input(type="submit", value='SUBSCRIBE')
+
+            script.
+                submitSearch = () => {
+                    email = $('#id_email').val()
+                    // NOTICE: will need to change that if I ever change corepages.urls.search
+                    setCookie('csrftoken', $('input[name=csrfmiddlewaretoken]').val(), 1, false)
+                    $.ajax({
+                        method: 'POST',
+                        url:"{% url 'news' %}",
+                        dataType: 'html',
+                        data: {
+                            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                            email: email,
+                            AJAX: true
+                        },
+                        success: (_,_,_) => changePage('/news/')
+
+                    })
+                    return false
+                }
+
+    p.french-only-notice.hide-on-navbar-open
+        -blocktrans 
+            | My tweets are only in french for now. Sorry! I will try
+            | to implement deepl or Google Translate, but I can't 
+            | promise perfect translations for now! The newsletter IS translated though.
+
+    ul.news
+        for tweet in tweets
+            li
+                p.text!=tweet.text|safe
+                a(href="{{tweet.url}}")
+                    .image(data-src="{{tweet.image}}" 
+                        style="background-image:url('{{tweet.image}}');")
+                br
+
+
+
+    p.more-news
+        a.btn-highlight.news(href="https://twitter.com/mx3_fr/") More news...
+
+
+
+{% endblock content %}

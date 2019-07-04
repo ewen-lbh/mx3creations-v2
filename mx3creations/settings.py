@@ -43,7 +43,10 @@ INSTALLED_APPS = [
     'rosetta',
     'corepages',
     'music',
-    'newsletter'
+    'newsletter',
+    'graphism',
+    'video',
+    'coding'
 ]
 
 MIDDLEWARE = [
@@ -83,8 +86,8 @@ TEMPLATES = [
     },
 ]
 
-# from pypugjs.ext.django.compiler import enable_pug_translations
-# enable_pug_translations()
+from pypugjs.ext.django.compiler import enable_pug_translations
+enable_pug_translations()
 
 WSGI_APPLICATION = 'mx3creations.wsgi.application'
 
@@ -151,6 +154,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+MEDIA_URL = '/media/'
+
+# [custom] number of hours to decide whether to use cached API responses (tweeter, github)
+# or overwrite (and thus update) it. In hours.
+API_CACHE_EXPIRATION_HOURS = 1
+
 # Sessions
 # https://docs.djangoproject.com/fr/2.1/topics/http/sessions/#cookie-session-backend
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
@@ -158,9 +167,9 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 # Extra security (from check --deploy)
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 #SECURE_HSTS_SECONDS = 60
 #SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 #SECURE_HSTS_PRELOAD = False

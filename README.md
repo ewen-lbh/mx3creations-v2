@@ -4,14 +4,30 @@ You can visit it right now at [mx3creations.com/beta](https://mx3creations.com/b
 
 ## Roadmap / TODO list
 - [ ] Global audio player
-- [ ] Continuous audio playback w/ cookies storing playback position info
+- ~~Continuous audio playback w/ cookies storing playback position info~~
 - [ ] Home button in navmenu ? (somewhere easy at least)
-- [ ] /listen/: Reorganize infos (too messy atm)
+- [ ] Searchbar use POST intead of get
+- [ ] download all dependencies for local import instead of CDNs
+- [ ] optimize header images
+- [x] /track/: fix URL not changing when redirecting from /search/
+- [ ] \<ajax-search\>: delay before showing "Searching..."
+- [ ] /search/: replace url (in history & in JS) to add /search/\<q\> instead of /search/
+- [ ] /home/@mobile::carousel: change \<a\> links color based on current carousel page
+- [ ] /home/@mobile::carousel: animations
+- [ ] /listen/: Fix icon centering on mobile
+- [ ] sass: make mixin for .cover and other stuff
+- [ ] Icons as template tag
 - [ ] /statistics/: Use GH api to get projects count (rn it's just a random int)
-- [ ] /listen/: Work time / duration ratio
 - [ ] Use current website footer social media style
 - [ ] Move `globs.py`, it's not an elegant solution at all
 - [ ] `music.views.track.btn_array_class`: Figure out more elegant solution
+- [ ] /listen/: Work time / duration ratio
+- [x] /home/: typed.js
+- [x] \<ajax-search\>: show panel when typing, not onfocus
+- [x] /home/@mobile::carousel: auto switch slides if no user input
+- [x] /listen/: Fix weird icon bug for /listen/circular@desktop (.cls-2{stroke:none})
+- [x] /home/: header-image: collage of screencaps from different softs reprensenting each thing
+- [x] /listen/: Reorganize infos (too messy atm)
 - [x] Translations
 - [x] Contact form CSS
 - [x] Stats page

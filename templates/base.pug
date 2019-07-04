@@ -1,104 +1,38 @@
-doctype html
-{% load static i18n %}
+-load static i18n
 head
   include includes/head.pug
-  title {% block title %}{%endblock%}
-body
+  title
+    -block title
+      |
+  -block head
+    |
+body(class="{% block body_classes %}{% endblock %}")
+  #navbar
+    include includes/navbar.pug
+  #content
+    #header
+      .header-image(style="background-image:url('{% block header_image %} {% endblock %}'), url('{% block header_image2 %} {% endblock %}')")
+      .header-content
+        h1.header-title
+          span.mobile
+            -block header_mobile_title
+              |
+          span.source#typedjs_source
+            -block header_title
+              |
+          span.animated#typedjs_target
+        p.header-description
+          -block header_description
+            |
+    #main
+      -block content
+        |
+  #footer
+    include includes/footer.pug
 
-  
-  .site-bg(style="background-image:url('/static/{% block site_bg %}corepages/images/misc/background-fade.png{% endblock %}'), url('/static/{% block site_bg_lowres %}corepages/images/misc/background-fade.png{% endblock %}');opacity:{%block site_bg_opacity %}0.15{% endblock %}" class="{% block site_bg_classes %}{% endblock site_bg_classes %}")
-  span.lang-switch
-    include includes/langswitch.html
-  include includes/menu.pug
+  #player.closed
+    include includes/player.pug
 
-  {% block content %}
-  {% endblock content %}
-
-  {% block backtotop %}
-  .sep.sep
-  p.center.backtotop: a.underline(onclick="$('html, body').animate({scrollTop:0},1000)") {% trans 'Back to top' %}
-  script.
-    let PAGE_HEIGHT = (document.height !== undefined) ? document.height : document.body.offsetHeight;
-    let VIEWPORT_HEIGHT = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    if (PAGE_HEIGHT <= VIEWPORT_HEIGHT) {
-      $('.backtotop').css({'display':'none'})
-    }
-  {% endblock backtotop %}
-
-  include includes/footer.pug
-  script(src='https://cdn.jsdelivr.net/npm/typed.js@2.0.9')
-  {% block typedtitles %}
-  script.
-    var typedTitle = new Typed("#typedTitle", {
-        stringsElement: "#typedTitleSource",
-        typeSpeed: 50,
-        backSpeed: 25,
-        backDelay:2800,
-    });
-  {% endblock %}
-
-  {% block smoothscroll %}
-  script.
-    $(function() {
-        /**
-        * Smooth scrolling to page anchor on click
-        **/
-        $("a[href*='#']:not([href='#'])").click(() => {
-            if (
-                location.hostname == this.hostname
-                && this.pathname.replace(/^\//,"") == location.pathname.replace(/^\//,"")
-            ) {
-                var anchor = $(this.hash);
-                anchor = anchor.length ? anchor : $("[name=" + this.hash.slice(1) +"]");
-                if ( anchor.length ) {
-                    $("html, body").animate( { scrollTop: anchor.offset().top }, 1000);
-                }
-            }
-        });
-        /**
-        * Auto target _blank on external links
-        **/
-        document.querySelectorAll("a[href^=http]").forEach(link => {
-          // we can bypass this by adding the class "no-new-tab" to an external link
-          if (!link.classList.contains('no-new-tab')) {
-            link.setAttribute('target','_blank')
-          }
-        })
-    });
-  {% endblock smoothscroll %}
-
-  #player(data-resource-url="{% block playerAudioURL %}{% endblock %}")
-    .image(style="background-image:url('{% block playerImageURL %}{% endblock %}');")
-    .title
-      .track {% block playerTrackTitle %}{% endblock %}
-      .from  {% block playerTitle %}{% endblock %}
-      .by  {% block playerArtist %}{% endblock %}
-    .controls
-      .play-pause.icon(onclick='playerToggle()')
-    .progress-bar
-      .time-current
-      .bar
-      .time-remaining
-
-  script(src='/static/corepages/scripts/cookies.js')
-  script(src='/static/music/scripts/player.js')
-  script.
-    playerInfos = getPlayerInfos()
-    // if no cookies were set, try loading from the DOM
-    if (!playerInfos) {
-        savePlayer()
-        playerInfos = getPlayerInfos()
-    }
-    if (playerInfos) {
-        // load the player infos into the DOM, start the loop
-        loadPlayer(playerInfos)
-        // save player infos before unloading the page
-        window.addEventListener('beforeunload', event => {
-            savePlayer()
-        })
-    } else {
-        // destroy player if:
-        // 1. no data was loaded server-side (eg. the user plays another track)
-        // 2. no data was found in cookies (eg. no audio was playing before the new page loaded)
-        //$('#player')[0].remove()
-    }
+  //TODO hide submenu onclick outside of it if its opened
+  script(src="/static/corepages/scripts/cookies.js")
+  script(src="{% static 'corepages/scripts/carousel.js' %}?{% now 'U' %}")

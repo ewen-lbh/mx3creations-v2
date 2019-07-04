@@ -1,0 +1,292 @@
+$accent: #8CECEF
+$accent-bright: #24E5EB
+$c-coding: #a1f28e
+$c-music: #Efba6b
+$c-video: #9e92df
+$c-about: #EF7272
+$c-news: #EDF25C
+$c-contact: #EE88BB
+$c-feedback: #89BFE2
+$c-graphism: #8cecef
+
+/*  - - - - - - - -
+ * UTIL CLASSES
+ * - - - - - - - - 
+ */
+
+span.c-about
+  color: $c-about
+span.c-news
+  color: $c-news
+span.c-contact
+  color: $c-contact
+span.c-feedback
+  color: $c-feedback
+span.c-music
+  color: $c-music
+span.c-graphism
+  color: $c-graphism
+span.c-video
+  color: $c-video
+span.c-coding
+  color: $c-coding
+.sep
+  border-bottom: 3px solid #000
+  height: 34rem
+
+.array
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+/*  - - - - - - - -
+ * COMPONENTS CLASSES
+ * - - - - - - - - 
+ */
+
+.btn-highlight
+  font-family: "Leo Rounded", sans-serif
+  position: relative
+  font-size: 2.5rem
+  
+  &.music::before
+    background: $c-music
+    
+  &.video::before
+    background: $c-video
+    
+  &.coding::before
+    background: $c-coding
+    
+  &.graphism::before
+    background: $c-graphism
+
+  &.news::before
+    background: $c-news
+    
+  &.about::before
+    background: $c-about
+    
+  &.contact::before
+    background: $c-contact
+    
+  &.feedback::before
+    background: $c-feedback
+  
+  &::before
+    transition: width 0.125s ease, left 0.125s ease, bottom 0.125s ease 0.225s, height 0.125s ease 0.225s
+    background: $accent
+    width: 110%
+    left: -5%
+    height: 40%
+    position: absolute
+    bottom: 30%
+    content: ''
+    z-index: -1
+  
+  &:hover::before
+    width: 130%
+    left: -15%
+    height: 140%
+    bottom: -20%
+
+
+.btn-underline
+  display: block
+  font-family: Nord, sans-serif
+  font-size: 4rem
+  &::before
+    border-radius: 0.025em
+    transition: all 0.25s ease
+    content: ''
+    height: 0.05em
+    background: #000
+    width: 0%
+    position: absolute
+    bottom: 0.125em
+    left: 12.5%
+ 
+    //   &:hover::before 
+        // width: 2em
+  span[class^=c-]
+    transition: color 0.25s ease
+    &:nth-child(1)
+      transition-delay: 0.125s
+    &:nth-child(2)
+      transition-delay: 0.25s
+    &:nth-child(3)
+      transition-delay: 0.375s
+    &:nth-child(4)
+      transition-delay: 0.5s
+  &:not(:hover):not(.hold-hover) span[class^=c-]
+      color: #000
+
+// DEFAULT LINKS
+//a:not(.nodefault):not(:has(~ i.zmdi)):not(:has(~ .icon))
+a:not(.nodefault)
+  text-decoration: none
+  color: #000
+  &:not([class^='btn-'])
+    transition: box-shadow 0.125s ease
+    box-shadow: inset 0px -0.125em 0px 0px $accent-bright
+    &:hover
+      box-shadow: inset 0px -1em 0px 0px $accent
+
+#content a:not(.nodefault):not([class^='btn-'])
+  box-shadow: inset 0px -0.125em 0px 0px var(--cover-accent, $accent-bright)
+  &:hover
+    box-shadow: inset 0px -1em 0px 0px var(--cover-accent-transparent, $accent)
+
+
+=headertitledef($icon)
+  h2.iconheader
+    &.iconheader-#{$icon}
+      .icon
+        background-image: url(/static/corepages/images/icons/#{$icon}.svg)
+    
++headertitledef(music)
++headertitledef(graphism)
++headertitledef(video)
++headertitledef(coding)
++headertitledef(about)
++headertitledef(contact)
++headertitledef(feedback)
++headertitledef(news)
+
+.iconheader 
+  .icon
+    z-index: -1
+    position: relative
+    display: inline-block
+    &, svg
+      height: 35px
+      width: 35px
+    margin-right: 0.25em
+    background-size: contain
+    background-position: center
+    background-repeat: no-repeat
+
+  &.music .icon svg .primary-shape
+    fill: $c-music
+  &.graphism .icon svg .primary-shape
+    fill: $c-graphism
+  &.video .icon svg .primary-shape
+    fill: $c-video
+  &.coding .icon svg .primary-shape
+    fill: $c-coding
+  &.about .icon svg .primary-shape
+    fill: $c-about
+  &.contact .icon svg .primary-shape
+    fill: $c-contact
+  &.feedback .icon svg .primary-shape
+    fill: $c-feedback
+  &.news .icon svg .primary-shape
+    fill: $c-news
+
+  .text
+    display: inline-block
+    vertical-align: top
+    line-height: 35px
+    font-family: Leo Rounded, sans-serif
+    font-size: 35px
+     
+
+=iconbtndef($icon)
+  .btn-icon.#{$icon} .icon
+    +desktop
+      background: url(/static/corepages/images/icons/#{$icon}.svg)
+      background-size: contain
+      background-repeat: no-repeat
+      background-position: center
+      svg
+        display: none
+    margin: 0 auto
+    height: 15vw
+    width: 15vw
+    
++iconbtndef(music)
++iconbtndef(graphism)
++iconbtndef(video)
++iconbtndef(coding)
++iconbtndef(about)
++iconbtndef(contact)
++iconbtndef(feedback)
++iconbtndef(news)
+
+.btn-icon
+  height: 15vw
+  width: 15vw
+  transition: background .25s ease .5s
+  .text
+    text-align: center
+    font-family: Leo Rounded, sans-serif
+    font-size: 2rem
+    font-weight: normal
+
+  &.music .icon svg
+    height: 100px
+    margin-left: 10px
+  &.video .icon svg
+    margin-top: -10px
+    height: 100px
+  &.feedback .icon svg
+    margin-top: 20px
+  &.news .icon svg
+    margin-top: 12px
+  &.contact .icon svg
+    margin-top: 10px
+  
+  .description
+    opacity: 0
+    font-size: 1rem
+  
+  &:hover
+    +desktop
+      .description
+        opacity: .75
+        height: calc(100% - 10px)
+        width: calc(100% - 10px)
+        padding: 10px
+        overflow: hidden
+
+
+  +desktop
+    &.btn-icon
+      &.music:hover 
+        .icon
+          background: $c-music
+        .text
+          //color: $c-music
+      &.graphism:hover 
+        .icon
+          background: $c-graphism
+        .text
+          //color: $c-graphism
+      &.video:hover 
+        .icon
+          background: $c-video
+        .text
+          //color: $c-video
+      &.coding:hover 
+        .icon
+          background: $c-coding
+        .text
+          //color: $c-coding
+      &.about:hover 
+        .icon
+          background: $c-about
+        .text
+          //color: $c-about
+      &.contact:hover 
+        .icon
+          background: $c-contact
+        .text
+          //color: $c-contact
+      &.feedback:hover 
+        .icon
+          background: $c-feedback
+        .text
+          //color: $c-feedback
+      &.news:hover 
+        .icon
+          background: $c-news
+        .text
+          //color: $c-news

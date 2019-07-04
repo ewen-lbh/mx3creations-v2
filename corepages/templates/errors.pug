@@ -1,0 +1,26 @@
+-extends 'base.pug' 
+-load i18n static 
+-block title
+    | #{page_title}
+-block body_classes
+    | error 
+-block header_title
+    | #{error_title}
+-block header_mobile_title
+    | #{error_title}
+-block header_description 
+    -blocktrans 
+        | #{error_description}
+        br
+        | Don't get stuck here, listen to a 
+    a(href="{% url 'track_random' %}")
+        -trans "random track"
+    | !
+-block header_image 
+    -static 'corepages/images/headers/colorful.png'
+
+{% block content %}
+
+
+
+{% endblock content %}

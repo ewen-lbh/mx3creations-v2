@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-08 20:23+0200\n"
-"PO-Revision-Date: 2019-06-08 20:31+0000\n"
+"POT-Creation-Date: 2019-06-27 08:20+0000\n"
+"PO-Revision-Date: 2019-06-28 15:26+0000\n"
 "Last-Translator: b'  <ewen.lebihan7@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,832 +19,992 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: .\corepages\forms.py:5
+#: coding/templates/coding.pug:4 coding/templates/coding.pug:5
+#: corepages/views.py:222
+msgid "Coding"
+msgstr "Programmation"
+
+#: coding/templates/coding.pug:5
+msgid "All of my projects"
+msgstr "Tout mes projets"
+
+#: corepages/forms.py:5
 msgid "Email adress"
 msgstr "Adresse email"
 
-#: .\corepages\forms.py:6
-#| msgid "Your message was sent"
+#: corepages/forms.py:6
 msgid "Your message"
 msgstr "Votre message"
 
-#: .\corepages\forms.py:7
+#: corepages/forms.py:7
 msgid "Bug report/Feature request"
 msgstr "Signalement/Proposition"
 
-#: .\corepages\forms.py:7
+#: corepages/forms.py:7
 msgid "Are you contacting me to suggest a feature or report a bug ?"
 msgstr ""
 "Me contactez-vous pour signaler un bug ou proposer une fonctionnalité ?"
 
-#: .\corepages\templates\403.pug:8
-msgid "You have no power here"
-msgstr "Vous ne passerez pas !"
-
-#: .\corepages\templates\403.pug:11
-msgid "Access forbidden."
-msgstr "Accès refusé."
-
-#: .\corepages\templates\403.pug:14
-msgid "You can't access that page. Try to authentificate first."
-msgstr ""
-"Vous ne pouvez pas accéder à cette page. Essayez de vous authentifier."
-
-#: .\corepages\templates\403.pug:16
-msgid "If the issue persists, please "
-msgstr "Si le problème persiste, "
-
-#: .\corepages\templates\403.pug:17
-msgid "contact me."
-msgstr "contactez-moi."
-
-#: .\corepages\templates\404.pug:8
-msgid "That's a 404."
-msgstr "C'est un 404."
-
-#: .\corepages\templates\500.pug:8
-msgid "Something's wrong on my end."
-msgstr "Quelque chose ne va pas de mon côté."
-
-#: .\corepages\templates\500.pug:11
-msgid "Internal server error."
-msgstr "Erreur interne du serveur."
-
-#: .\corepages\templates\500.pug:13
-msgid ""
-" Please contact me at <a class='underline' "
-"href='mailto:ewen.lebihan7@gmail.com'> ewen.lebihan7@gmail.com</a> and "
-"describe what you were trying to do "
-msgstr ""
-"Contactez-moi à <a class='underline' href='mailto:ewen.lebihan7@gmail.com'> "
-"ewen.lebihan7@gmail.com</a> et décrivez ce que vous étiez en train de faire"
-
-#: .\corepages\templates\about.pug:14 .\corepages\views.py:54
-#: .\templates\includes\footer.pug:25 .\templates\includes\menu.pug:32
-msgid "About"
-msgstr "À propos"
-
-#: .\corepages\templates\about.pug:18
-msgid "For legal information, see"
-msgstr "Pour des informations légales, voir"
-
-#: .\corepages\templates\about.pug:19 .\corepages\templates\about.pug:25
-msgid "here."
-msgstr "ici."
-
-#: .\corepages\templates\about.pug:21
-msgid "For statistics about this website, visit"
-msgstr "Pour des statistiques sur ce site web, visitez"
-
-#: .\corepages\templates\about.pug:22
-msgid "this page."
-msgstr "cette page."
-
-#: .\corepages\templates\about.pug:24
-msgid "To download brand resources (logo, banner, ...), see"
-msgstr ""
-"Pour télécharger les resources de branding (logo, bannière, ...), voir"
-
-#: .\corepages\templates\about.pug:27
-msgid "What do I do ?"
-msgstr "Qu’est-ce que je fais ?"
-
-#: .\corepages\templates\about.pug:32
-msgid "Music."
-msgstr "Musique."
-
-#: .\corepages\templates\about.pug:35
-msgid "Listen to my stuff "
-msgstr "Écouter ce que je fais"
-
-#: .\corepages\templates\about.pug:36
-msgid ""
-"I create electronic on FL Studio 20. I started when I was 7 years old, "
-"punching in melodies & beats using a Nitendo DS game, &quot;Jam with the "
-"Band&quot;. "
-msgstr ""
-"Je crée de la musique électronique sur FL Studio 20. J'ai commencé quand "
-"j'avais 7 ans, écrivant des petits morceaux sur un jeu pour Nintendo DS: "
-"&quot;Jam with the Band&quot;"
-
-#: .\corepages\templates\about.pug:37
-msgid ""
-"Since the beginning, my music taste is&mdash;to say the least&mdash;strange."
-" It all started with Trentemøller's &quot;Into the great wide yonder&quot;: "
-"I immediately fell in love with this incredible work on texture and sounds."
-msgstr ""
-"Depuis le début, mes goûts musicaux sont &mdash; pour le moins &mdash; "
-"bizarres. Tout a commencé avec Trentemøller, et son album &quot;Into the "
-"great wide yonder&quot;: Son travail incroyable sur les textures des sons "
-"m'a coupé le souffle."
-
-#: .\corepages\templates\about.pug:38
-msgid ""
-"Today, I still listen to intricate music produced by Max Cooper, Rob Clouth,"
-" James Holden, Nathan Fake, Aphex Twin and  <a class='underline' "
-"href='#artists'>plenty others</a>."
-msgstr ""
-"Aujourd’hui, j'écoute toujours de la musique complexe, produite par Max "
-"Cooper, Rob Clouth, James Holden, Nathan Fake, Aphex Twin et <a "
-"class='underline' href='#artists'>plein d'autres</a>."
-
-#: .\corepages\templates\about.pug:39
-msgid ""
-"My influence also comes from more &quot;mainstream&quot; but yet really "
-"talented artists, like deadmau5. A complete and always up-to-date list of "
-"tracks I love can be found <a class='underline' href='playlist-spotify'>on "
-"spotify</a>."
-msgstr ""
-"Mon inspiration vient aussi d'artistes plus &quot;mainstream&quot; mais très"
-" talentueux, comme deadmau5. Une liste complète, et toujours à jour, de mes "
-"morceaux préférés est disponible <a class='underline' href='playlist-"
-"spotify'>sur Spotify</a>."
-
-#: .\corepages\templates\about.pug:40
-msgid ""
-"I create music with FL Studio, on a self-built computer running Windows 10 "
-"and Pop!_OS."
-msgstr ""
-"Je crée de la musique avec FL Studio, sur un ordinateur que je me suis "
-"monté, tournant sous Windows 10 et Pop!_OS."
-
-#: .\corepages\templates\about.pug:46
-msgid "Graphism."
-msgstr "Graphisme."
-
-#: .\corepages\templates\about.pug:49
-msgid "Look at all my creations "
-msgstr "Voir toutes mes créations"
-
-#: .\corepages\templates\about.pug:50
-msgid ""
-"I also love creating logos, banners, posters, interfaces, websites, icons "
-"and&mdash;of course&mdash;cover arts. I use the Adobe suite for that."
-msgstr ""
-"J'adore aussi créer des logos, des bannières, des affiches, des interfaces, "
-"des sites web, des icônes et &mdash; bien sûr &mdash; des pochettes d'album."
-" Pour cela, j'utilise la suite Adobe."
-
-#: .\corepages\templates\about.pug:57
-msgid "Video."
-msgstr "Vidéo."
-
-#: .\corepages\templates\about.pug:60
-msgid "See everything I made"
-msgstr "Voir tout ce que j'ai fait"
-
-#: .\corepages\templates\about.pug:61
-msgid ""
-"My brother and myself make some short films sometimes, and I usually take "
-"care of the special effects part."
-msgstr ""
-"Avec mon frère, nous faisons parfois des courts-métrages et je m’occupe "
-"souvent de la partie effets spéciaux."
-
-#: .\corepages\templates\about.pug:62
-msgid ""
-"I also love motion design, especially animation in interfaces or logos (I "
-"love glitchy stuff, as you can tell by the logo in the footer). Just look at"
-" how smooth and polished that set of <a class='underline' "
-"href='https://photos.app.goo.gl/vuopauhfcwJjW8nD7'>icon transitions</a> from"
-" Google is!"
-msgstr ""
-"J'adore également le motion design, surtout l'animation dans les interfaces "
-"ou les logos (j'aime beaucoup ce qui est \"glitch\", comme on peut le "
-"remarquer par mon logo dans le footer). Regardez à quel point ce set de <a "
-"class='underline' "
-"href='https://photos.app.goo.gl/vuopauhfcwJjW8nD7'>transitions d'icônes</a> "
-"faite par Google est fluide & bien fait !"
-
-#: .\corepages\templates\about.pug:69
-msgid "Coding."
-msgstr "Programmation."
-
-#: .\corepages\templates\about.pug:72
-msgid "See everything I coded"
-msgstr "Voir tout ce que j'ai codé"
-
-#: .\corepages\templates\about.pug:73
-msgid ""
-"I made that website myself, from the backend, database operations and server"
-" logic to the design of the page you're reading."
-msgstr ""
-"J'ai fait ce site web moi-même, de la configuration du serveur au design de "
-"la page que vous lisez, en passant par la logique et les opérations de base "
-"de données."
-
-#: .\corepages\templates\about.pug:74
-msgid ""
-"Coding is the skill I learned the most recently. I use it primarily for "
-"automation scripts and website creation. For example, I made a <a "
-"class='underline' href='https://github.com/ewen-lbh/publishr'>script to "
-"automate music publishing</a>."
-msgstr ""
-"La programmation est le domaine dans lequel je me suis aventuré le plus "
-"récemment. Je fais surtout des scripts d’automation et des sites web. Part "
-"exemple, je me suis fait un <a class='underline' "
-"href='https://github.com/ewen-lbh/publishr'>script pour automatiser la "
-"publication de musique</a>."
-
-#: .\corepages\templates\about.pug:76
-msgid "What do I use ?"
-msgstr "Qu’est-ce que j’utilise ?"
-
-#: .\corepages\templates\about.pug:79
-msgid "Hardware-wise"
-msgstr "Côté matériel"
-
-#: .\corepages\templates\about.pug:81
-msgid "Processor"
-msgstr "Processeur "
-
-#: .\corepages\templates\about.pug:84
-msgid "Graphics"
-msgstr "Carte graphique "
-
-#: .\corepages\templates\about.pug:87
-msgid "RAM"
-msgstr "Mémoire RAM"
-
-#: .\corepages\templates\about.pug:90
-msgid "Motherboard"
-msgstr "Carte mère"
-
-#: .\corepages\templates\about.pug:93
-msgid "Sound card"
-msgstr "Carte son"
-
-#: .\corepages\templates\about.pug:96
-msgid "Speakers"
-msgstr "Enceintes"
-
-#: .\corepages\templates\about.pug:99
-msgid "MIDI Keyboard"
-msgstr "Clavier MIDI"
-
-#: .\corepages\templates\about.pug:102
-msgid "Launchpad"
-msgstr "Launchpad"
-
-#: .\corepages\templates\about.pug:105
-msgid "Mouse"
-msgstr "Souris"
-
-#: .\corepages\templates\about.pug:108
-msgid "Keyboard"
-msgstr "Clavier"
-
-#: .\corepages\templates\about.pug:112
-msgid "Software-wise"
-msgstr "Côté logiciel"
-
-#: .\corepages\templates\about.pug:114
-msgid "DAW"
-msgstr "Production de musique"
-
-#: .\corepages\templates\about.pug:117
-msgid "VSTs"
-msgstr "Instruments virtuels (VST)"
-
-#: .\corepages\templates\about.pug:120
-msgid "IDEs"
-msgstr "Éditeurs de code (IDE)"
-
-#: .\corepages\templates\about.pug:121
-msgid "web development"
-msgstr "développement web"
-
-#: .\corepages\templates\about.pug:123
-msgid "Vector-based work"
-msgstr "Travail avec du vectoriel"
-
-#: .\corepages\templates\about.pug:126
-msgid "General image editing"
-msgstr "Édition d'image"
-
-#: .\corepages\templates\about.pug:129
-msgid "VFX and Motion Design"
-msgstr "Effets spéciaux & motion design"
-
-#: .\corepages\templates\about.pug:132
-msgid "Video editing"
-msgstr "Montage"
-
-#: .\corepages\templates\about.pug:135
-msgid "Printed stuff"
-msgstr "Pour être imprimé "
-
-#: .\corepages\templates\about.pug:138
-msgid "UI Prototyping"
-msgstr "Prototypage d'interfaces"
-
-#: .\corepages\templates\about.pug:139
-msgid "on Windows"
-msgstr "sur Windows "
-
-#: .\corepages\templates\about.pug:139
-msgid "on Pop!_OS"
-msgstr "sur Pop!_OS"
-
-#: .\corepages\templates\about.pug:141
-msgid "OS"
-msgstr "Système d’exploitation"
-
-#: .\corepages\templates\about.pug:142
-msgid "Gaming, Adobe suite, Music creation"
-msgstr "Gaming, suite Adobe, création de musique"
-
-#: .\corepages\templates\about.pug:142
-msgid "Coding, studying"
-msgstr "Programmation, travail scolaire"
-
-#: .\corepages\templates\about.pug:145
-msgid "On this website"
-msgstr "Sur ce site web"
-
-#: .\corepages\templates\about.pug:147
-msgid "Fonts"
-msgstr "Polices d'écriture"
-
-#: .\corepages\templates\about.pug:153
-msgid ""
-"Icons, backgrounds, music, logo, general design, music artworks, music "
-"videos, translations"
-msgstr ""
-"Icônes, fonds, musique, logo, design général, pochettes, vidéos, traductions"
-
-#: .\corepages\templates\about.pug:154
-msgid "Self-made!"
-msgstr "Fait maison !"
-
-#: .\corepages\templates\about.pug:156
-msgid "I want to thank..."
-msgstr "Je voudrais remercier..."
-
-#: .\corepages\templates\about.pug:157
-msgid "MMTuts & Grafikart"
-msgstr "MMTuts & Grafikart"
-
-#: .\corepages\templates\about.pug:158
-msgid "For their amazing tutorials on web technologies"
-msgstr "Pour leurs superbes tutoriels sur les technologies du web"
-
-#: .\corepages\templates\about.pug:160
-msgid ""
-"Thomas @ <a class='underline' href='https://www.satellite-multimedia.com/'> "
-"Satellite Multimédia </a>"
-msgstr ""
-"Thomas @ <a class='underline' href='https://www.satellite-multimedia.com/'> "
-"Satellite Multimédia </a>"
-
-#: .\corepages\templates\about.pug:161
-msgid ""
-"For getting me into web development, and helping me while I was still "
-"figuring out HTML"
-msgstr ""
-"Pour m'avoir introduit au développement web, et m'avoir aidé alors que je "
-"découvrais encore l'HTML"
-
-#: .\corepages\templates\about.pug:163
-msgid "Quentin Volant"
-msgstr "Quentin Volant"
-
-#: .\corepages\templates\about.pug:164
-msgid ""
-"For all the tips, all the time you wasted to help me kill bugs, and hosting "
-"me for free for so long."
-msgstr ""
-"Pour toutes les astuces et tout le temps que tu as perdu pour m'aider à "
-"régler des bugs. Pour avoir héberger gratuitement mon site web pendant si "
-"longtemps."
-
-#: .\corepages\templates\about.pug:166
-msgid "Artists I like"
-msgstr "Artistes que j'aime bien"
-
-#: .\corepages\templates\about.pug:168
-msgid "In no particular order"
-msgstr "Dans aucun ordre particulier "
-
-#: .\corepages\templates\brand_resources.pug:8 .\corepages\views.py:192
-#: .\templates\includes\footer.pug:30
-msgid "Brand resources"
-msgstr "Ressources de branding"
-
-#: .\corepages\templates\contact.pug:9
-msgid "Your message was sent"
-msgstr "Votre message a été envoyé"
-
-#: .\corepages\templates\contact.pug:14
-msgid "Contact me"
-msgstr "Me contacter"
-
-#: .\corepages\templates\contact.pug:18
-msgid ""
-"If you can't send a message, please contact me using <a class='underline' "
-"href='#other-means'> these means </a>"
-msgstr ""
-"Si vous ne pouvez pas envoyer de message, contactez moi <a class='underline'"
-" href='#other-means'>ici</a>"
-
-#: .\corepages\templates\contact.pug:23
-msgid "Send"
-msgstr "Envoyer"
-
-#: .\corepages\templates\contact.pug:28
-msgid "Sorry for the inconvenience."
-msgstr "Excusez-moi"
-
-#: .\corepages\templates\contact.pug:30
-msgid "Want other means of contact?"
-msgstr "Autres moyens de contact"
-
-#: .\corepages\templates\contact.pug:34
-msgid "french server"
-msgstr "serveur français"
-
-#: .\corepages\templates\graphism.pug:8
-msgid "Graphism & VFX creations"
-msgstr "Créations graphiques"
-
-#: .\corepages\templates\graphism.pug:11
-msgid "The newest"
-msgstr "Le plus récent"
-
-#: .\corepages\templates\graphism.pug:16 .\music\templates\music.pug:24
-msgid "Everything"
-msgstr "Tout"
-
-#: .\corepages\templates\home.pug:6
-msgid "Hi! I'm <span class='fw400'> Mx3</span>, a"
-msgstr "Hey ! Je suis <span class='fw400'> Mx3</span>, un "
-
-#: .\corepages\templates\home.pug:10
-msgid "web developer."
-msgstr "développeur web."
-
-#: .\corepages\templates\home.pug:11
-msgid "music producer."
-msgstr "producteur de musique."
-
-#: .\corepages\templates\home.pug:12
-msgid "graphist."
-msgstr "graphiste."
-
-#: .\corepages\templates\home.pug:13
-msgid "VFX artist."
-msgstr "artiste VFX."
-
-#: .\corepages\templates\home.pug:14
-msgid "motion designer."
-msgstr "motion designer."
-
-#: .\corepages\templates\home.pug:16
-msgid "I make intricate, melodic and yet minimal music."
-msgstr "Je fait de la musique complexe, mélodique mais minimale."
-
-#: .\corepages\templates\home.pug:19
-msgid ""
-"I also create everything I need: this website, music videos, cover arts, "
-"automation scripts,..."
-msgstr ""
-"Je crée aussi tout ce dont j'ai besoin: ce site, des clips musicaux, des "
-"pochettes d'album, des scripts d’automatisation,..."
-
-#: .\corepages\templates\home.pug:23
-msgid "Learn more"
-msgstr "En savoir plus"
-
-#: .\corepages\templates\home.pug:24
-msgid "Listen"
-msgstr "Écouter"
-
-#: .\corepages\templates\home.pug:25
-msgid "See"
-msgstr "Voir"
-
-#: .\corepages\templates\home.pug:28
-msgid "Proudest tracks"
-msgstr "Sélection de morceaux"
-
-#: .\corepages\templates\home.pug:42
-msgid "Cherry-picked artworks"
-msgstr "Sélection d'images"
-
-#: .\corepages\templates\home.pug:43
-msgid "Excluding cover arts"
-msgstr "Sauf les pochettes"
-
-#: .\corepages\templates\home.pug:58
-msgid "Still want more?"
-msgstr "Toujours plus ?"
-
-#: .\corepages\templates\home.pug:59
-msgid "Click on the big + !"
-msgstr "Cliquez sur le grand + !"
-
-#: .\corepages\templates\legal.pug:8
-msgid "Legal info"
-msgstr "Informations légales"
-
-#: .\corepages\templates\search.pug:8
-msgid "You searched for: "
-msgstr "Vous avez recherché:"
-
-#: .\corepages\templates\search.pug:14
-msgid "You did not search for anything"
-msgstr "Vous n'avez rien recherché"
-
-#: .\corepages\templates\search.pug:19
-msgid "results were found"
-msgstr "résultats trouvés"
-
-#: .\corepages\templates\search.pug:21
-msgid "No results found."
+#: corepages/templates/ajax-search.pug:2 corepages/templates/search.pug:8
+#: templates/includes/navbar.pug:105
+msgid "Type something..."
+msgstr "Écrivez quelque chose..."
+
+#: corepages/templates/ajax-search.pug:4
+msgid "Nothing found"
 msgstr "Aucun résultat."
 
-#: .\corepages\templates\search.pug:26
-msgid "Collections"
-msgstr "Albums"
+#: corepages/templates/ajax-search.pug:6
+#, python-format
+msgid "%(results_count)s/%(original_results_count)s results shown."
+msgstr "%(results_count)s de %(original_results_count)s résultats affichés. "
 
-#: .\corepages\templates\search.pug:32 .\corepages\views.py:120
-msgid "Tracks"
-msgstr "Morceaux"
+#: corepages/templates/ajax-search.pug:6
+msgid "More results..."
+msgstr "Plus de résultats..."
 
-#: .\corepages\templates\search.pug:43 .\music\templates\track.pug:180
-msgid "by"
-msgstr "par"
+#: corepages/templates/ajax-search.pug:8 corepages/templates/search.pug:4
+#, python-format
+msgid "Found 1 result "
+msgid_plural " Found %(counter)s results"
+msgstr[0] "1 résultat trouvé"
+msgstr[1] "%(counter)s résultats trouvés"
 
-#: .\corepages\templates\search.pug:46
-msgid "from"
-msgstr "de"
+#: corepages/templates/ajax-search.pug:13 corepages/templates/search.pug:12
+#: templates/includes/navbar.pug:20
+msgid "music"
+msgstr "musique"
 
-#: .\corepages\templates\search.pug:51
-msgid ""
-"That's sad. Wanna try  <a class='underline' href='/listen/random'>something "
-"exciting</a>?"
+#: corepages/templates/ajax-search.pug:15
+#, python-format
+msgid "1 track "
+msgid_plural " %(counter)s tracks"
+msgstr[0] "1 morceau"
+msgstr[1] "%(counter)s morceaux"
+
+#: corepages/templates/ajax-search.pug:22
+#, python-format
+msgid "by %(artist)s"
+msgstr "par %(artist)s"
+
+#: corepages/templates/ajax-search.pug:22 corepages/templates/home.pug:44
+#: corepages/templates/home.pug:61 corepages/templates/home.pug:78
+#: corepages/templates/home.pug:95
+#, python-format
+#| msgid "play the %(kind)s"
+msgid "from the %(kind)s \""
+msgstr "de l'%(kind)s \""
+
+#: corepages/templates/ajax-search.pug:29
+#, python-format
+msgid "1 ep, single or albums "
+msgid_plural " %(counter)s ep's, singles or albums"
+msgstr[0] "1 ep, single ou album"
+msgstr[1] "%(counter)s eps, singles ou albums"
+
+#: corepages/templates/ajax-search.pug:36 corepages/templates/search.pug:33
+#: music/templates/track.pug:5
+#, python-format
+msgid "%(trackscount)s-tracks %(kind)s"
+msgstr "%(kind)s de %(trackscount)s morceaux"
+
+#: corepages/templates/ajax-search.pug:45 templates/includes/navbar.pug:28
+msgid "graphism"
+msgstr "graphisme"
+
+#: corepages/templates/errors.pug:4
+#, python-format
+msgid "%(error_description|escape)s<br/>Don't get stuck here, listen to a "
 msgstr ""
-"C'est triste. Essayer <a class='underline' href='/listen/random'>quelque "
-"chose de surprenant</a> ?"
+"%(error_description|escape)s<br/>Ne restez pas sur cet échec, écoutez plutôt"
+" un "
 
-#: .\corepages\templates\stats.pug:9 .\corepages\views.py:173
-#: .\templates\includes\footer.pug:28
-msgid "Statistics"
-msgstr "Statistiques"
+#: corepages/templates/errors.pug:4
+msgid "random track"
+msgstr "morceau aléatoire"
 
-#: .\corepages\templates\videos.pug:8 .\corepages\views.py:179
-msgid "Videos"
-msgstr "Vidéos"
+#: corepages/templates/home.pug:4
+msgid "i create music"
+msgstr "je crée de la musique"
 
-#: .\corepages\views.py:26 .\corepages\views.py:145
-#: .\templates\includes\footer.pug:24 .\templates\includes\menu.pug:30
+#: corepages/templates/home.pug:6
+msgid "i create websites"
+msgstr "je crée des sites web"
+
+#: corepages/templates/home.pug:8
+msgid "i create user interfaces"
+msgstr "je crée des interfaces utilisateur"
+
+#: corepages/templates/home.pug:10
+msgid "i create automation scripts"
+msgstr "je crée des scripts d'automatisation"
+
+#: corepages/templates/home.pug:12
+msgid "i create logos"
+msgstr "je crée des logos"
+
+#: corepages/templates/home.pug:14
+msgid "i create banners"
+msgstr "je crée des bannières"
+
+#: corepages/templates/home.pug:16
+msgid "i create intros & outros"
+msgstr "je crée des intros & outros"
+
+#: corepages/templates/home.pug:18
+msgid "i create illustrations"
+msgstr "je crée des illustrations"
+
+#: corepages/templates/home.pug:20
+msgid "i create cover arts"
+msgstr "je crée des pochettes"
+
+#: corepages/templates/home.pug:21
+msgid "i create"
+msgstr "je crée"
+
+#: corepages/templates/home.pug:38
+msgid "my proudest <span class=\"c-music\">music</span>"
+msgstr "mes <span class=\"c-music\">morceaux</span> préférés"
+
+#: corepages/templates/home.pug:48
+#| msgid "My music"
+msgid "More music"
+msgstr "Plus de musique"
+
+#: corepages/templates/home.pug:55
+msgid "my proudest <span class=\"c-graphism\">images</span>"
+msgstr "mes <span class=\"c-graphism\">images</span> favorites"
+
+#: corepages/templates/home.pug:65
+#| msgid "More pages"
+msgid "More images"
+msgstr "Plus d'images"
+
+#: corepages/templates/home.pug:72
+msgid "my proudest <span class=\"c-coding\">projects</span>"
+msgstr "mes meilleurs <span class=\"c-coding\">projets</span>"
+
+#: corepages/templates/home.pug:82
+#| msgid "More pages"
+msgid "More projects"
+msgstr "Plus de projets"
+
+#: corepages/templates/home.pug:89
+msgid "my proudest <span class=\"c-video\">videos</span>"
+msgstr "mes <span class=\"c-video\">vidéos</span> préférés"
+
+#: corepages/templates/home.pug:99
+#| msgid "videos"
+msgid "More videos"
+msgstr "Plus de vidéos"
+
+#: corepages/templates/news.pug:3
+msgid "Thanks for subscribing!"
+msgstr "Merci pour l'inscription !"
+
+#: corepages/templates/news.pug:3
+msgid "Oops!"
+msgstr "Oops !"
+
+#: corepages/templates/news.pug:3 newsletter/views.py:89
+msgid "News"
+msgstr "Actus"
+
+#: corepages/templates/news.pug:3
+msgid "Get up to date with my latest annoucements"
+msgstr "Se tenir au courant des dernières annonces"
+
+#: corepages/templates/news.pug:5
+msgid "Let's keep in touch"
+msgstr "Restons en contact"
+
+#: corepages/templates/news.pug:8
+msgid ""
+"My tweets are only in french for now. Sorry! I will try\n"
+"to implement deepl or Google Translate, but I can't \n"
+"promise perfect translations for now!"
+msgstr "&nbsp;"
+
+#: corepages/templates/news.pug:12
+#, python-format
+msgid "%(email|escape)s is already subscribed. "
+msgstr "%(email|escape)s est déjà abonné."
+
+#: corepages/templates/news.pug:12
+msgid "If you don't receive e-mails, please check your spam folder or "
+msgstr "Si vous ne recevez pas d’emails, veuillez regarder dans les spams ou "
+
+#: corepages/templates/news.pug:12
+msgid "contact me"
+msgstr "me contacter"
+
+#: corepages/templates/news.pug:16
+msgid "Subscribe"
+msgstr "S'abonner"
+
+#: corepages/views.py:29 corepages/views.py:204
+#: graphism/templates/graphism.pug:5 graphism/templates/graphism.pug:6
 msgid "Graphism"
 msgstr "Graphisme"
 
-#: .\corepages\views.py:49 .\templates\includes\footer.pug:27
-#: .\templates\includes\menu.pug:36
+#: corepages/views.py:52
 msgid "Contact"
 msgstr "Contact"
 
-#: .\corepages\views.py:82
+#: corepages/views.py:57
+msgid "About"
+msgstr "À propos"
+
+#: corepages/views.py:132
 msgid "Search"
 msgstr "Recherche"
 
-#: .\corepages\views.py:116 .\templates\includes\footer.pug:23
-#: .\templates\includes\menu.pug:28
+#: corepages/views.py:138
+msgid "That's a 404!"
+msgstr "C'est un 404."
+
+#: corepages/views.py:139
+msgid "The page you wanted to see does not exist, or has been moved."
+msgstr "La page que vous avez souhaité voir n'existe plus, ou a été déplacée"
+
+#: corepages/views.py:146
+msgid "You shall not pass!"
+msgstr "Vous ne passerez pas !"
+
+#: corepages/views.py:147
+msgid "You don't have access to that page. Try authenticating first."
+msgstr ""
+"Vous ne pouvez pas accéder à cette page. Essayez de vous authentifier."
+
+#: corepages/views.py:154
+msgid "Something's wrong on my end..."
+msgstr "Quelque chose ne va pas de mon côté."
+
+#: corepages/views.py:155
+msgid "Internal server error. Will be dealing with that «soon» :p"
+msgstr "Erreur interne du serveur. Je m'occuperais de cela, «bientôt» :p"
+
+#: corepages/views.py:175 music/templates/music.pug:5
+#: music/templates/music.pug:6 music/views.py:77
 msgid "Music"
 msgstr "Musique"
 
-#: .\corepages\views.py:124
+#: corepages/views.py:179
+msgid "Tracks"
+msgstr "Morceaux"
+
+#: corepages/views.py:183
 msgid "Hours of music"
 msgstr "Heures de musique"
 
-#: .\corepages\views.py:128
+#: corepages/views.py:187
 msgid "Music videos"
 msgstr "Clips musicaux"
 
-#: .\corepages\views.py:132
+#: corepages/views.py:191
 msgid "Remixes"
 msgstr "Remixes"
 
-#: .\corepages\views.py:136
+#: corepages/views.py:195
 msgid "Albums & EPs"
 msgstr "Albums & EPs"
 
-#: .\corepages\views.py:140 .\music\templates\music.pug:45
+#: corepages/views.py:199
 msgid "Singles"
 msgstr "Singles"
 
-#: .\corepages\views.py:149
+#: corepages/views.py:208
 msgid "Cover arts"
 msgstr "Pochettes"
 
-#: .\corepages\views.py:154
+#: corepages/views.py:213
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: .\corepages\views.py:158
+#: corepages/views.py:217
 msgid "Members"
 msgstr "Membres"
 
-#: .\corepages\views.py:163
-msgid "Coding"
-msgstr "Programmation"
-
-#: .\corepages\views.py:167
+#: corepages/views.py:226
 msgid "Projects on GitHub"
 msgstr "Projets sur GitHub"
 
-#: .\music\templates\cover_art.pug:13 .\music\views.py:108
-msgid "Download artworks"
-msgstr "Télécharger les pochettes"
+#: corepages/views.py:232
+msgid "Statistics"
+msgstr "Statistiques"
 
-#: .\music\templates\cover_art.pug:15
-msgid "Click on an image to download it"
-msgstr "Cliquez sur une image pour la télécharger"
+#: corepages/views.py:238
+msgid "Videos"
+msgstr "Vidéos"
 
-#: .\music\templates\cover_art.pug:32
+#: corepages/views.py:251
+msgid "Brand resources"
+msgstr "Ressources de branding"
+
+#: corepages/views.py:258 templates/includes/navbar.pug:36
+msgid "coding"
+msgstr "programmation"
+
+#: graphism/templates/graphism.pug:7
 #, python-format
-msgid " Back to %(collection_title)s "
-msgstr "Retour à %(collection_title)s"
+msgid " All of my images<br>%(count)s pictures | %(size)s "
+msgstr "Toutes mes créations graphiques<br>%(count)s images | %(size)s"
 
-#: .\music\templates\music.pug:15 .\music\views.py:74
-msgid "My music"
-msgstr "Ma musique"
-
-#: .\music\templates\music.pug:18
+#: music/templates/music.pug:7
 #, python-format
-msgid " The latest: \"%(title)s\" %(kind)s "
-msgstr "Le plus récent: \"%(title)s\" %(kind)s"
+msgid " All of my music productions<br>%(count)s tracks | %(hours)s hours "
+msgstr ""
+"Toute mes productions musicales<br>%(count)s morceaux | %(hours)s heures"
 
-#: .\music\templates\music.pug:25
-msgid "Sort by:"
-msgstr "Trier par :"
+#: music/templates/track.pug:6
+#, python-format
+#| msgid "Release date"
+msgid "released %(date)s"
+msgstr "Sorti de %(date)s"
 
-#: .\music\templates\music.pug:37
-msgid "Albums"
-msgstr "Albums"
-
-#: .\music\templates\music.pug:41
-msgid "EPs"
-msgstr "EPs"
-
-#: .\music\templates\track.pug:19
-msgid "Download this track"
-msgstr "Télécharger ce morceau "
-
-#: .\music\templates\track.pug:24
-msgid "Share this track"
-msgstr "Partager ce morceau"
-
-#: .\music\templates\track.pug:35
+#: music/templates/track.pug:10
 msgid "Share "
 msgstr "Partager"
 
-#: .\music\templates\track.pug:41
+#: music/templates/track.pug:13
 msgid "Share on Facebook"
 msgstr "Partager sur Facebook"
 
 #. Translators: tweet verb
-#: .\music\templates\track.pug:46
+#: music/templates/track.pug:16
 msgid "Tweet"
 msgstr "Tweeter"
 
-#: .\music\templates\track.pug:50
+#: music/templates/track.pug:18
 msgid "Submit to Reddit"
 msgstr "Envoyer sur Reddit"
 
-#: .\music\templates\track.pug:54
+#: music/templates/track.pug:20
 msgid "Send email"
 msgstr "Envoyer par mail"
 
-#: .\music\templates\track.pug:76
+#: music/templates/track.pug:33
 #, python-format
-msgid " %(date)s ago "
-msgstr "il y a %(date)s"
+msgid "play the %(kind)s"
+msgstr "écouter l'%(kind)s"
 
-#: .\music\templates\track.pug:113
-msgid "Download"
-msgstr "Télécharger"
+#: music/templates/track.pug:42
+msgid "play"
+msgstr "écouter"
 
-#: .\music\templates\track.pug:118 .\music\templates\track.pug:192
-#: .\music\views.py:141
-msgid "Share"
-msgstr "Partager"
+#: music/templates/track.pug:50
+msgid "download"
+msgstr "télécharger"
 
-#: .\music\templates\track.pug:123
-msgid "Download artwork"
-msgstr "Télécharger la pochette"
+#: music/templates/track.pug:55
+msgid "share &lt;3"
+msgstr "partager &lt;3"
 
-#: .\music\templates\track.pug:129
-msgid "See the music videos"
-msgstr "Voir les vidéos"
+#: music/templates/track.pug:60
+msgid "artworks"
+msgstr "pochette"
 
-#: .\music\templates\track.pug:189 .\music\templates\track.pug:190
-msgid "Listen to"
-msgstr "Écoutez "
+#: music/templates/track.pug:65 templates/includes/navbar.pug:44
+msgid "videos"
+msgstr "vidéos"
 
-#: .\music\templates\track.pug:190
-msgid "at"
-msgstr "à"
-
-#: .\music\views.py:78
+#: music/views.py:81
 msgid "Release date"
 msgstr "Date de sortie"
 
-#: .\music\views.py:79
+#: music/views.py:82
 msgid "Goodness"
 msgstr "Meilleurs"
 
-#: .\music\views.py:80
+#: music/views.py:83
 msgid "Kinds"
 msgstr "Types"
 
-#: .\music\views.py:81
+#: music/views.py:84
 msgid "Work time"
 msgstr "Temps de travail"
 
-#: .\newsletter\templates\news.pug:9
-msgid "Thanks for signing up !"
-msgstr "Merci pour l'inscription !"
+#: music/views.py:111
+msgid "Download artworks"
+msgstr "Télécharger les pochettes"
 
-#: .\newsletter\templates\news.pug:12
-msgid "Oops!"
-msgstr "Oops !"
+#: music/views.py:144
+msgid "Share"
+msgstr "Partager"
 
-#: .\newsletter\templates\news.pug:14 .\newsletter\views.py:25
-#: .\templates\includes\footer.pug:26 .\templates\includes\menu.pug:34
-msgid "News"
-msgstr "Actus"
+#: templates/includes/navbar.pug:11
+msgid ""
+"c<span class=\"c-music\">r</span><span class=\"c-graphism\">e</span>at<span "
+"class=\"c-coding\">i</span>o<span class=\"c-video\">n</span>s</a></p>"
+msgstr ""
+"c<span class=\"c-music\">r</span><span class=\"c-graphism\">é</span>at<span "
+"class=\"c-coding\">i</span>o<span class=\"c-video\">n</span>s</a></p>"
 
-#: .\newsletter\templates\news.pug:18
-msgid "Let's keep in touch"
-msgstr "Restons en contact"
+#: templates/includes/navbar.pug:17
+msgid "Albums, <br/>singles, <br/>EPs <br/>and remixes"
+msgstr "Albums, <br/>Singles, <br/>EPs<br/> et remix"
 
-#: .\newsletter\templates\news.pug:23
+#: templates/includes/navbar.pug:25
+msgid ""
+"Posters,<br/>logos,<br/>photos,<br/>illustrations,<br/>UIs,<br/>and, of "
+"course, <br/>cover arts!"
+msgstr ""
+"Affiches,<br/>logos,<br/>photos,<br/>illustrations,<br/>interfaces,<br/>et, "
+"bien sûr,<br/>pochettes !"
+
+#: templates/includes/navbar.pug:33
+msgid ""
+"All of my projects<br/>and their source code,<br/><br/>Including this "
+"website!"
+msgstr "Tout mes projets<br/>et leur code source,<br/><br/>dont ce site web !"
+
+#: templates/includes/navbar.pug:41
+msgid "Motion design,<br/>Short films,<br/>VFX,<br/>music videos"
+msgstr ""
+"Motion design,<br/>courts métrages,<br/>effets spéciaux,<br/>clips musicaux"
+
+#: templates/includes/navbar.pug:49
+msgid ""
+"<span class=\"c-about\">a</span>b<span class=\"c-news\">o</span><span "
+"class=\"c-contact\">u</span><span class=\"c-feedback\">t</span></a></p>"
+msgstr ""
+"<span class=\"c-about\">à </span>pr<span class=\"c-news\">o</span>p<span "
+"class=\"c-contact\">o</span><span class=\"c-feedback\">s</span></a></p>"
+
+#: templates/includes/navbar.pug:55
+msgid "Learn more about me and this website"
+msgstr "En savoir plus à mon propos et à propos du site"
+
+#: templates/includes/navbar.pug:58
+msgid "about"
+msgstr "à propos"
+
+#: templates/includes/navbar.pug:63
+msgid "Get up-to-date with my latest creations & annoucements"
+msgstr "Se tenir au courant des dernières annonces"
+
+#: templates/includes/navbar.pug:66
+msgid "news"
+msgstr "actus"
+
+#: templates/includes/navbar.pug:71
+msgid "Got any question?<br/>Wanna collab?<br/><br/>Click here to contact me!"
+msgstr ""
+"Une question ?<br/>Une envie de collaboration ?<br/><br/>Cliquez ici pour me"
+" contacter !"
+
+#: templates/includes/navbar.pug:74
+msgid "contact"
+msgstr "contact"
+
+#: templates/includes/navbar.pug:79
+msgid ""
+"Give feedback about this website, <br/>whether it's a bug report<br/>or a "
+"feature request"
+msgstr ""
+"Donner des retours sur le site web,<br/>que ce soit un signalement de "
+"bug<br/>ou une idée quelconque"
+
+#: templates/includes/navbar.pug:82
+msgid "feedback"
+msgstr "feedback"
+
+#: templates/includes/navbar.pug:90
+msgid "search..."
+msgstr "rechercher..."
+
+#: video/templates/videos.pug:5 video/templates/videos.pug:6
+msgid "Video"
+msgstr "Vidéo"
+
+#: video/templates/videos.pug:7
 #, python-format
-msgid " %(email)s is already subscribed. "
-msgstr "%(email)s est déjà abonné."
+msgid " All of my videos<br>%(count)s videos | %(hours)s hours "
+msgstr "Toutes mes vidéos<br>%(count)s vidéos | %(hours)s heures"
 
-#: .\newsletter\templates\news.pug:25
-msgid "If you don't receive e-mails, please check your spam folder or "
-msgstr "Si vous ne recevez pas d’emails, veuillez regarder dans les spams ou "
+#, fuzzy
+#~ msgid ""
+#~ "I create complex, melodic yet minimal music, and everything I need: this "
+#~ "website, videos, cover arts, automation scripts,..."
+#~ msgstr ""
+#~ "Je crée aussi tout ce dont j'ai besoin: ce site, des clips musicaux, des "
+#~ "pochettes d'album, des scripts d’automatisation,..."
 
-#: .\newsletter\templates\news.pug:26
-msgid "contact me"
-msgstr "me contacter"
+#~ msgid "Learn more"
+#~ msgstr "En savoir plus"
 
-#: .\newsletter\templates\news.pug:32
-msgid "Subscribe"
-msgstr "S'abonner"
+#~ msgid "You have no power here"
+#~ msgstr "Vous ne passerez pas !"
 
-#: .\templates\base.pug:17
-msgid "Back to top"
-msgstr "Retour en haut "
+#~ msgid "Access forbidden."
+#~ msgstr "Accès refusé."
 
-#: .\templates\includes\footer.pug:9
-msgid "Follow me"
-msgstr "Me suivre"
+#~ msgid "If the issue persists, please "
+#~ msgstr "Si le problème persiste, "
 
-#: .\templates\includes\footer.pug:11
-msgid "Twitter, Instagram and Facebook are in French"
-msgstr " "
+#~ msgid "contact me."
+#~ msgstr "contactez-moi."
 
-#: .\templates\includes\footer.pug:20
-msgid "More pages"
-msgstr "Plus de pages"
+#~ msgid "Internal server error."
+#~ msgstr "Erreur interne du serveur."
 
-#: .\templates\includes\footer.pug:22 .\templates\includes\menu.pug:26
-msgid "Home"
-msgstr "Accueil"
+#~ msgid ""
+#~ " Please contact me at <a class='underline' "
+#~ "href='mailto:ewen.lebihan7@gmail.com'> ewen.lebihan7@gmail.com</a> and "
+#~ "describe what you were trying to do "
+#~ msgstr ""
+#~ "Contactez-moi à <a class='underline' href='mailto:ewen.lebihan7@gmail.com'> "
+#~ "ewen.lebihan7@gmail.com</a> et décrivez ce que vous étiez en train de faire"
 
-#: .\templates\includes\footer.pug:29
-msgid "Legal notice"
-msgstr "Informations légales"
+#~ msgid "For legal information, see"
+#~ msgstr "Pour des informations légales, voir"
 
-#: .\templates\includes\footer.pug:35
-msgid ""
-"Made with <span class='red halfbig'><i class='zmdi zmdi-"
-"favorite'></i></span> by Ewen Le Bihan"
-msgstr ""
-"Fait avec <span class='red halfbig'><i class='zmdi zmdi-"
-"favorite'></i></span> par Ewen Le Bihan"
+#~ msgid "here."
+#~ msgstr "ici."
 
-#: .\templates\includes\footer.pug:37
-msgid ""
-"All works under the <a class='underline' "
-"href='http://creativecommons.org/licenses/by-sa/4.0'> CC BY-SA</a> license"
-msgstr ""
-"Tout oeuvre sous la license <a class='underline' "
-"href='http://creativecommons.org/licenses/by-sa/4.0'> CC BY-SA</a>"
+#~ msgid "For statistics about this website, visit"
+#~ msgstr "Pour des statistiques sur ce site web, visitez"
 
-#: .\templates\includes\menu.pug:15
-msgid "Search..."
-msgstr "Rechercher..."
+#~ msgid "this page."
+#~ msgstr "cette page."
 
-#: .\templates\includes\menu.pug:21
-msgid "GO"
-msgstr "GO"
+#~ msgid "To download brand resources (logo, banner, ...), see"
+#~ msgstr ""
+#~ "Pour télécharger les resources de branding (logo, bannière, ...), voir"
+
+#~ msgid "What do I do ?"
+#~ msgstr "Qu’est-ce que je fais ?"
+
+#~ msgid "Music."
+#~ msgstr "Musique."
+
+#~ msgid "Listen to my stuff "
+#~ msgstr "Écouter ce que je fais"
+
+#~ msgid ""
+#~ "I create electronic on FL Studio 20. I started when I was 7 years old, "
+#~ "punching in melodies & beats using a Nitendo DS game, &quot;Jam with the "
+#~ "Band&quot;. "
+#~ msgstr ""
+#~ "Je crée de la musique électronique sur FL Studio 20. J'ai commencé quand "
+#~ "j'avais 7 ans, écrivant des petits morceaux sur un jeu pour Nintendo DS: "
+#~ "&quot;Jam with the Band&quot;"
+
+#~ msgid ""
+#~ "Since the beginning, my music taste is&mdash;to say the least&mdash;strange."
+#~ " It all started with Trentemøller's &quot;Into the great wide yonder&quot;: "
+#~ "I immediately fell in love with this incredible work on texture and sounds."
+#~ msgstr ""
+#~ "Depuis le début, mes goûts musicaux sont &mdash; pour le moins &mdash; "
+#~ "bizarres. Tout a commencé avec Trentemøller, et son album &quot;Into the "
+#~ "great wide yonder&quot;: Son travail incroyable sur les textures des sons "
+#~ "m'a coupé le souffle."
+
+#~ msgid ""
+#~ "Today, I still listen to intricate music produced by Max Cooper, Rob Clouth,"
+#~ " James Holden, Nathan Fake, Aphex Twin and  <a class='underline' "
+#~ "href='#artists'>plenty others</a>."
+#~ msgstr ""
+#~ "Aujourd’hui, j'écoute toujours de la musique complexe, produite par Max "
+#~ "Cooper, Rob Clouth, James Holden, Nathan Fake, Aphex Twin et <a "
+#~ "class='underline' href='#artists'>plein d'autres</a>."
+
+#~ msgid ""
+#~ "My influence also comes from more &quot;mainstream&quot; but yet really "
+#~ "talented artists, like deadmau5. A complete and always up-to-date list of "
+#~ "tracks I love can be found <a class='underline' href='playlist-spotify'>on "
+#~ "spotify</a>."
+#~ msgstr ""
+#~ "Mon inspiration vient aussi d'artistes plus &quot;mainstream&quot; mais très"
+#~ " talentueux, comme deadmau5. Une liste complète, et toujours à jour, de mes "
+#~ "morceaux préférés est disponible <a class='underline' href='playlist-"
+#~ "spotify'>sur Spotify</a>."
+
+#~ msgid ""
+#~ "I create music with FL Studio, on a self-built computer running Windows 10 "
+#~ "and Pop!_OS."
+#~ msgstr ""
+#~ "Je crée de la musique avec FL Studio, sur un ordinateur que je me suis "
+#~ "monté, tournant sous Windows 10 et Pop!_OS."
+
+#~ msgid "Graphism."
+#~ msgstr "Graphisme."
+
+#~ msgid "Look at all my creations "
+#~ msgstr "Voir toutes mes créations"
+
+#~ msgid ""
+#~ "I also love creating logos, banners, posters, interfaces, websites, icons "
+#~ "and&mdash;of course&mdash;cover arts. I use the Adobe suite for that."
+#~ msgstr ""
+#~ "J'adore aussi créer des logos, des bannières, des affiches, des interfaces, "
+#~ "des sites web, des icônes et &mdash; bien sûr &mdash; des pochettes d'album."
+#~ " Pour cela, j'utilise la suite Adobe."
+
+#~ msgid "Video."
+#~ msgstr "Vidéo."
+
+#~ msgid "See everything I made"
+#~ msgstr "Voir tout ce que j'ai fait"
+
+#~ msgid ""
+#~ "My brother and myself make some short films sometimes, and I usually take "
+#~ "care of the special effects part."
+#~ msgstr ""
+#~ "Avec mon frère, nous faisons parfois des courts-métrages et je m’occupe "
+#~ "souvent de la partie effets spéciaux."
+
+#~ msgid ""
+#~ "I also love motion design, especially animation in interfaces or logos (I "
+#~ "love glitchy stuff, as you can tell by the logo in the footer). Just look at"
+#~ " how smooth and polished that set of <a class='underline' "
+#~ "href='https://photos.app.goo.gl/vuopauhfcwJjW8nD7'>icon transitions</a> from"
+#~ " Google is!"
+#~ msgstr ""
+#~ "J'adore également le motion design, surtout l'animation dans les interfaces "
+#~ "ou les logos (j'aime beaucoup ce qui est \"glitch\", comme on peut le "
+#~ "remarquer par mon logo dans le footer). Regardez à quel point ce set de <a "
+#~ "class='underline' "
+#~ "href='https://photos.app.goo.gl/vuopauhfcwJjW8nD7'>transitions d'icônes</a> "
+#~ "faite par Google est fluide & bien fait !"
+
+#~ msgid "Coding."
+#~ msgstr "Programmation."
+
+#~ msgid "See everything I coded"
+#~ msgstr "Voir tout ce que j'ai codé"
+
+#~ msgid ""
+#~ "I made that website myself, from the backend, database operations and server"
+#~ " logic to the design of the page you're reading."
+#~ msgstr ""
+#~ "J'ai fait ce site web moi-même, de la configuration du serveur au design de "
+#~ "la page que vous lisez, en passant par la logique et les opérations de base "
+#~ "de données."
+
+#~ msgid ""
+#~ "Coding is the skill I learned the most recently. I use it primarily for "
+#~ "automation scripts and website creation. For example, I made a <a "
+#~ "class='underline' href='https://github.com/ewen-lbh/publishr'>script to "
+#~ "automate music publishing</a>."
+#~ msgstr ""
+#~ "La programmation est le domaine dans lequel je me suis aventuré le plus "
+#~ "récemment. Je fais surtout des scripts d’automation et des sites web. Part "
+#~ "exemple, je me suis fait un <a class='underline' "
+#~ "href='https://github.com/ewen-lbh/publishr'>script pour automatiser la "
+#~ "publication de musique</a>."
+
+#~ msgid "What do I use ?"
+#~ msgstr "Qu’est-ce que j’utilise ?"
+
+#~ msgid "Hardware-wise"
+#~ msgstr "Côté matériel"
+
+#~ msgid "Processor"
+#~ msgstr "Processeur "
+
+#~ msgid "Graphics"
+#~ msgstr "Carte graphique "
+
+#~ msgid "RAM"
+#~ msgstr "Mémoire RAM"
+
+#~ msgid "Motherboard"
+#~ msgstr "Carte mère"
+
+#~ msgid "Sound card"
+#~ msgstr "Carte son"
+
+#~ msgid "Speakers"
+#~ msgstr "Enceintes"
+
+#~ msgid "MIDI Keyboard"
+#~ msgstr "Clavier MIDI"
+
+#~ msgid "Launchpad"
+#~ msgstr "Launchpad"
+
+#~ msgid "Mouse"
+#~ msgstr "Souris"
+
+#~ msgid "Keyboard"
+#~ msgstr "Clavier"
+
+#~ msgid "Software-wise"
+#~ msgstr "Côté logiciel"
+
+#~ msgid "DAW"
+#~ msgstr "Production de musique"
+
+#~ msgid "VSTs"
+#~ msgstr "Instruments virtuels (VST)"
+
+#~ msgid "IDEs"
+#~ msgstr "Éditeurs de code (IDE)"
+
+#~ msgid "web development"
+#~ msgstr "développement web"
+
+#~ msgid "Vector-based work"
+#~ msgstr "Travail avec du vectoriel"
+
+#~ msgid "General image editing"
+#~ msgstr "Édition d'image"
+
+#~ msgid "VFX and Motion Design"
+#~ msgstr "Effets spéciaux & motion design"
+
+#~ msgid "Video editing"
+#~ msgstr "Montage"
+
+#~ msgid "Printed stuff"
+#~ msgstr "Pour être imprimé "
+
+#~ msgid "UI Prototyping"
+#~ msgstr "Prototypage d'interfaces"
+
+#~ msgid "on Windows"
+#~ msgstr "sur Windows "
+
+#~ msgid "on Pop!_OS"
+#~ msgstr "sur Pop!_OS"
+
+#~ msgid "OS"
+#~ msgstr "Système d’exploitation"
+
+#~ msgid "Gaming, Adobe suite, Music creation"
+#~ msgstr "Gaming, suite Adobe, création de musique"
+
+#~ msgid "Coding, studying"
+#~ msgstr "Programmation, travail scolaire"
+
+#~ msgid "Fonts"
+#~ msgstr "Polices d'écriture"
+
+#~ msgid ""
+#~ "Icons, backgrounds, music, logo, general design, music artworks, music "
+#~ "videos, translations"
+#~ msgstr ""
+#~ "Icônes, fonds, musique, logo, design général, pochettes, vidéos, traductions"
+
+#~ msgid "Self-made!"
+#~ msgstr "Fait maison !"
+
+#~ msgid "I want to thank..."
+#~ msgstr "Je voudrais remercier..."
+
+#~ msgid "MMTuts & Grafikart"
+#~ msgstr "MMTuts & Grafikart"
+
+#~ msgid "For their amazing tutorials on web technologies"
+#~ msgstr "Pour leurs superbes tutoriels sur les technologies du web"
+
+#~ msgid ""
+#~ "Thomas @ <a class='underline' href='https://www.satellite-multimedia.com/'> "
+#~ "Satellite Multimédia </a>"
+#~ msgstr ""
+#~ "Thomas @ <a class='underline' href='https://www.satellite-multimedia.com/'> "
+#~ "Satellite Multimédia </a>"
+
+#~ msgid ""
+#~ "For getting me into web development, and helping me while I was still "
+#~ "figuring out HTML"
+#~ msgstr ""
+#~ "Pour m'avoir introduit au développement web, et m'avoir aidé alors que je "
+#~ "découvrais encore l'HTML"
+
+#~ msgid "Quentin Volant"
+#~ msgstr "Quentin Volant"
+
+#~ msgid ""
+#~ "For all the tips, all the time you wasted to help me kill bugs, and hosting "
+#~ "me for free for so long."
+#~ msgstr ""
+#~ "Pour toutes les astuces et tout le temps que tu as perdu pour m'aider à "
+#~ "régler des bugs. Pour avoir héberger gratuitement mon site web pendant si "
+#~ "longtemps."
+
+#~ msgid "Artists I like"
+#~ msgstr "Artistes que j'aime bien"
+
+#~ msgid "In no particular order"
+#~ msgstr "Dans aucun ordre particulier "
+
+#~ msgid "Your message was sent"
+#~ msgstr "Votre message a été envoyé"
+
+#~ msgid "Contact me"
+#~ msgstr "Me contacter"
+
+#~ msgid ""
+#~ "If you can't send a message, please contact me using <a class='underline' "
+#~ "href='#other-means'> these means </a>"
+#~ msgstr ""
+#~ "Si vous ne pouvez pas envoyer de message, contactez moi <a class='underline'"
+#~ " href='#other-means'>ici</a>"
+
+#~ msgid "Send"
+#~ msgstr "Envoyer"
+
+#~ msgid "Sorry for the inconvenience."
+#~ msgstr "Excusez-moi"
+
+#~ msgid "Want other means of contact?"
+#~ msgstr "Autres moyens de contact"
+
+#~ msgid "french server"
+#~ msgstr "serveur français"
+
+#~ msgid "Graphism & VFX creations"
+#~ msgstr "Créations graphiques"
+
+#~ msgid "The newest"
+#~ msgstr "Le plus récent"
+
+#~ msgid "Everything"
+#~ msgstr "Tout"
+
+#~ msgid "Hi! I'm <span class='fw400'> Mx3</span>, a"
+#~ msgstr "Hey ! Je suis <span class='fw400'> Mx3</span>, un "
+
+#~ msgid "web developer."
+#~ msgstr "développeur web."
+
+#~ msgid "music producer."
+#~ msgstr "producteur de musique."
+
+#~ msgid "graphist."
+#~ msgstr "graphiste."
+
+#~ msgid "VFX artist."
+#~ msgstr "artiste VFX."
+
+#~ msgid "motion designer."
+#~ msgstr "motion designer."
+
+#~ msgid "I make intricate, melodic and yet minimal music."
+#~ msgstr "Je fait de la musique complexe, mélodique mais minimale."
+
+#~ msgid "Listen"
+#~ msgstr "Écouter"
+
+#~ msgid "See"
+#~ msgstr "Voir"
+
+#~ msgid "Proudest tracks"
+#~ msgstr "Sélection de morceaux"
+
+#~ msgid "Cherry-picked artworks"
+#~ msgstr "Sélection d'images"
+
+#~ msgid "Excluding cover arts"
+#~ msgstr "Sauf les pochettes"
+
+#~ msgid "Still want more?"
+#~ msgstr "Toujours plus ?"
+
+#~ msgid "Click on the big + !"
+#~ msgstr "Cliquez sur le grand + !"
+
+#~ msgid "Legal info"
+#~ msgstr "Informations légales"
+
+#~ msgid "You searched for: "
+#~ msgstr "Vous avez recherché:"
+
+#~ msgid "You did not search for anything"
+#~ msgstr "Vous n'avez rien recherché"
+
+#~ msgid "results were found"
+#~ msgstr "résultats trouvés"
+
+#~ msgid "Collections"
+#~ msgstr "Albums"
+
+#~ msgid "by"
+#~ msgstr "par"
+
+#~ msgid "from"
+#~ msgstr "de"
+
+#~ msgid ""
+#~ "That's sad. Wanna try  <a class='underline' href='/listen/random'>something "
+#~ "exciting</a>?"
+#~ msgstr ""
+#~ "C'est triste. Essayer <a class='underline' href='/listen/random'>quelque "
+#~ "chose de surprenant</a> ?"
+
+#~ msgid "Click on an image to download it"
+#~ msgstr "Cliquez sur une image pour la télécharger"
+
+#~ msgid " Back to %(collection_title)s "
+#~ msgstr "Retour à %(collection_title)s"
+
+#~ msgid " The latest: \"%(title)s\" %(kind)s "
+#~ msgstr "Le plus récent: \"%(title)s\" %(kind)s"
+
+#~ msgid "Sort by:"
+#~ msgstr "Trier par :"
+
+#~ msgid "Albums"
+#~ msgstr "Albums"
+
+#~ msgid "EPs"
+#~ msgstr "EPs"
+
+#~ msgid "Download this track"
+#~ msgstr "Télécharger ce morceau "
+
+#~ msgid "Share this track"
+#~ msgstr "Partager ce morceau"
+
+#~ msgid " %(date)s ago "
+#~ msgstr "il y a %(date)s"
+
+#~ msgid "Download artwork"
+#~ msgstr "Télécharger la pochette"
+
+#~ msgid "See the music videos"
+#~ msgstr "Voir les vidéos"
+
+#~ msgid "Listen to"
+#~ msgstr "Écoutez "
+
+#~ msgid "at"
+#~ msgstr "à"
+
+#~ msgid "Back to top"
+#~ msgstr "Retour en haut "
+
+#~ msgid "Follow me"
+#~ msgstr "Me suivre"
+
+#~ msgid "Twitter, Instagram and Facebook are in French"
+#~ msgstr " "
+
+#~ msgid "Home"
+#~ msgstr "Accueil"
+
+#~ msgid "Legal notice"
+#~ msgstr "Informations légales"
+
+#~ msgid ""
+#~ "Made with <span class='red halfbig'><i class='zmdi zmdi-"
+#~ "favorite'></i></span> by Ewen Le Bihan"
+#~ msgstr ""
+#~ "Fait avec <span class='red halfbig'><i class='zmdi zmdi-"
+#~ "favorite'></i></span> par Ewen Le Bihan"
+
+#~ msgid ""
+#~ "All works under the <a class='underline' "
+#~ "href='http://creativecommons.org/licenses/by-sa/4.0'> CC BY-SA</a> license"
+#~ msgstr ""
+#~ "Tout oeuvre sous la license <a class='underline' "
+#~ "href='http://creativecommons.org/licenses/by-sa/4.0'> CC BY-SA</a>"
+
+#~ msgid "GO"
+#~ msgstr "GO"
 
 #~ msgid ""
 #~ " See everything I coded on my <a class='underline' "
@@ -857,9 +1017,6 @@ msgstr "GO"
 
 #~ msgid "here"
 #~ msgstr "ici."
-
-#~ msgid "%s's artworks"
-#~ msgstr "Pochettes de %s"
 
 #~ msgid "download artworks"
 #~ msgstr "télécharger les pochettes"

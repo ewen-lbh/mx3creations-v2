@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248.761 199.89">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #edf25c;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="News" transform="translate(-635.5 -241.638)">
+    <path id="Tracé_1" data-name="Tracé 1" class="cls-1 primary-shape" d="M0,0V139.143L213.149,72.227Z" transform="translate(848.649 441.529) rotate(180)"/>
+    <line id="Ligne_16" data-name="Ligne 16" class="cls-2" x1="193.624" y2="89.49" transform="translate(690.008 243)"/>
+    <line id="Ligne_17" data-name="Ligne 17" class="cls-2" x2="193.624" y2="79.728" transform="translate(690.008 332.49)"/>
+  </g>
+</svg>

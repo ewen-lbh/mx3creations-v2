@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185.865 233.288">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #efba6b;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #000;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Music" transform="translate(-693.355 -187.817)">
+    <path id="Tracé_2" data-name="Tracé 2" class="cls-1 primary-shape" d="M2649.355,227.576V407.893l160.107-86.717Z" transform="translate(-1956 13.212)"/>
+    <g id="Ellipse_2" data-name="Ellipse 2" class="cls-2" transform="translate(741.97 343.587)">
+      <circle class="cls-3" cx="25.675" cy="25.675" r="25.675"/>
+      <circle class="cls-4" cx="25.675" cy="25.675" r="24.175"/>
+    </g>
+    <g id="Ellipse_3" data-name="Ellipse 3" class="cls-2" transform="translate(827.553 296.313)">
+      <circle class="cls-3" cx="25.675" cy="25.675" r="25.675"/>
+      <circle class="cls-4" cx="25.675" cy="25.675" r="24.175"/>
+    </g>
+    <line id="Ligne_3" data-name="Ligne 3" class="cls-2" y1="132.857" transform="translate(792.097 236.405)"/>
+    <line id="Ligne_5" data-name="Ligne 5" class="cls-2" y1="132.857" transform="translate(877.68 189.13)"/>
+    <line id="Ligne_4" data-name="Ligne 4" class="cls-2" y1="48.09" x2="87.213" transform="translate(791.282 189.13)"/>
+  </g>
+</svg>

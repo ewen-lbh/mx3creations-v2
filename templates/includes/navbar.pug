@@ -1,0 +1,173 @@
+-load i18n static 
+-get_current_language as LANGUAGE_CODE
+-get_available_languages as LANGUAGES
+-get_language_info_list for LANGUAGES as languages
+
+.navbar-content
+    ul
+        //TODO glitched logo on hover
+        li.logo: a(href="{% url 'home' %}").nodefault: img(src="/static/corepages/images/logos/favicon-dark.png")
+        li.menu-toggle: a(onclick="toggleMenu()").nodefault: i.zmdi.zmdi-plus
+        li.langswitch
+            for lang in languages
+                -with language=lang.code|language_name_local|lower|truncatechars:4|cut:"…"|cut:" "
+                    if not lang.code == LANGUAGE_CODE
+                        a.nodefault(onclick="$('form.langswitch input[name=language]').val('{{lang.code}}');$('form.langswitch')[0].submit()")=language
+                    else
+                        a.nodefault.current=language
+                    if not forloop.counter == LANGUAGES|length
+                        span.separator /
+        li.creations
+            a.btn-underline(onclick="toggleSubMenu('creations')")
+                -trans 'c<span class="c-music">r</span><span class="c-graphism">e</span>at<span class="c-coding">i</span>o<span class="c-video">n</span>s</a></p>'
+            ul.submenu
+                .submenu-content
+                    li.music: a.btn-icon.music(href="{% url 'music' %}")
+                        .icon
+                            -autoescape off
+                                div!=icons.music
+
+                            p.description
+                                -blocktrans
+                                    | Albums, 
+                                    br
+                                    | singles, 
+                                    br
+                                    | EPs 
+                                    br
+                                    | and remixes
+                        h3.text {% trans "music" %}
+                    li.graphism: a.btn-icon.graphism(href="{% url 'graphism' %}")
+                        .icon
+                            -autoescape off
+                                div!=icons.graphism
+
+                            p.description
+                                -blocktrans
+                                    | Posters,
+                                    br
+                                    | logos,
+                                    br
+                                    | photos,
+                                    br
+                                    | illustrations,
+                                    br
+                                    | UIs,
+                                    br
+                                    | and, of course, 
+                                    br
+                                    | cover arts!
+                        h3.text {% trans "graphism" %}
+                    li.coding: a.btn-icon.coding(href="{% url 'coding' %}")
+                        .icon
+                            -autoescape off
+                                div!=icons.coding
+
+                            p.description
+                                -blocktrans
+                                    | All of my projects
+                                    br
+                                    | and their source code,
+                                    br
+                                    br
+                                    | Including this website!
+                        h3.text {% trans "coding" %}
+                    li.video: a.btn-icon.video(href="{% url 'video' %}")
+                        .icon
+                            -autoescape off
+                                div!=icons.video
+
+                            p.description
+                                -blocktrans
+                                    | Motion design,
+                                    br
+                                    | Short films,
+                                    br
+                                    | VFX,
+                                    br
+                                    | music videos
+
+                        h3.text {% trans "videos" %}
+        li.about
+            a.btn-underline(onclick="toggleSubMenu('about')")
+                | {% trans '<span class="c-about">a</span>b<span class="c-news">o</span><span class="c-contact">u</span><span class="c-feedback">t</span></a></p>' %}
+            ul.submenu
+                .submenu-content
+                    li.about: a.btn-icon.about(href="{% url 'about' %}")
+                        .icon
+                            -autoescape off
+                                div!=icons.about
+
+                            p.description
+                                -blocktrans
+                                    | Learn more about me and this website
+                        h3.text {% trans "about" %}
+                    li.news: a.btn-icon.news(href="{% url 'news' %}")
+                        .icon
+                            -autoescape off
+                                div!=icons.news
+
+                            p.description
+                                -blocktrans
+                                    | Get up-to-date with my latest creations & annoucements
+                        h3.text {% trans "news" %}
+                    li.contact: a.btn-icon.contact(href="{% url 'contact' %}")
+                        .icon
+                            -autoescape off
+                                div!=icons.contact
+
+                            p.description
+                                -blocktrans
+                                    | Got any question?
+                                    br
+                                    | Wanna collab?
+                                    br
+                                    br
+                                    | Click here to contact me!
+                        h3.text {% trans "contact" %}
+                    li.feedback: a.btn-icon.feedback(href="{% url 'contact' %}")
+                        .icon
+                            -autoescape off
+                                div!=icons.feedback
+
+                            p.description
+                                -blocktrans
+                                    | Give feedback about this website, 
+                                    br
+                                    | whether it's a bug report
+                                    br
+                                    | or a feature request
+                        h3.text {% trans "feedback" %}
+        
+        li.search: form(action="{% url 'search' %}", method="post", onSubmit="return submitSearch()")
+                {% csrf_token %}
+                input#search(
+                    name="q" 
+                    placeholder="{% trans 'search...' %}", 
+                    autocomplete="off"
+                    onfocus="$('#player').addClass('mobile-closed')"
+                    onblur="$('#player').removeClass('mobile-closed')"
+                    required
+                )
+                button(type="submit"): i.zmdi.zmdi-search.zmdi-hc-flip-horizontal
+                script.
+                    submitSearch = () => {
+                        q = $('#search').val()
+                        // NOTICE: will need to change that if I ever change corepages.urls.search
+                        changePage(`/search/${q}`)
+                        return false
+                    }
+
+                        
+    .search-results
+        .search-results-content#search-results
+            p.status.empty-query {% trans "Type something..." %}
+
+    form.langswitch(action="{% url 'set_language' %}" method="post")
+        -csrf_token
+        input(type="hidden" name="text" value="#{redirect_to}")
+        input(type="hidden" name="language" value="#{LANGUAGE_CODE}")
+
+//- handle AJAX searching
+script(src="{% static 'corepages/scripts/ajax-search.js' %}")
+script(src="{% static 'corepages/scripts/navbar.js' %}?{% now 'U' %}")

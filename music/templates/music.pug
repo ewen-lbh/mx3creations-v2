@@ -1,55 +1,15 @@
-{% extends 'base.pug' %}
+-extends 'base.pug' 
+-load i18n static 
 {% block title %} {{page_title}} {% endblock title %}
-{% load static i18n %}
+{% block body_classes %} music {% endblock %}
+{% block header_title %} 
+p {% trans "Music" %}
+{% endblock %}
+{% block header_mobile_title %} {% trans "Music" %} {% endblock %}
+{% block header_description %} {% blocktrans with hours=total_hours|floatformat count=total_count %} All of my music productions<br>{{ count }} tracks | {{ hours }} hours {% endblocktrans %} {% endblock %}
+{% block header_image %} {% static 'corepages/images/headers/music.png' %} {% endblock %}
 {% block content %}
 
-mixin item
-    li.item
-      a(href="{% url 'track' title=collection.slug %}").image(alt="#{collection.title} cover art")
-        .image(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.png' %}'),
-                                       url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
-
-.main-content
-  h1
-    span#typedTitleSource
-      p {% trans "My music" %}
-    span#typedTitle
-  
-  h2 {% blocktrans with title=latest.title kind=latet.get_kind_display %} The latest: "{{title}}" {{kind}} {% endblocktrans %}
-  a(href="{% url 'track_latest' %}")
-    .cover.fullsize(style="background-image:url('{% static 'music/images/wide/'|add:latest.slug|add:'.png' %}'),
-                                            url('{% static 'music/images/wide/'|add:latest.slug|add:'.jpg' %}');")
-  .sep
-
-  h2#tracks {% trans "Everything" %}
-  p.sortby-header {% trans "Sort by:" %}
-  ul.links-array.sortby-options.seps
-    for option in sort_options
-      li
-        span.sep
-        if sort != option.0
-          a.underline(href="{% url 'music' sort=option.0 %}#tracks")
-            =option.1
-        else
-          =option.1
-
-  if sort == 'kinds'
-    h3 {% trans "Albums" %}
-    ul.grid
-      for collection in collections.AB
-        +item
-    h3 {% trans "EPs" %}
-    ul.grid
-      for collection in collections.EP
-        +item
-    h3 {% trans "Singles" %}
-    ul.grid
-      for collection in collections.SG
-        +item
-  else
-    ul.grid
-      for collection in collections
-        +item
-      
+a(href="{% url 'track_random' %}").btn-higlight.music Random track
 
 {% endblock content %}

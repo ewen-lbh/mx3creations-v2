@@ -1,5 +1,5 @@
 from django.http import Http404, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import get_object_or_404, reverse
 from django.utils.translation import gettext as _
 from django.utils.timezone import localdate
 from django.contrib.staticfiles.templatetags.staticfiles import static
@@ -8,6 +8,7 @@ import os
 import corepages
 import time
 import globs
+from globs import render
 
 # Create your views here.
 class Listen:
@@ -24,14 +25,14 @@ class Listen:
         collection = get_object_or_404(Collection, pk=pk)
         if play:
             play_track = get_object_or_404(Track, pk=play)
-        tracks = Collection.tracks(pk=pk).order_by('track_number')
+        tracks = collection.tracks().order_by('track_number')
         return track(request, locals())
     
     def by_title(request, title, play=None):
         collection = get_object_or_404(Collection, slug=title)
         if play:
             play_track = get_object_or_404(Track, slug=play)
-        tracks = Collection.tracks(slug=title).order_by('track_number')
+        tracks = collection.tracks().order_by('track_number')
         return track(request, locals())
 
 def track(request, data):
@@ -52,28 +53,31 @@ def track(request, data):
         # artist – title kind
         # eg.
         # Mx3 – Patterns EP
-        page_title = f"{data['tracks'].first().artist} – {data['collection'].title} {data['collection'].get_kind_display()}"
+        page_title = f"{data['collection'].title}"
     else:
-        # ▶ artist – title
-        page_title = f"▶ {data['play_track'].artist} – {data['play_track'].title}"
+        # artist – title
+        page_title = f"{data['play_track'].artist} – {data['play_track'].title}"
 
 
     # set artist in page if they're all the same (treated in template)
     # Collection.artist returns False if multiple different artists are in the same collection's tracks
-    multiple_artists = not Collection.artist(slug=data['collection'].slug)
-    print(multiple_artists)
+    multiple_artists = not data['collection'].artist()
+    
 
     page_title = globs.page_title(page_title)
     data.update(locals())
+    
     return render(request, 'track.pug', data)
 
 def music(request, sort='date'):
     latest = Collection.objects.latest('date')
     collections = Collection.objects.all()
-    page_title = globs.page_title(_('My music'))
+    total_hours = sum([t.duration().total_seconds() / 3600 for t in collections])
+    total_count = sum([len(t.tracks()) for t in collections])
+    page_title = globs.page_title(_('Music'))
 
     sort_options = [
-        #format: url, pretty, model field
+        #format: model field, pretty
         ('date', _('Release date',)),
         ('goodness', _('Goodness')),
         ('kinds', _('Kinds')),
@@ -82,7 +86,7 @@ def music(request, sort='date'):
 
     def goodness_sort(collection):
         goodness = Collection.goodness(slug=collection.slug)
-        print(goodness, collection.slug)
+        
         return goodness
 
     if sort == 'goodness':
@@ -113,8 +117,8 @@ def share(request, what, item):
         item = get_object_or_404(Collection, slug=item)
         collection = item
         thing = item.get_kind_display()
-        artist = Collection.artist(slug=item)
-        print(artist)
+        artist = item.artist()
+        
 
     elif what == 'track':
         item = get_object_or_404(Track, slug=item)

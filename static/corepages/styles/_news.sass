@@ -1,0 +1,91 @@
+body.news #header, body.news #header .header-image
+    height: 300px
+
+body.news #main
+    +desktop
+        display: flex
+        justify-content: center
+
+body.news #main .centerer
+    +desktop
+        max-width: 1000px
+    +mobile
+        margin: 0 5px
+
+    .french-only-notice
+        margin-top: 30px
+        font-style: italic
+        font-size: 15px
+        opacity: 0.5
+        margin-bottom: 50px
+        position: relative
+
+    .newsletter
+        h2
+           font-family: Leo Rounded, sans-serif
+           text-transform: lowercase
+           font-size: 35px
+           margin-bottom: 10px
+           text-align: center
+        .form-wrapper
+            display: flex
+            align-items: center
+            justify-content: center
+
+            label
+                display: none
+
+            input[name=email]
+                border: none
+                width: 500px
+                +mobile
+                    width: 100%
+            input[type=submit]
+                background: transparent
+                border: none
+                margin-left: -5px
+
+            input[type=submit], input[name=email]
+                font-size: 25px
+                +mobile
+                    font-size: 20px
+                height: 30px
+                font-family: Fantasque Sans Mono, sans-serif
+                border-bottom: 2px solid #000
+
+            +mobile
+                input[type=submit]
+                    border: none
+
+
+    ul.news
+        li
+            .image
+                margin-top: 10px
+                margin-bottom: 50px
+                height: 500px
+                +mobile
+                    height: 95vw
+                +desktop
+                    width: 100%
+                border-radius: 15px
+                +mobile
+                    border-radius: 5px
+                transition: all .25s ease
+                background-position: center
+                background-size: cover
+                background-repeat: no-repeat
+                &:hover
+                    border-radius: 0
+                    height: 600px
+            .text
+                text-align: left
+                font-size: 25px
+                overflow: hidden
+                +mobile
+                    font-size: 15px
+                line-height: 1.2
+                width: 100%
+            
+    .more-news
+        text-align: center

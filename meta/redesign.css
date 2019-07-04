@@ -216,35 +216,35 @@ a:not(.nodefault):not(.btn):hover {
 }
 
 h2.iconheader.iconheader-music .icon {
-  background-image: url(/static/corepages/images/icons/colored/music.png);
+  background-image: url(/static/corepages/images/icons/music.svg);
 }
 
 h2.iconheader.iconheader-graphism .icon {
-  background-image: url(/static/corepages/images/icons/colored/graphism.png);
+  background-image: url(/static/corepages/images/icons/graphism.svg);
 }
 
 h2.iconheader.iconheader-video .icon {
-  background-image: url(/static/corepages/images/icons/colored/video.png);
+  background-image: url(/static/corepages/images/icons/video.svg);
 }
 
 h2.iconheader.iconheader-coding .icon {
-  background-image: url(/static/corepages/images/icons/colored/coding.png);
+  background-image: url(/static/corepages/images/icons/coding.svg);
 }
 
 h2.iconheader.iconheader-about .icon {
-  background-image: url(/static/corepages/images/icons/colored/about.png);
+  background-image: url(/static/corepages/images/icons/about.svg);
 }
 
 h2.iconheader.iconheader-contact .icon {
-  background-image: url(/static/corepages/images/icons/colored/contact.png);
+  background-image: url(/static/corepages/images/icons/contact.svg);
 }
 
 h2.iconheader.iconheader-feedback .icon {
-  background-image: url(/static/corepages/images/icons/colored/feedback.png);
+  background-image: url(/static/corepages/images/icons/feedback.svg);
 }
 
 h2.iconheader.iconheader-news .icon {
-  background-image: url(/static/corepages/images/icons/colored/news.png);
+  background-image: url(/static/corepages/images/icons/news.svg);
 }
 
 h2.iconheader .icon {
@@ -269,7 +269,7 @@ h2.iconheader .text {
 }
 
 .btn.btn-icon.music .icon {
-  background-image: url(/static/corepages/images/icons/colored/music.png);
+  background-image: url(/static/corepages/images/icons/music.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -279,7 +279,7 @@ h2.iconheader .text {
 }
 
 .btn.btn-icon.graphism .icon {
-  background-image: url(/static/corepages/images/icons/colored/graphism.png);
+  background-image: url(/static/corepages/images/icons/graphism.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -289,7 +289,7 @@ h2.iconheader .text {
 }
 
 .btn.btn-icon.video .icon {
-  background-image: url(/static/corepages/images/icons/colored/video.png);
+  background-image: url(/static/corepages/images/icons/video.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -299,7 +299,7 @@ h2.iconheader .text {
 }
 
 .btn.btn-icon.coding .icon {
-  background-image: url(/static/corepages/images/icons/colored/coding.png);
+  background-image: url(/static/corepages/images/icons/coding.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -309,7 +309,7 @@ h2.iconheader .text {
 }
 
 .btn.btn-icon.about .icon {
-  background-image: url(/static/corepages/images/icons/colored/about.png);
+  background-image: url(/static/corepages/images/icons/about.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -319,7 +319,7 @@ h2.iconheader .text {
 }
 
 .btn.btn-icon.contact .icon {
-  background-image: url(/static/corepages/images/icons/colored/contact.png);
+  background-image: url(/static/corepages/images/icons/contact.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -329,7 +329,7 @@ h2.iconheader .text {
 }
 
 .btn.btn-icon.feedback .icon {
-  background-image: url(/static/corepages/images/icons/colored/feedback.png);
+  background-image: url(/static/corepages/images/icons/feedback.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -339,7 +339,7 @@ h2.iconheader .text {
 }
 
 .btn.btn-icon.news .icon {
-  background-image: url(/static/corepages/images/icons/colored/news.png);
+  background-image: url(/static/corepages/images/icons/news.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

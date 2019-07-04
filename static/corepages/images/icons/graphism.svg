@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237.335 231.76">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #8cecef;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #000;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Graphism" transform="translate(-1127 -205)">
+    <rect id="Rectangle_3" data-name="Rectangle 3" class="cls-1 primary-shape" width="176" height="164" transform="translate(1153 231)"/>
+    <line id="Ligne_6" data-name="Ligne 6" class="cls-2" y1="161" x2="95.719" transform="translate(1138.475 272.5)"/>
+    <line id="Ligne_9" data-name="Ligne 9" class="cls-2" y1="80.746" x2="48.006" transform="translate(1267.475 250)"/>
+    <line id="Ligne_7" data-name="Ligne 7" class="cls-2" y1="95.128" x2="162" transform="translate(1329.025 274) rotate(90)"/>
+    <line id="Ligne_8" data-name="Ligne 8" class="cls-2" y1="47.709" x2="81.248" transform="translate(1363.042 250.752) rotate(90)"/>
+    <g id="Ellipse_4" data-name="Ellipse 4" class="cls-2" transform="translate(1127 205)">
+      <circle class="cls-3" cx="26" cy="26" r="26"/>
+      <circle class="cls-4" cx="26" cy="26" r="24.5"/>
+    </g>
+  </g>
+</svg>

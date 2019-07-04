@@ -1,0 +1,45 @@
+<svg id="colorful" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 763.326">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #efba6b;
+      }
+
+      .cls-2 {
+        fill: #ef7272;
+      }
+
+      .cls-3 {
+        fill: #9e92df;
+      }
+
+      .cls-4 {
+        fill: #edf25c;
+      }
+
+      .cls-5 {
+        fill: #a1f28e;
+      }
+
+      .cls-6 {
+        fill: #e8b;
+      }
+
+      .cls-7 {
+        fill: #8cecef;
+      }
+
+      .cls-8 {
+        fill: #89bfe2;
+      }
+    </style>
+  </defs>
+  <rect id="wide" class="cls-1" width="1033" height="381.912"/>
+  <rect id="wide-2" data-name="wide" class="cls-2" width="1033" height="381.912" transform="translate(1920 763.326) rotate(180)"/>
+  <rect id="wide-3" data-name="wide" class="cls-3" width="550" height="381.912" transform="translate(1033)"/>
+  <rect id="wide-4" data-name="wide" class="cls-4" width="550" height="381.912" transform="translate(887 763.326) rotate(180)"/>
+  <rect id="wide-5" data-name="wide" class="cls-5" width="233" height="381.912" transform="translate(1583)"/>
+  <rect id="wide-6" data-name="wide" class="cls-6" width="233" height="381.912" transform="translate(337 763.326) rotate(180)"/>
+  <rect id="wide-7" data-name="wide" class="cls-7" width="104" height="381.912" transform="translate(1816)"/>
+  <rect id="wide-8" data-name="wide" class="cls-8" width="104" height="381.912" transform="translate(104 763.326) rotate(180)"/>
+</svg>

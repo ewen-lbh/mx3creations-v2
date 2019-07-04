@@ -1,4 +1,5 @@
-from django.shortcuts import render, render_to_response, loader, redirect
+from django.shortcuts import render_to_response, loader, redirect
+from globs import render
 from django.http import Http404, HttpResponse, HttpResponseNotFound, HttpResponseRedirect, HttpResponseServerError, HttpResponseForbidden
 from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.utils.translation import gettext as _
@@ -6,15 +7,17 @@ from django.core.mail import send_mail
 from music.models import Track, Collection
 from newsletter.models import Member, Article
 from music.views import Listen
+from fuzzywuzzy import process
 import globs
 import os
+from math import floor
 import re
 from .forms import ContactForm
 from mx3creations.settings import STATIC_ROOT, STATIC_URL
 # Create your views here.
 def home(request):
 
-    proudest_tracks = Track.objects.order_by('-goodness', '-collection__date')[:5]
+    proudest_tracks = Track.objects.order_by('-goodness', '-collection__date')[:4]
     proudest = list()
     for track in proudest_tracks:
         proudest.append((track, track.collection))
@@ -54,47 +57,110 @@ def about(request):
     page_title = globs.page_title(_("About"))
     return render(request, 'about.pug', locals())
 
-def search(request):
-    # search page
-    search_query = q = request.GET['q']
 
-    # search in collections
-    collections_by_titles = Collection.objects.filter(title__icontains=q)
-    collections_by_kind = Collection.objects.filter(kind__icontains=q)
-    collections = collections_by_kind | collections_by_titles
 
-    # search in individual tracks
-    tracks_by_artist = Track.objects.filter(artist__icontains=q)
-    tracks_by_title = Track.objects.filter(title__icontains=q)
-    tracks = tracks_by_artist | tracks_by_title
+def search(request, q=None):
+    if 'AJAX' in request.POST:
+        q = request.POST['q']
+        # results count limit per category
+        results_count_limit = 4
+    else:
+        q = q or request.POST['q'] or request.GET['q']
+        results_count_limit = False
 
-    # if there's only one result, redirect
+    search_query = q
 
-    if len(tracks) == 1:
-        trk = tracks.first()
-        return redirect('track', title=trk.collection.slug, play=trk.slug)
+    if search_query in ('>allresults'):
+        music_tracks = Track.objects.all()
+        music_collections = Collection.objects.all()
+    
+    else:
 
-    if len(collections) == 1:
-        col = collections.first()
-        return redirect('track', title=col.slug)
+        # search in collections
+        # search similarity threshold
+        threshold = 75
+        
 
-    results_count = len(collections) + len(tracks)
-    page_title = globs.page_title(_("Search"))
-    return render(request, 'search.pug', locals())
+        def fuzzy_search(Model, field:str, threshold:int=75):
+            
+            results = list(set([e[0] for e in Model.objects.all().values_list(field)]))
+            results = process.extract(q, results)
+            results = [e[0] for e in results if e[1] > threshold]
+            return results
+            
+
+        # get list of strings containing matching artists
+        tracks_artists = fuzzy_search(Track, 'artist', threshold)
+        # initialize the QuerySet object
+        music_tracks = Track.objects.none()
+        # for string of the list, "convert" the string to a QuerySet 
+        # and merge it to keep a single QuerySet
+        for track_artist in tracks_artists:
+            music_tracks |= Track.objects.filter(artist=track_artist)
+        # repeat this procedure for track titles and collections titles
+        tracks_titles = fuzzy_search(Track, 'title', threshold)
+        for track_title in tracks_titles:
+            music_tracks |= Track.objects.filter(title=track_title)
+        collections_titles = fuzzy_search(Collection, 'title', threshold)
+
+        music_collections = Collection.objects.none()
+        for collection_title in collections_titles:
+            music_collections |= Collection.objects.filter(title=collection_title)
+        
+    original_results_count = len(music_collections) + len(music_tracks)
+    if results_count_limit:
+        limit = floor(results_count_limit/2)
+        music_collections = music_collections[:limit]
+        music_tracks = music_tracks[:limit]
+    results_count = len(music_collections) + len(music_tracks)
+    more_results_available = original_results_count > results_count
+
+    if 'AJAX' in request.POST:
+        return render(request, 'ajax-search.pug', locals())
+    else:
+        if len(music_tracks) == 1:
+            trk = music_tracks.first()
+            return redirect('track', title=trk.collection.slug, play=trk.slug)
+
+        if len(music_collections) == 1:
+            col = music_collections.first()
+            return redirect('track', title=col.slug)
+
+        page_title = globs.page_title(_("Search"))
+        return render(request, 'search.pug', locals())
+
+def error_texts(status_code):
+    return {
+        404: {
+            'error_title': _("That's a 404!"),
+            'error_description': _("The page you wanted to see does not exist, or has been moved.")
+        },
+        403: {
+            'error_title': _("You shall not pass!"),
+            'error_description': _("You don't have access to that page. Try authenticating first.")
+        },
+        500: {
+            'error_title': _("Something's wrong on my end..."),
+            'error_description': _("Internal server error. Will be dealing with that «soon» :p")
+        }
+    }.get(status_code, 500)
+
+def get_error_page(request, status_code):
+    return render(request, 'error.pug', error_texts(status_code))
 
 def handler404(request, *args, **kwargs):
-    template = loader.get_template('404.pug')
-    response = HttpResponseNotFound(template.render(request=request))
+    template = loader.get_template('errors.pug')
+    response = HttpResponseNotFound(template.render(request=request, context=error_texts(404)))
     return response
 
 def handler403(request, *args, **kwargs):
-    template = loader.get_template('403.pug')
-    response = HttpResponseForbidden(template.render(request=request))
+    template = loader.get_template('errors.pug')
+    response = HttpResponseNotFound(template.render(request=request, context=error_texts(403)))
     return response
 
 def handler500(request, *args, **kwargs):
-    template = loader.get_template('500.pug')
-    response = HttpResponseServerError(template.render(request=request))
+    template = loader.get_template('errors.pug')
+    response = HttpResponseNotFound(template.render(request=request, context=error_texts(500)))
     return response
 
 def stats(request):
@@ -191,3 +257,10 @@ def brand_resources(request):
     
     page_title = globs.page_title(_("Brand resources"))
     return render(request, 'brand_resources.pug', locals())
+
+def coding(request):
+    
+    
+    
+    page_title = globs.page_title(_('coding'))
+    return render(request, 'coding.pug', locals())

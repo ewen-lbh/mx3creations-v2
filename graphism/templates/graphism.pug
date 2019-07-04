@@ -1,0 +1,15 @@
+-extends 'base.pug' 
+-load i18n static 
+{% block title %} {{page_title}} {% endblock title %}
+{% block body_classes %} music {% endblock %}
+{% block header_title %} 
+p {% trans "Graphism" %}
+{% endblock %}
+{% block header_mobile_title %} {% trans "Graphism" %} {% endblock %}
+{% block header_description %} {% blocktrans with size=total_size|filesizeformat count=images|length%} All of my images<br>{{ count }} pictures | {{ size }} {% endblocktrans %} {% endblock %}
+{% block header_image %} {% static 'corepages/images/headers/graphism.png' %} {% endblock %}
+{% block content %}
+
+
+
+{% endblock content %}

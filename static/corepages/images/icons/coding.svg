@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231.5 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a1f28e;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="Coding" transform="translate(-1520 -220)">
+    <path id="Soustraction_1" data-name="Soustraction 1" class="cls-1 primary-shape" d="M-1895.086,145h0l-14.742-43.771A24.971,24.971,0,0,0-1891,77a25.028,25.028,0,0,0-25-25,25.029,25.029,0,0,0-25,25,25.031,25.031,0,0,0,18.5,24.145l-15.962,43.382a73.647,73.647,0,0,1-20.66-10.387,74.3,74.3,0,0,1-16.314-16.055A73.694,73.694,0,0,1-1986.15,97.62,73.9,73.9,0,0,1-1990,74a73.538,73.538,0,0,1,5.815-28.8,73.757,73.757,0,0,1,15.859-23.522A73.752,73.752,0,0,1-1944.8,5.815,73.536,73.536,0,0,1-1916,0a73.536,73.536,0,0,1,28.8,5.815,73.754,73.754,0,0,1,23.522,15.859A73.754,73.754,0,0,1-1847.816,45.2,73.538,73.538,0,0,1-1842,74a73.87,73.87,0,0,1-3.98,24,73.7,73.7,0,0,1-11.057,20.717,74.281,74.281,0,0,1-16.81,16.108A73.585,73.585,0,0,1-1895.085,145Z" transform="translate(3510 220)"/>
+    <line id="Ligne_15" data-name="Ligne 15" class="cls-2" x2="84" transform="translate(1583.5 418.5)"/>
+    <line id="Ligne_10" data-name="Ligne 10" class="cls-2" x2="168" transform="translate(1583.5 283.5)"/>
+    <line id="Ligne_11" data-name="Ligne 11" class="cls-2" x2="168" transform="translate(1583.5 310.5)"/>
+    <line id="Ligne_13" data-name="Ligne 13" class="cls-2" x2="168" transform="translate(1583.5 364.5)"/>
+    <line id="Ligne_14" data-name="Ligne 14" class="cls-2" x2="168" transform="translate(1583.5 391.5)"/>
+    <line id="Ligne_12" data-name="Ligne 12" class="cls-2" x2="168" transform="translate(1583.5 337.5)"/>
+  </g>
+</svg>

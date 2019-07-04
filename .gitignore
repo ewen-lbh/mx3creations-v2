@@ -64,8 +64,8 @@ target/
 *.hidden.*
 
 # IDEs specific
-.vscode/*
-.idea/*
+.vscode
+.idea
 
 # MacOS
 .DS_Store
@@ -86,7 +86,7 @@ Temporary Items
 .apdisk
 
 # SASS compiler stuff
-.sass-cache/*
+.sass-cache
 prepros*.config
 
 # fuse_hidden

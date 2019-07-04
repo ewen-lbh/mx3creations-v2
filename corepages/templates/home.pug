@@ -1,72 +1,155 @@
-{% extends 'base.pug' %}
-{% load static i18n %}
-{% block title %} {{page_title}} {% endblock title %}
+-extends 'base.pug'
+-load i18n static
+
+-block title
+  | #{page_title}
+-block body_classes 
+  | home typedjs
+
+-block header_title
+  p: -trans "i create music"
+  p: -trans "i create websites"
+  p: -trans "i create user interfaces"
+  p: -trans "i create automation scripts"
+  p: -trans "i create logos"
+  p: -trans "i create banners"
+  p: -trans "i create intros & outros"
+  p: -trans "i create illustrations"
+  p: -trans "i create cover arts"
+
+-block header_mobile_title 
+  -trans "i create"
+
+-block header_description 
+  |
+  //--trans "I create complex, melodic yet minimal music, and everything I need: this website, videos, cover arts, automation scripts,..."
+  //-br
+  //-br
+  //-a(href="{% url 'about' %}"): -trans "Learn more"
+
+-block header_image
+  -static 'corepages/images/headers/colorful.png'
+
 {% block content %}
-.main-content
-  h1 {% trans "Hi! I'm <span class='fw400'> Mx3</span>, a" %}
-    br
-    span#typedTitle
-    span#typedTitleSource
-      p {% trans "web developer." %}
-      p {% trans "music producer." %}
-      p {% trans "graphist." %}
-      p {% trans "VFX artist." %}
-      p {% trans "motion designer." %}
-  p.intro
-    | {% trans "I make intricate, melodic and yet minimal music." %}
-    br/
-    br/
-    | {% trans "I also create everything I need: this website, music videos, cover arts, automation scripts,..." %}
-    br/
-    ul.links-array.big
-      li: span.firacode ->
-      li: a.underline(href='about') {% trans "Learn more" %}
-      li: a.underline(href='music') {% trans "Listen" %}
-      li: a.underline(href='graphism') {% trans "See" %}   
-    
-  .sep
-  h2 {% trans "Proudest tracks" %}
-  .horizontal-grid-overflow.tracks
-    .grid
-      for track, collection in proudest
-        a(href="{% url 'track' title=collection.slug play=track.slug %}")
-          .cover(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg'%}')")
-            if collection.kind != 'SG'
-              if collection.cover_color == 'D'
-                span.light=track.title
-              else
-                span.dark=track.title
-    a(href='music')
-      .arrow
-  .sep
-  h2 {% trans "Cherry-picked artworks" %}
-  p.details-h2 {% trans "Excluding cover arts" %}
-  .horizontal-grid-overflow.artworks
-    .grid
-      a(href="Illustration_Ink-Bottle.jpg")
-        .cover.img1
-      a(href="Banner_FreeZaxe.png")
-        .cover.img2.large
-      a(href="Favicon_RecCube.png")
-        .cover.img3
-      a(href="Banner_Les-Harobases.png")
-        .cover.img4.large
-    a(href='music')
-      .arrow
-  .sep
+.group.slide-1#currentSlide
+  .header-wrapper
+    h2.iconheader.music
+      -autoescape off
+        .icon!=icons.music
+      .text: -trans 'my proudest <span class="c-music">music</span>'
 
-  h2 {% trans "Still want more?" %}
-  p.details-h2 {% trans "Click on the big + !" %}
+  ul.proudest-tracks
+    for track in proudest_tracks
+      li.track
+        a(href="{% url 'track' title=track.collection.slug play=track.slug %}").image.nodefault(style="background-image:url('{% static 'music/images/square/'|add:track.collection.slug|add:'.png' %}'), url('{% static 'music/images/square/'|add:track.collection.slug|add:'.jpg' %}')")
+          i.zmdi.zmdi-play.zmdi-hc-lg.icon
+        p.text
+          span.title=track.title
+          span.date.hide-on-navbar-open #{track.collection.date|date:"Y"}
+          br
+          if track.collection.tracks|length <= 1
+            span.subtitle=track.collection.get_kind_display
+          else
+            span.subtitle
+              -blocktrans with kind=track.collection.get_kind_display
+                | from the {{kind}} "
+              a(href="{% url 'track' title=track.collection.slug %}") #{track.collection.title}
+              | "
+  .more-btn-wrapper
+    a(href="{% url 'music' %}").btn-highlight.music: -trans "More music"
+
+.group.slide-2
+  .header-wrapper
+    h2.iconheader.graphism
+      -autoescape off
+        .icon!=icons.graphism
+      .text
+        -trans 'my proudest <span class="c-graphism">images</span>'
+
+  ul.proudest-tracks
+    for track in proudest_tracks
+      li.track
+        a(href="{% url 'track' title=track.collection.slug play=track.slug %}").image.nodefault(style="background-image:url('{% static 'music/images/square/'|add:track.collection.slug|add:'.png' %}'), url('{% static 'music/images/square/'|add:track.collection.slug|add:'.jpg' %}')")
+          i.zmdi.zmdi-play.zmdi-hc-lg.icon
+        p.text
+          span.title=track.title
+          span.date.hide-on-navbar-open #{track.collection.date|date:"Y"}
+          br
+          if track.collection.tracks|length <= 1
+            span.subtitle=track.collection.get_kind_display
+          else
+            span.subtitle
+              -blocktrans with kind=track.collection.get_kind_display
+                | from the {{kind}} "
+              a(href="{% url 'track' title=track.collection.slug %}") #{track.collection.title}
+              | "
+  .more-btn-wrapper
+    a(href="{% url 'graphism' %}").btn-highlight.graphism(href="{% url 'graphism' %}"): -trans "More images"
+
+.group.slide-3
+  .header-wrapper
+    h2.iconheader.coding
+      -autoescape off
+        .icon!=icons.coding
+      .text: -trans 'my proudest <span class="c-coding">projects</span>'
+
+  ul.proudest-tracks
+    for track in proudest_tracks
+      li.track
+        a(href="{% url 'track' title=track.collection.slug play=track.slug %}").image.nodefault(style="background-image:url('{% static 'music/images/square/'|add:track.collection.slug|add:'.png' %}'), url('{% static 'music/images/square/'|add:track.collection.slug|add:'.jpg' %}')")
+          i.zmdi.zmdi-play.zmdi-hc-lg.icon
+        p.text
+          span.title=track.title
+          span.date.hide-on-navbar-open #{track.collection.date|date:"Y"}
+          br
+          if track.collection.tracks|length <= 1
+            span.subtitle=track.collection.get_kind_display
+          else
+            span.subtitle
+              -blocktrans with kind=track.collection.get_kind_display
+                | from the {{kind}} "
+              a(href="{% url 'track' title=track.collection.slug %}") #{track.collection.title}
+              | "
+  .more-btn-wrapper
+    a(href="{% url 'coding' %}").btn-highlight.coding(href="{% url 'coding' %}"): -trans "More projects"
+
+.group.slide-4
+  .header-wrapper
+    h2.iconheader.video
+      -autoescape off
+        .icon!=icons.video
+      .text: -trans 'my proudest <span class="c-video">videos</span>'
+
+  ul.proudest-tracks
+    for track in proudest_tracks
+      li.track
+        a(href="{% url 'track' title=track.collection.slug play=track.slug %}").image.nodefault(style="background-image:url('{% static 'music/images/square/'|add:track.collection.slug|add:'.png' %}'), url('{% static 'music/images/square/'|add:track.collection.slug|add:'.jpg' %}')")
+          i.zmdi.zmdi-play.zmdi-hc-lg.icon
+        p.text
+          span.title=track.title
+          span.date.hide-on-navbar-open #{track.collection.date|date:"Y"}
+          br
+          if track.collection.tracks|length <= 1
+            span.subtitle=track.collection.get_kind_display
+          else
+            span.subtitle
+              -blocktrans with kind=track.collection.get_kind_display
+                | from the {{kind}} "
+              a(href="{% url 'track' title=track.collection.slug %}") #{track.collection.title}
+              | "
+  .more-btn-wrapper
+    a(href="{% url 'video' %}").btn-highlight.video(href="{% url 'video' %}"): -trans "More videos"
+
+ul.carousel-controls(style="font-size:20px")
+  li: a.nodefault.dot-prev(onclick="showSlide('-')"): i.zmdi.zmdi-play.zmdi-hc-lg.zmdi-hc-flip-horizontal
+  li: a.nodefault.dot-1.music(onclick="showSlide(1)")#currentDot 
+  li: a.nodefault.dot-2.graphism(onclick="showSlide(2)") 
+  li: a.nodefault.dot-3.coding(onclick="showSlide(3)") 
+  li: a.nodefault.dot-4.video(onclick="showSlide(4)") 
+  li: a.nodefault.dot-next(onclick="showSlide('+')"): i.zmdi.zmdi-play.zmdi-hc-lg
+
+br
+br
+
+
 {% endblock content %}
-
-{% block typedtitles %}
-script.
-    var typedTitle = new Typed("#typedTitle", {
-    stringsElement: "#typedTitleSource",
-    typeSpeed: 50,
-    backSpeed: 25,
-    backDelay:2800,
-    loop: true,
-    loopCount: Infinity
-    });
-{% endblock typedtitles %}

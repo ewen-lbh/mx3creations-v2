@@ -1,63 +1,61 @@
-{% extends 'base.pug' %}
-{% load static i18n %}
-{% block title %}{{ page_title }}{% endblock title %}
+-extends 'base.pug' 
+-load i18n static 
+-block title
+    | #{page_title}
+-block body_classes
+    | search 
+-block header_title
+    | “#{search_query}” 
+-block header_description
+    -blocktrans count counter=results_count 
+        | Found 1 result {% plural %} Found {{counter}} results
+-block header_image
+    |
+
 {% block content %}
-.main-content
-  h1
-    if search_query
-      | {% trans "You searched for: " %}
-      br/
-      span#typedTitleSource
-        p= search_query
-      span#typedTitle
-    else
-      | {% trans "You did not search for anything" %}
 
-  if search_query
-    h2
-      if results_count 
-        |#[span.number=results_count] {% trans "results were found" %}
-      else
-        | {% trans "No results found." %}
-    .sep
-  
-  if results_count or not search_query
-    ul.results
-      h3 {% trans "Collections" %}
-      ul.search-results-collections
-        for collection in collections
-          li
-            a(href="{% url 'track' title=collection.slug %}")
-              .cover(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
-      h3 {% trans "Tracks" %}
-      ul.search-results-tracks
-        for track in tracks
-          li
-            a(href="{% url 'track' title=track.collection.slug play=track.slug %}")
-              .artwork(style="background-image:url('{% static 'music/images/square/'|add:track.collection.slug|add:'.jpg' %}')")
-            .infos
-              .title
-                a(href="{% url 'track' title=track.collection.slug play=track.slug %}")
-                  =track.title
-              .artist
-                | {% trans "by" %} #{track.artist}
-              if track.title != track.collection.title
-                .collection
-                  | {% trans "from" %} 
-                  a.underline(href="{% url 'track' title=track.collection.slug %}")
-                    =track.collection
+if not search_query
+    p.status.empty-query: -trans "Type something..."
 
-  if not search_query or not results_count
-    p {% trans "That's sad. Wanna try  <a class='underline' href='/listen/random'>something exciting</a>?" %}
+if search_query
+    if music_tracks or music_collections
+        h4.iconheader.music.colored
+            -autoescape off
+                .icon!=icons.music
+            .text: -trans "music"
+    if music_tracks
+        h5 tracks
+        ul.music.tracks
+            for track in music_tracks
+                li
+                    a(href="{% url 'track' title=track.collection.slug play=track.slug %}").nodefault
+                        .cover(style="background-image:url('{% static 'music/images/square/'|add:track.collection.slug|add:'.jpg' %}')")
+                    .text
+                        h6.title=track.title
+                        p.infos
+                            | by #{track.artist}
+                            br/
+                            | from the #{track.collection.get_kind_display} "
+                            a(href="{% url 'track' title=track.collection.slug %}") #{track.collection.title}
+                            | "
+
+    if music_collections
+        h5 ep's, singles & albums
+        ul.music.collections
+            for collection in music_collections
+                li
+                    a(href="{% url 'track' title=collection.slug %}").nodefault
+                        .cover(style="background-image:url('{% static 'music/images/square/'|add:collection.slug|add:'.jpg' %}')")
+                    .text
+                        h6.title=collection.title
+                        p.infos
+                            if collection.tracks|length > 1
+                                -blocktrans with trackscount=collection.tracks|length kind=collection.get_kind_display 
+                                    | {{trackscount}}-tracks {{kind}}
+                            else
+                                | #{collection.get_kind_display|title}
+                            br/
+                            | #{collection.duration_display}
+
+
 {% endblock content %}
-
-{% block typedtitles %}
-script.
-  var typedTitle = new Typed("#typedTitle", {
-      stringsElement: "#typedTitleSource",
-      typeSpeed: 25,
-  });
-{% endblock typedtitles %}
-
-if not search_query or not results_count
-  {% block backtotop %} {% endblock %}

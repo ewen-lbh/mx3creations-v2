@@ -1,17 +1,30 @@
-{% load static i18n %}
-//base meta tags
+-load static i18n 
+//- base meta tags
 meta(content='text/html; charset=UTF-8', http-equiv='Content-Type')
 meta(charset='UTF-8')
 meta(content='width=device-width, initial-scale=1.0', name='viewport')
 meta(content='ie=edge', http-equiv='X-UA-Compatible')
 
-//stylesheet
+//- stylesheet
 link(rel="stylesheet", href='{% static "corepages/styles/style.css"%}?{% now "U" %}')
 
-//fonts
-link(href='https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,500,600', rel='stylesheet')
+//- fonts
 link(rel="stylesheet", href='{% static "corepages/fonts/zmdi/css/material-design-iconic-font.css" %}')
-link(rel="stylesheet", href="{% static 'corepages/fonts/manrope/index.css' %}")
+link(rel="stylesheet", href="{% static 'corepages/fonts/regular-fonts.css' %}")
 
-//dependencies
-script(crossorigin='anonymous', integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=', src='https://code.jquery.com/jquery-3.4.1.min.js')
+//- jQuery
+script(src="{% static 'corepages/dependencies/jquery.min.js' %}")
+
+//- jQuery ScrollTo
+script(src="{% static 'corepages/dependencies/jquery-scrollto.js' %}")
+
+//- typedJS
+script(src="{% static 'corepages/dependencies/typedjs.min.js' %}")
+
+script(src="{% static 'corepages/scripts/app.js' %}?{% now 'U' %}")
+
+<!-- History.js -->
+//-script(src="https://browserstate.github.io/history.js/scripts/bundled/html5/jquery.history.js")
+
+//- <!-- Ajaxify -->
+//- script(src="https://rawgithub.com/browserstate/ajaxify/master/ajaxify-html5.js")

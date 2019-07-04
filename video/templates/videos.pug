@@ -1,0 +1,15 @@
+-extends 'base.pug' 
+-load i18n static 
+{% block title %} {{page_title}} {% endblock title %}
+{% block body_classes %} music {% endblock %}
+{% block header_title %} 
+p {% trans "Video" %}
+{% endblock %}
+{% block header_mobile_title %} {% trans "Video" %} {% endblock %}
+{% block header_description %} {% blocktrans with hours=total_hours|floatformat count=videos|length %} All of my videos<br>{{ count }} videos | {{ hours }} hours {% endblocktrans %} {% endblock %}
+{% block header_image %} {% static 'corepages/images/headers/video.png' %} {% endblock %}
+{% block content %}
+
+
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 259.767">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #000;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="videos" transform="translate(-1461 -2076.332)">
+    <g id="Rectangle_43" data-name="Rectangle 43" class="cls-1" transform="translate(1474 2127)">
+      <rect class="cls-3 primary-shape" x="-1.5" y="-1.5" width="257" height="161"/>
+    </g>
+    <g id="Groupe_48" data-name="Groupe 48" transform="translate(69.21 248.975)">
+      <path id="Tracé_1" data-name="Tracé 1" class="cls-1" d="M2649.355,227.576V462.154l203.79-112.812Z" transform="translate(-1204.355 1612.424)"/>
+    </g>
+    <line id="Ligne_45" data-name="Ligne 45" class="cls-1" x1="99.876" transform="translate(1581.678 2215.723)"/>
+    <g id="Ellipse_18" data-name="Ellipse 18" class="cls-1" transform="translate(1598.995 2195.184)">
+      <circle class="cls-3" cx="20.942" cy="20.942" r="19.442"/>
+    </g>
+  </g>
+</svg>

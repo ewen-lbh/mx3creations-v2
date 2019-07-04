@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 373.561 317.561">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2, .cls-1 {
+        stroke: #000;
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="artworks" transform="translate(-990 -2049)">
+    <rect id="Rectangle_42" data-name="Rectangle 42" class="cls-1 primary-shape" width="254" height="254" transform="translate(1035 2079)"/>
+    <line id="Ligne_43" data-name="Ligne 43" class="cls-2" y1="173" x2="173" transform="translate(1014.5 2180.5)"/>
+    <g id="Ellipse_17" data-name="Ellipse 17" class="cls-2" transform="translate(1008 2059)">
+      <circle class="cls-3" cx="46.5" cy="46.5" r="46.5"/>
+    </g>
+    <line id="Ligne_44" data-name="Ligne 44" class="cls-2" x1="175" y1="175" transform="translate(1185.5 2180.5)"/>
+  </g>
+</svg>

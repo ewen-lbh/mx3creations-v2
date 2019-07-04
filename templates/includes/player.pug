@@ -1,0 +1,40 @@
+-load static i18n
+
+.player-data(data-loop-mode="disabled")
+.player-content
+    a.cover.nodefault
+    .controls
+        a.disabled.prev-track(onclick="loadTrack('-')").nodefault
+            i.zmdi.zmdi-hc-lg.zmdi-chevron-left
+        a.play-pause(onclick="togglePlayer()").nodefault
+            i.zmdi.zmdi-play
+        a.next-track(onclick="loadTrack('+')").nodefault
+            i.zmdi.zmdi-hc-lg.zmdi-chevron-right
+        a.loop(onclick="togglePlayerOpt('loop')").nodefault.disabled
+            i.zmdi.zmdi-repeat
+    .infos
+        .text
+            p.title
+            span.from: -trans "from "
+            a.collection
+    .time
+        //-a.rewind(onclick="seekPlayer(-5)"): i.zmdi.zmdi-caret-left
+        span.current-time 
+        span.time-separator /
+        span.total-time 
+        span.time-separator &nbsp;&mdash; 
+        span.current-tracknum
+        span.time-separator /
+        span.last-tracknum
+        //-a.forward(onclick="seekPlayer(+5)"): i.zmdi.zmdi-caret-right
+        .time-bar-total
+        .time-bar
+
+    
+    a.nodefault.close-btn(onclick="destroyPlayer()")
+        i.zmdi.zmdi-close
+
+script(src="{% static 'music/scripts/player.js' %}?{% now 'U'%}")
+style.player-colors
+
+audio#player-audio

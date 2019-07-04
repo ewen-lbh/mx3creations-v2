@@ -1,15 +1,24 @@
 @mixin icondef($icon)
     &.#{$icon}
-        background-image: url('/static/corepages/images/icons/#{$icon}.png')
-        &:hover, &.hovered
-            background-image: url('/static/corepages/images/icons/#{$icon}-hover.png')
-        &.large
-            background-image: url('/static/corepages/images/icons/#{$icon}-full.png')
-            &:hover, &.hovered
-                background-image: url('/static/corepages/images/icons/#{$icon}-hover-full.png')
+        background-image: url('/static/corepages/images/icons/#{$icon}.svg')
+
+@mixin iconstyle($style)
+    svg
+        @if $style == 'outline'
+            .primary-shape, .cls-1, .cls-2, .cls-3, .cls-4
+                fill: transparent
+                stroke: #000
+                stroke-width: 3px
+        @if $style == 'gray'
+            .primary-shape
+                fill: rgba(0,0,0,0.2)
+        @if $style == 'outline-thick'
+            .primary-shape, .cls-1, .cls-2, .cls-3, .cls-4
+                fill: transparent
+                stroke: #000
+                stroke-width: 10px
 
 
-    
 i.icon, span.icon
     display: block
     height: 64px
@@ -32,5 +41,4 @@ i.icon, span.icon
     @include icondef('image')
     @include icondef('video')
     @include icondef('mail')
-
 

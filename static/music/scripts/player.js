@@ -1,125 +1,210 @@
-function getPlayerInfos() {
-    // Load cookies
-    tPos = getCookie('playerPosition')
-    tLen = getCookie('playerTotalTime')
-    tState = getCookie('playerState')
-    tURL = getCookie('playerURL')
-    infos = getCookie('playerInfo')
-
-    // getCookie returns "" when the cookie isn't set. 
-    // Return null if any of the cookies aren't set
-    if (!tPos || !tURL || !tLen || !infos) {
-        return null
-    }
-
-    // decode JSON-encoded cookies
-    infos = JSON.parse(infos)
-
-    // Returns infos
-    return {
-        artist: infos.artist,
-        kind: infos.kind,
-        title: infos.title,
-        track: infos.track,
-        tracknum: infos.tracknum,
-        position: parseInt(tPos),
-        length: parseInt(tLen),
-        resource: tURL,
-        state: tState,
-        _rawInfo: rawInfos
-    }
-}
-
-function loadPlayer(data) {
-    // Get DOM elements
-    track = $('#player .title .track')[0]
-    title = $('#player .title .from')[0]
-    artist = $('#player .title .by')[0]
-    playbtn = $('#player .controls .play-pause')
-    console.log('loadPlayer: Got DOM elements')
-
-    // Load in the audio
-    let playerAudio = new Audio(data.resource)
-    playerAudio.currentTime = data.position
-    playerAudio.paused = data.state
-    console.log('loadPlayer: Initialized Audio()')
-
-    // Sets player texts
-    track.innerText = data.track
-    title.innerText = data.title
-    artist = data.artist
-    console.log('loadPlayer: Set player texts')
-
-    // Sets play-pause button icon
-    playerAudio.paused ? playbtn.addClass('play') : playbtn.addClass('pause')
-    console.log('loadPlayer: Set player control play-pause icon')
-
-    // init durations by running tickPlayer at least once
-    tickPlayer(data)
-    console.log('loadPlayer: first player tick')
-    // start the loop (updates {#player .progress-bar}'s children)
-    setInterval(() => {
-        if (!playerAudio.paused) {
-            tickPlayer(data)
-        }
-    }, 100);
-
-}
-
-function savePlayer() {
-    // Get infos
-    pos = $('#player .progress-bar .time-current')[0].dataset.seconds
-    remaining = $('#player .progress-bar .time-remaining')[0].dataset.seconds
-    url = $('#player')[0].dataset.resourceUrl
-
-
-    // Set infos
-    setCookie('playerPosition', pos, 1)
-    setCookie('playerTotalTime', pos + remaining, 1)
-    setCookie('playerURL', url, 1)
-    setCookie('playerInfos', JSON.stringify(infos), 1)
-}
-
-function playerToggle() {
-    elem = $('#player .controls .play-pause')
-    if (playerAudio.paused) {
-        playerAudio.play()
-        elem.removeClass('pause')
-        elem.addClass('play')
-        console.log('playerToggle: toggled state to pause')
-    } else {
-        playerAudio.pause()
-        elem.removeClass('play')
-        elem.addClass('pause')
-        console.log('playerToggle: toggled state to play')
-    }
-}
-
-function tickPlayer() {
-    function formatTime(seconds) {
-        var date = new Date(null);
-        date.setSeconds(seconds);
-        var timeString = date.toISOString().substr(14, 5);
-        return timeString
-    }
-
-    // Get DOM Elements
-    eProgBar = $('#player .progress-bar .bar')
-    eTimeCur = $('#player .progress-bar .time-current')[0]
-    eTimeRem = $('#player .progress-bar .time-remaining')[0]
-
-    // Update durations
-    vTimeCur = playerAudio.currentTime
-    eTimeCur.setAttribute('data-seconds', vTimeCur)
-    eTimeCur.innerText = formatTime(vTimeCur)
-
-    vTimeRem = playerAudio.duration - playerAudio.currentTime
-    eTimeRem.setAttribute('data-seconds', vTimeRem)
-    eTimeRem.innerText = formatTime(vTimeRem)
-
-    // Update .progress-bar
-    barW = vTimeCur / eProgBar.width * playerAudio.duration
-    eProgBar.css({
-        width: barW + 'px'
+$(function() {
+    $('#player-audio').on('ended', e => {
+        loadTrack('+')
     })
+})
+
+function hex2RGBA(hex, cssFormat=false, opacity=1) {
+    // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+      return r + r + g + g + b + b;
+    });
+  
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    c = result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16),
+      a: opacity
+    } : null;
+    if (cssFormat) {
+        return `rgba(${c.r}, ${c.g}, ${c.b}, ${opacity})`
+    } else {
+        return c
+    }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+fmtDuration2Secs = duration => {
+    m = duration.split('<span class="time-separator">:</span>')[0]
+    s = duration.split('<span class="time-separator">:</span>')[1]
+    console.log(`m=${m} s=${s}`)
+    return m + s*60
+}
+
+
+loadTrack = position => {
+    OLD_PLAYER_TRACKLIST = PLAYER_TRACKLIST
+    $('#player').removeClass('closed')
+
+    currentPos = parseInt($('#player .player-data')[0].dataset.currentPosition)
+    tracklist = OLD_PLAYER_TRACKLIST
+    loopMode  = $('#player .player-data')[0].dataset.loopMode
+    if (position === '+') {
+        if (loopMode === 'track') {
+            pos = currentPos
+        } else {
+            pos = currentPos + 1
+        }
+    } else if (position === '-') {
+        if (loopMode === 'track') {
+            pos = currentPos
+        } else {
+            pos = currentPos - 1
+        }
+    } else {
+        pos = parseInt(position)
+    }
+
+    $('#player .next-track, #player .prev-track').removeClass('disabled')
+    if (pos >= tracklist.length && loopMode === 'disabled') {
+        $('#player .next-track').addClass('disabled')
+    }
+    if (pos <= 1 && loopMode === 'disabled') {
+        $('#player .prev-track').addClass('disabled')
+    }
+
+    if (loopMode === 'tracklist') {
+        if (pos > tracklist.length) {
+            pos = 1
+        } else if (pos < 1) {
+            pos = tracklist.length
+        }
+    }
+
+    if (!(pos < 1 || pos > tracklist.length)) {
+        console.log(`loadTrack: requesting tracklist[${pos-1}]`)
+        D = tracklist[pos-1]
+        audioURL    = `/static/music/audio/${D.collection_slug}/${D.slug}.mp3`
+        coverColor  = hex2RGBA(D.cover_accent, true, 001)
+        coverColorT = hex2RGBA(D.cover_accent, true, 0.5)
+        
+        $('#player .play-pause i').removeClass('zmdi-play').addClass('zmdi-pause')
+        $('#player .player-data')[0].dataset.currentPosition = pos
+        $('#player .infos .title').text(D.title)
+        $('#player .infos .collection').text(D.collection_title)
+        $('#player .cover').css({
+            backgroundImage: `url('/static/music/images/square/${D.collection_slug}.jpg')`
+        })
+        $('#player .cover, #player .collection').attr('href', `/listen/${D.collection_slug}`)
+        document.title = `${D.artist} – ${D.title}`
+        $('#player style.player-colors').html(
+            [
+            ':root {',
+            `--player-accent: ${coverColor};`,
+            `--player-accent-transparent: ${coverColorT};`
+            ].join('\n')
+        )
+        $('#player .current-time').html('00<span class="time-separator">:</span>00')
+        $('#player .total-time').html(D.duration.replace("'",'<span class="time-separator">:</span>'))
+        $('#player .current-tracknum').text(pos)
+        if (loopMode === 'disabled') {
+            lastTrackNumDisplay = tracklist.length
+        } else {
+            lastTrackNumDisplay = '&infin;'
+        }
+        $('#player .last-tracknum').html(lastTrackNumDisplay)
+
+        $('#player-audio').attr('src', audioURL)
+
+        $('#player .play-pause i').removeClass('zmdi-pause')
+                                  .addClass('zmdi-settings')
+                                  .addClass('zmdi-hc-spin')
+                                  .attr('onclick','')
+
+        $('#player-audio').on('canplaythrough', e => {
+            $('#player-audio')[0].play()
+
+            $('#player .play-pause i').removeClass('zmdi-settings')
+                                      .removeClass('zmdi-hc-spin')
+                                      .addClass('zmdi-pause')
+                                      .attr('onclick','playerToggle()')
+
+            total_seconds=$('#player-audio')[0].duration
+            setInterval(() => {            
+                updatePlayer($('#player-audio')[0].currentTime, total_seconds)
+            }, 500);
+        })
+    }
+
+
+}
+
+updatePlayer = (elapsed, total) => {
+    elapsed = Math.floor(elapsed)
+    updateCurrentTime(elapsed)
+    updateTimeBar(elapsed, total)
+}
+
+updateCurrentTime = total_seconds => {
+    s = total_seconds % 60
+    m = Math.floor(total_seconds / 60)
+    s = String(s).padStart(2, '0')
+    m = String(m).padStart(2, '0')
+    $('#player .time .current-time').html(`${m}<span class="time-separator">:</span>${s}`)
+}
+
+togglePlayer = () => {
+    if ($('#player .play-pause i').hasClass('zmdi-pause')) {
+        $('#player-audio')[0].pause()
+    } else {
+        $('#player-audio')[0].play()
+    }
+    $('#player .play-pause i').toggleClass('zmdi-play').toggleClass('zmdi-pause')
+}
+
+destroyPlayer = () => {
+    $('#player-audio').attr('src','')
+    $('#player').addClass('closed')
+}
+
+updateTimeBar = (elapsed, total) => {
+    $('#player .time .time-bar').css({
+        width: `calc(${elapsed / total} * 300px)`
+    })
+}
+
+seekPlayer = offset => {
+    $('#player-audio')[0].currentTime = $('#player-audio')[0].currentTime + offset
+}
+
+togglePlayerOpt = opt => {
+    pdata = $('#player .player-data')[0]
+    if (opt === 'loop') {
+        currentLoopMode = pdata.dataset.loopMode
+        switch (currentLoopMode) {
+            case 'disabled':
+                loopMode = 'tracklist'
+                iconCls  = 'zmdi-repeat'
+                break;
+
+            case 'tracklist':
+                loopMode = 'track'
+                iconCls  = 'zmdi-repeat-one'
+                break;
+        
+            default:
+                loopMode = 'disabled'
+                iconCls  = 'zmdi-repeat'
+                break;
+        }
+
+        pdata.dataset.loopMode = loopMode
+
+
+        if (loopMode === 'disabled') {
+            $('#player .loop').addClass('disabled')
+            lastTrackNumDisplay = PLAYER_TRACKLIST.length
+        } else {
+            $('#player .loop').removeClass('disabled')
+            lastTrackNumDisplay = '&infin;'
+        }
+
+        $('#player .controls .loop i').removeClass('zmdi-repeat','zmdi-repeat-one').addClass(iconCls)
+        $('#player .last-tracknum').html(lastTrackNumDisplay)
+    }
 }

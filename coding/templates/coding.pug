@@ -1,0 +1,26 @@
+-extends 'base.pug' 
+-load i18n static 
+-block title
+	| #{page_title}
+-block body_classes
+	| music 
+-block header_title
+	p: -trans "Coding"
+-block header_mobile_title
+	-trans "Coding"
+-block header_description
+	-trans "All of my projects"
+-block header_image
+	-static 'corepages/images/headers/coding.png'
+{% block content %}
+
+ul.projects
+	for project in projects
+		li: a(href="{{project.url}}") 
+			if project.pinned
+				h4 {{project.name}}
+			else
+				| {{project.name}}
+
+
+{% endblock content %}

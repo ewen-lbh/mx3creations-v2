@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.5 190.408">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #89bfe2;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="Feedback" transform="translate(-1521 -243)">
+    <rect id="Rectangle_5" data-name="Rectangle 5" class="cls-1 primary-shape" width="233" height="153" rx="20" transform="translate(1521 243)"/>
+    <line id="Ligne_20" data-name="Ligne 20" class="cls-2" x1="62.182" y2="28.739" transform="translate(1528.105 412.002) rotate(-68)"/>
+    <line id="Ligne_21" data-name="Ligne 21" class="cls-2" x2="62.181" y2="25.604" transform="translate(1554.752 422.768) rotate(-68)"/>
+    <line id="Ligne_22" data-name="Ligne 22" class="cls-2" x2="177" transform="translate(1620.5 282.5)"/>
+    <line id="Ligne_23" data-name="Ligne 23" class="cls-2" x2="147" transform="translate(1620.5 318.5)"/>
+    <line id="Ligne_24" data-name="Ligne 24" class="cls-2" x2="49" transform="translate(1620.5 345.5)"/>
+  </g>
+</svg>
