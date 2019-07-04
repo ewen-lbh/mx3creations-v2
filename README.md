@@ -40,7 +40,7 @@ You can visit it right now at [mx3creations.com/beta](https://mx3creations.com/b
 To request bugs or feature requests, you can either:
 - Contact me on [my current website](https://mx3creations.com/bug-report)
 - Create a pull request.
-Feel free to include images and detail as much as you can your request.
+Please provide as much details you can in your request, feel free to include images if you have a design in mind.
 
 If you just found a bug, and already know how to fix it, you can create a pull request.
 
